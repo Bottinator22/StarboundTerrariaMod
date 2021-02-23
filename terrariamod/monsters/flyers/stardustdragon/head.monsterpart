@@ -1,0 +1,9 @@
+{
+  "name" : "stardustdragonhead",
+  "category" : "stardustdragonhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

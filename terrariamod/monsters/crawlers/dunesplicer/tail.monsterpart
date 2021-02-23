@@ -1,0 +1,9 @@
+{
+  "name" : "dunesplicertail",
+  "category" : "dunesplicertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "battery", "count" : 1 },
+    { "item" : "ironbar", "count" : 30 },
+    { "item" : "glass", "count" : 20 },
+    { "item" : "durasteelbar", "count" : 10 },
+    { "item" : "solariumstar", "count" : 5 }
+  ],
+  "output" : { "item" : "mecheye", "count" : 1},
+  "groups" : [ "craftinganvil3", "consumables", "all" ]
+}

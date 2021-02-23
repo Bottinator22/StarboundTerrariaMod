@@ -1,0 +1,10 @@
+{
+  "itemName" : "hallowedbar",
+  "price" : 1500,
+  "rarity" : "Rare",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "hallowedbar.png",
+  "description" : "Can make powerful equipment!",
+  "shortdescription" : "Hallowed Bar",
+  "itemTags" : [ "reagent" ]
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "skeletronhand",
+  "category" : "skeletronhand",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "hand.png"
+  }
+}

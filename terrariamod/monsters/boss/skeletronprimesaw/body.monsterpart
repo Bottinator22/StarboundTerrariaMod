@@ -1,0 +1,9 @@
+{
+  "name" : "skeletronprimesaw",
+  "category" : "skeletronprimesaw",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "hand.png"
+  }
+}

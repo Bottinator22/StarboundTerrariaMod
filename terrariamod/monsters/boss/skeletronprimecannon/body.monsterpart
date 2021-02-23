@@ -1,0 +1,9 @@
+{
+  "name" : "skeletronprimecannon",
+  "category" : "skeletronprimecannon",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "hand.png"
+  }
+}

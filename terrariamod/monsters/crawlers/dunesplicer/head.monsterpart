@@ -1,0 +1,9 @@
+{
+  "name" : "dunesplicerhead",
+  "category" : "dunesplicerhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

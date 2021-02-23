@@ -1,0 +1,29 @@
+[
+  { "op": "add",
+  "path": "/hallowed",
+  "value": {
+    "stats" : {
+      "speed" : 15,
+      "control" : 15
+    },
+    "partParameters" : {},
+    "partImages" : {
+      "backBoosterBack" : "booster/hallowed_back_back.png",
+      "backBoosterFullbright" : "boosterflame/hallowed.png",
+      "backBoosterFront" : "booster/hallowed_back_front.png",
+      "frontBoosterBack" : "booster/hallowed_front_back.png",
+      "frontBoosterFullbright" : "boosterflame/hallowed.png",
+      "frontBoosterFront" : "booster/hallowed_front_front.png"
+    },
+    "defaultPrimaryColors" : ["FAE888", "FFD800", "D9B800", "B39700"],
+    "defaultSecondaryColors" : ["dedeff", "bfbfff", "8b8bff", "4d4dff"],
+    "animationCustom" : {
+      "animatedParts" : { "parts" : {
+        "frontBoosterFullbright" : { "properties" : {
+          "zLevel" : 10.5
+        }}
+      }}
+    }
+  }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "name" : "tombcrawlertail",
+  "category" : "tombcrawlertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

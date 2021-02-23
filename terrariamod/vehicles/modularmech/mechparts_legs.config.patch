@@ -1,0 +1,24 @@
+[
+  { "op": "add",
+  "path": "/hallowed",
+  "value": {
+    "stats" : {
+      "speed" : 20,
+      "jump" : 15
+    },
+    "partParameters" : {},
+    "partImages" : {
+      "backLeg" : "leg/hallowed.png",
+      "backLegFullbright" : "leg/hallowed_fullbright.png",
+      "backLegJoint" : "legjoint/hallowed.png",
+      "frontLeg" : "leg/hallowed.png",
+      "frontLegFullbright" : "leg/hallowed_fullbright.png",
+      "frontLegJoint" : "legjoint/hallowed.png",
+      "hips" : "hips/hallowed.png"
+    },
+    "defaultPrimaryColors" : ["FAE888", "FFD800", "D9B800", "B39700"],
+    "defaultSecondaryColors" : ["dedeff", "bfbfff", "8b8bff", "4d4dff"],
+    "animationCustom": {}
+  }
+  }
+]

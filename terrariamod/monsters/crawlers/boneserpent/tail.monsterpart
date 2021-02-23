@@ -1,0 +1,9 @@
+{
+  "name" : "boneserpenttail",
+  "category" : "boneserpenttail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

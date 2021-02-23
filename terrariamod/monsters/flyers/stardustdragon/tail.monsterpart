@@ -1,0 +1,9 @@
+{
+  "name" : "stardustdragontail",
+  "category" : "stardustdragontail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

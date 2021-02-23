@@ -1,0 +1,9 @@
+{
+  "name" : "eaterbosstail",
+  "category" : "eaterbosstail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

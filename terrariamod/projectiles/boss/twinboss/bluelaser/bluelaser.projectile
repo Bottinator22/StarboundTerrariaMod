@@ -1,0 +1,14 @@
+{
+  "projectileName" : "bluelaser",
+  "physics" : "laser",
+  "image" : "bluelaser.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 50,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 75,
+  "emitters" : [ "defaultblue" ],
+  "fullbright" : true,
+  "damageKind" : "plasma",
+  "lightColor" : [50, 50, 255]
+}

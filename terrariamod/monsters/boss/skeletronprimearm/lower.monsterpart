@@ -1,0 +1,9 @@
+{
+  "name" : "skeletronprimearmlower",
+  "category" : "skeletronprimearm",
+  "type" : "lower",
+
+  "frames" : {
+    "lower" : "arm.png"
+  }
+}

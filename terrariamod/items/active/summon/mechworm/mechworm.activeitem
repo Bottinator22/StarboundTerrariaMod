@@ -1,0 +1,15 @@
+{
+  "itemName" : "mechworm",
+  "price" : 0,
+  "level" : 1,
+  "maxStack" : 30,
+  "rarity" : "Legendary",
+  "category" : "mysteriousReward",
+  "description" : "Summons The Destroyer",
+  "shortdescription" : "Mechanical Worm",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "mechworm.png",
+  "animationCustom" : {},
+  "scripts" : ["mechworm.lua"]
+}

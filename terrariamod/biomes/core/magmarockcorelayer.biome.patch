@@ -1,0 +1,14 @@
+[
+    {
+        "op":"add",
+        "path":"/spawnProfile",
+        "value": { "groups": [{
+            "select": 1,
+            "pool": [
+                [1, "boneserpenthead"]
+            ]
+        }],
+        "monsterParameters" : {
+        }}
+    }
+]

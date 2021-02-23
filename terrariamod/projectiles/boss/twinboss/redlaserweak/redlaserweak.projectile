@@ -1,0 +1,14 @@
+{
+  "projectileName" : "redlaserweak",
+  "physics" : "laser",
+  "image" : "redlaser.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 60,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 50,
+  "emitters" : [ "defaultred" ],
+  "fullbright" : true,
+  "damageKind" : "plasma",
+  "lightColor" : [255, 0, 0]
+}

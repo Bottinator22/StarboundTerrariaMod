@@ -1,0 +1,10 @@
+{
+  "name" : "wormbosshead",
+  "category" : "wormbosshead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "wormbosshead.png",
+    "bodyfullbright" : "wormbossheadfullbright.png"
+  }
+}

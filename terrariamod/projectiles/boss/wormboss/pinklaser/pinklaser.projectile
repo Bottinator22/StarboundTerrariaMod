@@ -1,0 +1,14 @@
+{
+  "projectileName" : "pinklaser",
+  "physics" : "laser",
+  "image" : "pinklaser.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 19,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 50,
+  "emitters" : [ "defaultred" ],
+  "fullbright" : true,
+  "damageKind" : "plasma",
+  "lightColor" : [255, 50, 50]
+}

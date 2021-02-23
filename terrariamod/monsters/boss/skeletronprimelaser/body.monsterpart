@@ -1,0 +1,9 @@
+{
+  "name" : "skeletronprimelaser",
+  "category" : "skeletronprimelaser",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "hand.png"
+  }
+}

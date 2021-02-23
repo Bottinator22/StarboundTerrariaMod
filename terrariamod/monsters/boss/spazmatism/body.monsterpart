@@ -1,0 +1,9 @@
+{
+  "name" : "spazmatism",
+  "category" : "spazmatism",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "tombcrawlerbody",
+  "category" : "tombcrawlerbody",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

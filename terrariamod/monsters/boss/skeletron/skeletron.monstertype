@@ -1,0 +1,173 @@
+{
+  "type" : "skeletron",
+  "shortdescription" : "Skeletron",
+  "description" : "Description pending",
+
+  "categories" : [ "skeletron" ],
+  "parts" : [ "body" ],
+
+  "animation" : "skeletron.animation",
+
+  "dropPools" : [
+    "skeletron"
+  ],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/boss/skeletron/skeletron.lua"
+    ],
+
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+    "music": "/music/terrariaboss1.ogg",
+
+    "facingMode" : "transformation",
+    "renderLayer" : "ForegroundEntity",
+
+    "seeThroughLiquid" : true,
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 50,
+      "targetOnDamage" : true,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 100,
+      "targetOutOfSightTime" : 10.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+      ],
+
+      "approachActions" : [
+      ]
+    },
+    "damageSources": {
+        "doom": {
+        "poly" : [ [1.5, 3.0], [3.0, 1.5], [3.0, -1.5], [1.5, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
+        "damage" : 10000,
+
+        "teamType" : "enemy",
+        "damageSourceKind" : "impact",
+        "knockback" : 40,
+        "statusEffects" : [ ]
+      }
+    },
+    "touchDamage" : {
+      "poly" : [ [1.5, 3.0], [3.0, 1.5], [3.0, -1.5], [1.5, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
+      "damage" : 50,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 40,
+      "statusEffects" : [ ]
+    },
+
+    "metaBoundBox" : [-4, -4, 4, 4],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [3, 6.0], [6.0, 3], [6.0, -3], [3, -6.0], [-3, -6.0], [-6.0, -3], [-6, 3], [-3, 6.0] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "stone",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
+    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "stone"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/spacemonster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 0.8
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 1000
+        },
+        "protection" : {
+          "baseValue" : -1.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false
+  }
+}

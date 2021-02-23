@@ -1,0 +1,15 @@
+{
+  "itemName" : "mechboosterhallowed",
+  "price" :100000,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "category" : "mechPart",
+  "tooltipKind" : "mechbooster",
+  "builder" : "/items/buildscripts/buildmechpart.lua",
+  "inventoryIcon" : "mechboosterhallowed.png",
+  "description" : "Powerful mech boosters made from hallowed bars.",
+  "shortdescription" : "Hallowed Mech Boosters",
+  "itemTags" : [ ],
+
+  "mechPart" : ["booster", "hallowed"]
+}

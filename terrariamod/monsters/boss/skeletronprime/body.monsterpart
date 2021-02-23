@@ -1,0 +1,10 @@
+{
+  "name" : "skeletronprime",
+  "category" : "skeletronprime",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "skeletron.png",
+    "bodyfullbright": "skeletronfullbright.png"
+  }
+}

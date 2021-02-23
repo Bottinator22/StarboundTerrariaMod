@@ -1,0 +1,9 @@
+{
+  "name" : "dunesplicerbody",
+  "category" : "dunesplicerbody",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

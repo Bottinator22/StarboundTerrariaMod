@@ -1,0 +1,9 @@
+{
+  "name" : "stardustdragonbody1",
+  "category" : "stardustdragonbody1",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body1.png"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "itemName" : "mechlegshallowed",
+  "price" :100000,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "category" : "mechPart",
+  "tooltipKind" : "mechlegs",
+  "builder" : "/items/buildscripts/buildmechpart.lua",
+  "inventoryIcon" : "mechlegshallowed.png",
+  "description" : "Strong mech legs built from hallowed bars.",
+  "shortdescription" : "Hallowed Mech Legs",
+  "itemTags" : [ ],
+
+  "mechPart" : ["legs", "hallowed"]
+}

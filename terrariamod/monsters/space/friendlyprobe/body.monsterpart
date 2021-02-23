@@ -1,0 +1,10 @@
+{
+  "name" : "friendlyprobe",
+  "category" : "friendlyprobe",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "friendlyprobe.png",
+    "bodyfullbright" : "friendlyprobefullbright.png"
+  }
+}

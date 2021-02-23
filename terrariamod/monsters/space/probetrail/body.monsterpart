@@ -1,0 +1,10 @@
+{
+  "name" : "probetrail",
+  "category" : "probetrail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "probetrail.png",
+    "bodyfullbright" : "probetrailfullbright.png"
+  }
+}

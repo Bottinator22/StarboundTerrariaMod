@@ -1,0 +1,10 @@
+{
+  "name" : "probe",
+  "category" : "probe",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "probe.png",
+    "bodyfullbright" : "probefullbright.png"
+  }
+}

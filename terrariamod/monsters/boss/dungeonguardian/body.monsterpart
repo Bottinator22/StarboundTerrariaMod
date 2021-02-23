@@ -1,0 +1,9 @@
+{
+  "name" : "skeletron",
+  "category" : "dungeonguardian",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "skeletron.png"
+  }
+}

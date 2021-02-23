@@ -1,0 +1,9 @@
+{
+  "name" : "boneserpenthead",
+  "category" : "boneserpenthead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "type" : "wormbosstail",
+  "shortdescription" : "The Destroyer Tail",
+  "description" : "A deadly worm that can wipe out entire populations.",
+
+  "categories" : [ "wormbosstail" ],
+  "parts" : [ "body" ],
+
+  "animation" : "wormbosstail.animation",
+
+  "dropPools" : ["theDestroyer"],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/space/wormbosstail/wormbosstail.lua"
+    ],
+
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+
+    "facingMode" : "transformation",
+
+    "seeThroughLiquid" : true,
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 50,
+      "targetOnDamage" : true,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 100,
+      "targetOutOfSightTime" : 10.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+        {
+          "name" : "action-fire",
+          "cooldown" : 2,
+          "parameters" : {
+            "requireLineOfSight" : true,
+            "maximumRange" : 25,
+            "minimumRange" : 10,
+            "windupStopForce" : 0,
+            "faceTarget" : false,
+            "rotateToTarget" : false,
+            "windupState" : "idle",
+            "windupTime" : 2.0,
+
+            "projectileType" : "redlaser",
+            "projectileParameters" : {
+              "speed" : 40,
+              "power" : 50
+            },
+            "fireOffset" : [0, 0],
+            "onGround" : false,
+            "fireState" : "",
+            "fireSound" : "fire",
+
+            "winddownStopForce" : 0,
+            "winddownState" : "idle",
+            "winddownTime" : 2.0
+          }
+        }
+      ],
+
+      "approachActions" : [
+      ],
+
+      "deathActions" : [
+        {
+          "name" : "action-projectile",
+          "parameters" : {
+            "projectileCount" : 1,
+            "projectileType" : "mechenergypickup",
+            "projectileParameters" : {},
+            "aimDirection" : [1, 0],
+            "inaccuracy" : 0,
+            "fireOffset" : [0, 0]
+          }
+        }
+      ]
+    },
+
+    "touchDamage" : {
+      "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
+      "damage" : 40,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 40,
+      "statusEffects" : [ ]
+    },
+
+    "metaBoundBox" : [-4, -4, 4, 4],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [1.50, 2.0], [2.0, 1.50], [2.0, -1.50], [1.50, -2.0], [-1.50, -2.0], [-2.0, -1.50], [-2.0, 1.50], [-1.50, 2.0] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "robotic",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
+    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "robotic"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/spacemonster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 0.25
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 5000
+        },
+        "protection" : {
+          "baseValue" : 50.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "notRotate",
+  "category" : "probe",
+  "type" : "notRotate",
+
+  "frames" : {
+    "notRotate" : "notRotate.png"
+  }
+}

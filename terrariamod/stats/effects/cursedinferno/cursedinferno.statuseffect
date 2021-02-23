@@ -1,0 +1,15 @@
+{
+  "name" : "cursedinferno",
+
+  "effectConfig" : {},
+  "defaultDuration" : 10,
+
+  "scripts" : [
+    "cursedinferno.lua"
+  ],
+
+  "animationConfig" : "cursedinferno.animation",
+
+  "label" : "Cursed Inferno",
+  "icon" : "/interface/statuses/fire.png"
+}

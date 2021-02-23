@@ -1,0 +1,7 @@
+[ 
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"mechworm"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"mechskull"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"mecheye"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"sleye"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"voodoodollclothier"} }
+]

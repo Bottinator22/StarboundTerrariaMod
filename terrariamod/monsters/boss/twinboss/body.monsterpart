@@ -1,0 +1,9 @@
+{
+  "name" : "twinboss",
+  "category" : "twinboss",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "skeletron",
+  "category" : "skeletron",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "skeletron.png"
+  }
+}

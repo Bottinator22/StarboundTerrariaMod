@@ -1,0 +1,102 @@
+{
+  // ==============================================================================================
+  //                                        MECHANICAL BOSS DROPS
+  // ==============================================================================================
+
+    //=================================
+    //              BOSSES
+    //=================================
+    
+  "theDestroyer" : [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "hallowedbarsmall"}
+      ]
+    }]
+  ],
+  "theTwins" : [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "hallowedbarmed"}
+      ]
+    }]
+  ],
+  "skeletronPrime" : [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "hallowedbarlarge"}
+      ]
+    }]
+  ],
+  "skeletronPrimeArms" : [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "hallowedbarsmall"}
+      ]
+    }]
+  ],
+  "skeletron": [
+    [0, {
+        "fill": [
+            {"pool" : "money"},
+            {"pool" : "perfectitem"}
+        ]
+    }]
+  ],
+  "eoc": [
+    [0, {
+        "fill": [
+            {"pool" : "money"},
+            {"pool" : "durasteel"}
+        ]
+    }]
+  ],
+  
+    //=================================
+    //              DROPS
+    //=================================
+    "perfectitem": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["perfectlygenericitem", 35]}
+      ]
+    }]
+  ],
+  "durasteel": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["durasteelbar", 15]}
+      ]
+    }]
+  ],
+    "hallowedbarsmall" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["hallowedbar", 1]},
+        {"weight" : 0.50, "item" : ["hallowedbar", 2]},
+        {"weight" : 0.10, "item" : ["hallowedbar", 3]}
+      ]
+    }]
+  ],
+    "hallowedbarmed" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1.0, "item" : ["hallowedbar", 10]},
+        {"weight" : 0.10, "item" : ["hallowedbar", 25]}
+      ]
+    }]
+  ],
+    "hallowedbarlarge" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["hallowedbar", 30]},
+        {"weight" : 0.50, "item" : ["hallowedbar", 40]},
+        {"weight" : 0.10, "item" : ["hallowedbar", 50]}
+      ]
+    }]
+  ]
+}

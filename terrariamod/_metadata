@@ -1,0 +1,11 @@
+{
+  "author" : "Bott",
+  "description" : "Playing Terraria in Starbound!",
+  "friendlyName" : "Terraria Mod",
+  "link" : "steam://url/CommunityFilePage/2104191113",
+  "name" : "terrariamod",
+  "requires" : ["wormlib"],
+  "steamContentId" : "2104191113",
+  "tags" : "Crafting and Building|NPCs and Creatures",
+  "version" : "1.1"
+}

@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "glass", "count" : 6 }
+  ],
+  "output" : { "item" : "sleye", "count" : 1},
+  "groups" : [ "craftingwheel", "ingredients" ]
+}

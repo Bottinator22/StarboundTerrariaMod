@@ -1,0 +1,15 @@
+{
+  "itemName" : "voodoodollclothier",
+  "price" : 0,
+  "level" : 1,
+  "maxStack" : 30,
+  "rarity" : "Legendary",
+  "category" : "mysteriousReward",
+  "description" : "Summons Skeletron",
+  "shortdescription" : "Clothier Voodoo Doll",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "item.png",
+  "animationCustom" : {},
+  "scripts" : ["script.lua"]
+}

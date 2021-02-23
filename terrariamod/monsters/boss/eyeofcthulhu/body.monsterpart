@@ -1,0 +1,9 @@
+{
+  "name" : "eocthulhu",
+  "category" : "eocthulhu",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}
