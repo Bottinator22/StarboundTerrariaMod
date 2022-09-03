@@ -1,0 +1,9 @@
+{
+  "name" : "leechtail",
+  "category" : "leechtail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind" : "cursedburningdustlight",
+  "definition" : {
+    "type" : "animated",
+    "looping" : true,
+    "animation" : "/animations/statuseffects/cursedburning/burning.animation",
+    "position" : [0, 0],
+    "finalVelocity" : [0, 0],
+    "approach" : [0, 50],
+    "destructionAction" : "shrink",
+    "destructionTime" : 0.45,
+    "fade" : 1,
+    "size" : 1,
+    "layer" : "middle",
+    "timeToLive" : 0.45,
+    "collidesLiquid" : true,
+    "variance" : {
+      "initialVelocity" : [4.0, 4.0],
+      "rotation": 180,
+      "angularVelocity": 45
+    }
+  }
+}

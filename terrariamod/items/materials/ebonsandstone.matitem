@@ -1,0 +1,10 @@
+{
+  "itemName" : "ebonsandstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "ebonsandstone.png",
+  "description" : "Sandstone, but corrupt.",
+  "shortdescription" : "Ebonsandstone",
+  "materialId" : 50504
+}

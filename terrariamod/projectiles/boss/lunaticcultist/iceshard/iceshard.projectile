@@ -1,0 +1,14 @@
+{
+  "projectileName" : "cultisticeshard",
+  "physics" : "laser",
+  "image" : "projectile.png",
+  "damageKindImage" : "icon.png",
+  "timeToLive": 0.5,
+  "speed" : 60,
+  "animationCycle" : 0.35,
+  "frameNumber" : 1,
+  "power" : 6,
+  "emitters" : [],
+  "fullbright" : false,
+  "damageKind" : "ice"
+}

@@ -1,0 +1,12 @@
+{
+  "itemName" : "luminiteore",
+  "tooltipKind" : "terraria_small",
+  "price" : 1500,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "luminiteore.png",
+  "description" : "A pebble of the heavens.\n^gray;Material^reset;",
+  "shortdescription" : "Luminite Ore",
+  "itemTags" : [ "reagent" ],
+  "radioMessagesOnPickup" : [ "pickupore" ]
+}

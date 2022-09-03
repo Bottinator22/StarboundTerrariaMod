@@ -1,0 +1,9 @@
+{
+  "name" : "thehungry",
+  "category" : "thehungry",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tethered.png"
+  }
+}

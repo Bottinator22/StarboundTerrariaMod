@@ -9,6 +9,7 @@ require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/actions/terra_rotateUtil.lua"
 function spawnMinion()
     local ownerId = entity.id()
     local handId = world.spawnMonster("socthulhu", mcontroller.position(), { level = monster.level(), ownerId = ownerId })
@@ -18,12 +19,14 @@ end
 function init()
 self.offScreen = true
 self.children = {}
+self.baseTurnSpeed = 0.1
   self.shouldDie = true
   self.targetId = nil
   self.queryRange = 100
   self.keepTargetInRange = 250
   self.targets = {}
   self.targetPos = mcontroller.position()
+  mcontroller.setRotation(0)
   self.outOfSight = {}
   self.phase = "default" -- default, charging
   self.phaseTime = 0
@@ -103,6 +106,8 @@ self.children = {}
   self.touchDamageEnabled = false
 
   monster.setDamageBar("Special")
+  
+  monster.setAggressive(true)
 
   monster.setInteractive(config.getParameter("interactive", false))
 
@@ -110,12 +115,6 @@ self.children = {}
 end
 
 function stopMusic()
-    local players = world.playerQuery(mcontroller.position(), self.queryRange * 2)
-    for _,entityId in pairs(players) do
-      local pos = world.entityPosition(entityId)
-      local dis = world.magnitude(pos, mcontroller.position())
-      world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
-    end
 end
 function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
@@ -133,25 +132,12 @@ function update(dt)
     mcontroller.clearControls()
     if self.damaged then
       self.suppressDamageTimer = config.getParameter("stunDamageSuppression", 0.5)
-      monster.setDamageOnTouch(false)
+      --monster.setDamageOnTouch(false)
     end
     return
   else
     animator.setGlobalTag("hurt", "")
     animator.setAnimationState("damage", "none")
-  end
-
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
-    end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
   end
 
   if self.behaviorTick >= self.behaviorTickRate then
@@ -198,7 +184,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -218,16 +204,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -236,15 +215,14 @@ repeat
   until #self.targets <= 0 or self.targetId
   move()
   self.behaviorTick = self.behaviorTick + 1
+  monster.setDamageOnTouch(true)
   -- player music
   local players = world.playerQuery(mcontroller.position(), self.queryRange * 2)
   for _,entityId in pairs(players) do
       local pos = world.entityPosition(entityId)
       local dis = world.magnitude(pos, mcontroller.position())
       if dis < self.queryRange then
-          world.sendEntityMessage(entityId, "playAltMusic", {config.getParameter("music")}, 1.0)
-      else
-          world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
+          world.sendEntityMessage(entityId, "terraMusic", {id=entity.id(),file=config.getParameter("music"),expireType="entityDistance",entityID=entity.id(),entityDis=self.queryRange,priority=monster.level() + 10})
       end
     end
     for _,entityId in pairs(self.children) do
@@ -360,14 +338,19 @@ function setupTenant(...)
 end
 function defaultMove()
     self.targetPos = world.entityPosition(self.targetId)
-    mcontroller.setRotation(vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position())))
+    local targetDir = vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position()))
+    local myDir = mcontroller.rotation()
+    local diff = rotateUtil.getRelativeAngle(targetDir, myDir)
+    mcontroller.setRotation(rotateUtil.slowRotate(myDir, diff, self.baseTurnSpeed))
     self.targetPos[2] = self.targetPos[2] + 15
     self.approachSpeed = 0.75
     if not self.secondPhase then
         self.summonTime = self.summonTime - 1
         if self.summonTime <= 0 then
             self.summonTime = 85
-            spawnMinion()
+            if not world.pointTileCollision({math.floor(mcontroller.xPosition()+0.5), math.floor(mcontroller.yPosition()+0.5)}, {"Block"}) then
+                spawnMinion()
+            end
         end
     end
 end
@@ -375,16 +358,21 @@ function chargeMove()
     self.targetPos = world.entityPosition(self.targetId)
     self.chargeDelay = self.chargeDelay - 1
     self.phaseTime = self.phaseTime - 1
-    if self.chargeDelay == 1 then
-        mcontroller.setRotation(vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position())))
+    if self.chargeDelay <= 35 then
+       local targetDir = vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position()))
+        local myDir = mcontroller.rotation()
+        local diff = rotateUtil.getRelativeAngle(targetDir, myDir)
+        mcontroller.setRotation(rotateUtil.slowRotate(myDir, diff, self.baseTurnSpeed))
     end
     if self.chargeDelay <= 0 then
         mcontroller.setVelocity({0, 0})
-        self.approachSpeed = 20
+        self.approachSpeed = 30
+        self.chargeDelay = 100
         if self.secondPhase then
-            self.approachSpeed = 40
+            self.approachSpeed = 60
+            animator.playSound("charge")
+            self.chargeDelay = 120
         end
-        self.chargeDelay = 50
         self.phaseTime = self.phaseTime + 1
     else
         self.approachSpeed = 0
@@ -403,6 +391,9 @@ function transformMove()
     end
 end
 function move()
+    if world.timeOfDay() < 0.5 then
+        self.targetId = nil
+    end
     if self.targetId == nil then
         self.targetPos = vec2.add(mcontroller.position(), {0, 100})
         self.approachSpeed = 1
@@ -443,7 +434,7 @@ function move()
         transformMove()
     end
     end
-    local decel = 0.95
+    local decel = 0.99
     if self.phase == "charge" then
         decel = 0.99
     end
@@ -452,8 +443,11 @@ function move()
     local toTarget = vec2.mul(approach,self.approachSpeed)
     mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), decel), toTarget))
     if world.magnitude(mcontroller.velocity(), {0, 0}) > self.maxSpeed then
-        mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), 0.9))
-    end
+      local angle = vec2.angle(world.distance(mcontroller.velocity(), {0, 0}))
+      local approach = {math.cos(angle), math.sin(angle)}
+      local new = vec2.mul(approach, self.maxSpeed)
+      mcontroller.setVelocity(new)
+  end
     animator.resetTransformationGroup("body")
     animator.rotateTransformationGroup("body", mcontroller.rotation())
 end

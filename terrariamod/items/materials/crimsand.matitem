@@ -1,0 +1,11 @@
+{
+  "itemName" : "crimsand",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "crimsand.png",
+  "description" : "Crimson sand.",
+  "shortdescription" : "Crimsand",
+
+  "materialId" : 50506
+}

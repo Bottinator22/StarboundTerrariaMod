@@ -1,0 +1,62 @@
+{
+  "objectName" : "planterabulb",
+  "colonyTags" : [],
+  "rarity" : "Legendary",
+  "description" : "If you break it, Plantera will probably want to kill you...",
+  "shortdescription" : "Plantera's Bulb",
+  "race" : "generic",
+  "category" : "trap",
+  "price" : 0,
+  "printable" : false,
+  "lightColor" : [155, 0, 155],
+  "lightPosition" : [0, 0],
+
+  "apexDescription" : "",
+  "avianDescription" : "",
+  "floranDescription" : "",
+  "glitchDescription" : "",
+  "humanDescription" : "",
+  "hylotlDescription" : "",
+  "novakidDescription" : "",
+
+  "inventoryIcon" : "planterabulbicon.png",
+  "orientations" : [
+    {
+      "image" : "planterabulb.png:idle.1",
+      "imagePosition" : [0, 0],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "spaceScan" : 0.1,
+      "spaces" : [ [0, 0], [0, 1] ],
+      "anchors" : [ "bottom" ]
+    },
+    {
+      "image" : "planterabulb.png:idle.1",
+      "imagePosition" : [0, 0],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "spaces" : [ [0, 0], [0, 1] ],
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "health" : 10,
+
+  "animation" : "planterabulb.animation",
+  "animationParts" : {
+    "bg" : "planterabulb.png"
+  },
+  "animationPosition" : [-8, 0],
+
+  "scripts" : [ "planterabulb.lua" ],
+  
+  "smashable" : true,
+  "smashSounds" : [],
+  "smashParticles" : [],
+  
+  "biomePlaced" : true
+}

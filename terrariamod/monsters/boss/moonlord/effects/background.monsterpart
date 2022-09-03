@@ -1,0 +1,9 @@
+{
+  "name" : "moonlordbackground",
+  "category" : "moonlordbackground",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "background.png"
+  }
+}

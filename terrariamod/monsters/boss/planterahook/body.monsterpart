@@ -1,0 +1,9 @@
+{
+  "name" : "planterahook",
+  "category" : "planterahook",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

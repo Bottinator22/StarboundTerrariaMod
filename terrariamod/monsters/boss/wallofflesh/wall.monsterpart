@@ -1,0 +1,9 @@
+{
+  "name" : "walloffleshwall",
+  "category" : "walloffleshwall",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "nothing.png"
+  }
+}

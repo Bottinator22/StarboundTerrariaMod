@@ -1,0 +1,9 @@
+{
+  "name" : "braincreeper",
+  "category" : "braincreeper",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

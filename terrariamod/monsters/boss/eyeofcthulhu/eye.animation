@@ -88,6 +88,8 @@
 
   "sounds" : {
     "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
-    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ]
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ],
+    "charge": ["/sfx/npc/boss_summon.ogg"],
+    "superCharge": ["/sfx/npc/charge.ogg"]
   }
 }

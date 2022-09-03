@@ -1,0 +1,25 @@
+{
+  "projectileName" : "moonlordeffectapplier",
+  "physics" : "laser",
+  "timeToLive" : 9999999,
+  "image" : "projectile.png",
+  "animationCycle" : 1,
+  "frameNumber" : 1,
+  "periodicActions" : [],
+  "actionOnReap" : [],
+  "speed" : 0,
+  "power" : 0,
+
+  "onlyHitTerrain" : true,
+
+  "boundBox" : [-250, -250, 250, 250],
+  "persistentStatusEffects" : ["moonlordconstant"],
+  "statusEffectArea" : [ [200, 200],[200, -200],[-200, -200],[-200, 200] ],
+  "emitters" : [ ],
+  "orientationLocked" : true,
+
+  "piercing" : true,
+  "bounces" : -1,
+
+  "scripts" : [ "applier.lua" ]
+}

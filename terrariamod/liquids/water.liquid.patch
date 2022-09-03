@@ -1,0 +1,10 @@
+[
+  {"op":"add","path":"/interactions/-","value":{
+        "liquid": 112,
+        "liquidResult": 112
+    }},
+    {"op":"add","path":"/interactions/-","value":{
+        "liquid": 113,
+        "liquidResult": 113
+    }}
+]

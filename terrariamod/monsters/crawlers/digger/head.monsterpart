@@ -1,0 +1,9 @@
+{
+  "name" : "diggerhead",
+  "category" : "diggerhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

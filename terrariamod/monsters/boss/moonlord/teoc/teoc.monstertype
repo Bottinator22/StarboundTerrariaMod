@@ -1,0 +1,194 @@
+{
+  "type" : "trueeocthulhu",
+  "shortdescription" : "True Eye of Cthulhu",
+  "description" : "it sees you",
+
+  "categories" : [ "trueeocthulhu" ],
+  "parts" : [ "body" ],
+
+  "animation" : "teoc.animation",
+
+  "dropPools" : [],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/boss/moonlord/teoc/teoc.lua"
+    ],
+    
+    "animationScripts" : [
+      "/scripts/terra_chain.lua"
+    ],
+
+    "chains" : [
+      {
+        "segmentImage" : "/monsters/boss/moonlord/head/laser.png",
+        "endSegmentImage" : "/monsters/boss/moonlord/head/laserend.png",
+        "segmentSize" : 2.95,
+        "scale": 0.5,
+        "renderLayer" : "ForegroundEntity+5",
+        "fullbright" : true,
+        "sourcePart" : "beam",
+        "endPart" : "beam",
+        "light": [25, 200, 120],
+        "crop": {
+            "imageWidth": 48,
+            "imageHeight": 18
+        }
+      }
+    ],
+    
+    "renderLayer" : "ForegroundEntity+4",
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+
+    "facingMode" : "transformation",
+
+    "seeThroughLiquid" : true,
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 50,
+      "targetOnDamage" : true,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 100,
+      "targetOutOfSightTime" : 10.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+      ],
+
+      "approachActions" : [
+      ]
+    },
+
+    "touchDamage" : {
+      "poly" : [ [1.0, 2.0], [2.0, 1.0], [2.0, -1.0], [1.0, -2.0], [-1.0, -2.0], [-2.0, -1.0], [-2, 1.0], [-1.0, 2.0] ]	,
+      "damage" : 10,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 0,
+      "statusEffects" : [ ]
+    },
+    "damageParts" : {
+      "beam" : {
+        "damage" : 15,
+
+        "damageSourceKind" : "electric",
+        "knockback" : 0,
+        "statusEffects" : [ ]
+      }
+    },
+
+    "metaBoundBox" : [-4, -4, 4, 4],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [2, 4.0], [4.0, 2], [4.0, -2], [2, -4.0], [-2, -4.0], [-4.0, -2], [-4, 2], [-2, 4.0] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "stone",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
+    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "stone"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/spacemonster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 0.8
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 500
+        },
+        "protection" : {
+          "baseValue" : -1.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "invulnerable": {
+            "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false
+  }
+}

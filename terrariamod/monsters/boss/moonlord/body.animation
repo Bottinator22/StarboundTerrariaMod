@@ -1,0 +1,107 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "core" : {
+        "priority" : 0,
+        "default" : "closed",
+        "states" : {
+          "closed" : {},
+          "open": {
+            "frames": 3,
+            "cycle": 0.35,
+            "mode": "loop"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 2,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 0,
+          "image": "<partImage>",
+          "offset" : [0.0, -6.0]
+        }
+      },
+      "coresocket": {
+        "properties" : {
+          "zLevel" : 5,
+          "image": "<partImage>",
+          "offset" : [0.375, 1.5]
+        }
+      },
+      "core": {
+        "properties" : {
+          "zLevel" : 7,
+          "offset" : [0.0, 0.0]
+        },
+        "partStates": {
+            "core": {
+                "closed": {
+                    "properties": {
+                        "image": "<partImage>:closed"
+                    }
+                },
+                "open": {
+                    "properties": {
+                        "image": "<partImage>:open.<frame>"
+                    }
+                }
+            }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "body" : { "interpolated" : true },
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+  
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [255, 255, 255],
+      "pointLight" : true
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "random": [ "/monsters/boss/moonlord/random1.ogg", "/monsters/boss/moonlord/random2.ogg", "/monsters/boss/moonlord/random3.ogg", "/monsters/boss/moonlord/random4.ogg", "/monsters/boss/moonlord/random5.ogg", "/monsters/boss/moonlord/random6.ogg", "/monsters/boss/moonlord/random7.ogg" ],
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ],
+    "death": ["/monsters/boss/moonlord/death.ogg"],
+    "spawn": ["/monsters/boss/moonlord/spawn.ogg"]
+  }
+}

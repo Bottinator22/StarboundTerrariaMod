@@ -1,0 +1,9 @@
+{
+  "name" : "planteraspore",
+  "category" : "planteraspore",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

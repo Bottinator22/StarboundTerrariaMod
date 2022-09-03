@@ -1,0 +1,10 @@
+{
+  "itemName" : "crimsandstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "crimsandstone.png",
+  "description" : "Sandstone, but crimson.",
+  "shortdescription" : "Crimsandstone",
+  "materialId" : 50508
+}

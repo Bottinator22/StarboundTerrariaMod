@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "solariumstar", "count" : 80 }
+  ],
+  "output" : { "item" : "celestialsigil", "count" : 1},
+  "groups" : [ "craftinganvil3", "consumables", "all" ]
+}

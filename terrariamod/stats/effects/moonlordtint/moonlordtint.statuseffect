@@ -1,0 +1,11 @@
+{
+  "name" : "moonlordconstant",
+  "effectConfig" : {},
+  "defaultDuration" : 5,
+
+  "scripts" : [
+    "moonlordtint.lua"
+  ],
+
+  "label" : "Moon Lord's Presence"
+}

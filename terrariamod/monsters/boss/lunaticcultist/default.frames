@@ -1,0 +1,24 @@
+{
+  "frameGrid" : {
+    "size" : [46, 64],
+    "dimensions" : [1, 16],
+    "names" : [
+      [ "standing.1" ],
+      [ "standingcast.1" ],
+      [ "standingcastup.1" ],
+      [ "flywindup.1" ],
+      [ "idle.1" ],
+      [ "idle.2" ],
+      [ "idle.3" ],
+      [ "castup.1" ],
+      [ "castup.2" ],
+      [ "castup.3" ],
+      [ "cast.1" ],
+      [ "cast.2" ],
+      [ "cast.3" ],
+      [ "laugh.1" ],
+      [ "laugh.2" ],
+      [ "laugh.3" ]
+    ]
+  }
+} 

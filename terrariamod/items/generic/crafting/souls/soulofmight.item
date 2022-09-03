@@ -1,0 +1,11 @@
+{
+  "itemName" : "soulofmight",
+  "tooltipKind" : "terraria_small",
+  "price" : 1000,
+  "rarity" : "Rare",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "soulofmight.png",
+  "description" : "The essence of the destroyer.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Might",
+  "itemTags" : [ "reagent" ]
+}

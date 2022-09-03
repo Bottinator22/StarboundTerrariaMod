@@ -1,0 +1,9 @@
+{
+  "name" : "maneater",
+  "category" : "maneater",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

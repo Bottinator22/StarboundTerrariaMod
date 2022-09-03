@@ -1,0 +1,10 @@
+{
+  "name" : "trueeocthulhubody",
+  "category" : "trueeocthulhu",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png",
+    "pupil": "pupil.png"
+  }
+}

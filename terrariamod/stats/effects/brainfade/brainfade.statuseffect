@@ -1,0 +1,8 @@
+{
+  "name" : "brainfade",
+  "defaultDuration" : 1.0,
+
+  "scripts" : [
+    "brainfade.lua"
+  ]
+}

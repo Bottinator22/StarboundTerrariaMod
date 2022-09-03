@@ -1,0 +1,18 @@
+gray
+white
+blue
+green 9cf6a0
+orange d9b38f
+light_red
+pink
+light_purple
+lime ade25e
+yellow
+cyan
+red
+purple
+rainbow
+fiery red
+amber
+
+sell price * 5 = actual price?

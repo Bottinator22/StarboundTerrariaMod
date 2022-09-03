@@ -5,15 +5,17 @@ require "/scripts/vec2.lua"
 require "/scripts/poly.lua"
 require "/scripts/drops.lua"
 require "/scripts/status.lua"
-require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/actions/terra_spawnLeveled.lua"
+require "/scripts/actions/terra_rotateUtil.lua"
 function spawnMinion()
     local ownerId = entity.id()
     local handId = world.spawnMonster("socthulhu", mcontroller.position(), { level = monster.level(), ownerId = ownerId })
     table.insert(self.children, handId)
 end
+local expertMode = false
 -- Engine callback - called on initialization of entity
 function init()
 self.offScreen = true
@@ -36,6 +38,8 @@ self.children = {}
   self.speen = 0
   self.notifications = {}
   self.approachSpeed = 2
+  self.parent = config.getParameter("ownerId", -1)
+  expertMode = config.getParameter("expertMode", false)
   storage.spawnTime = world.time()
   if storage.spawnPosition == nil or config.getParameter("wasRelocated", false) then
     local position = mcontroller.position()
@@ -67,8 +71,6 @@ self.children = {}
   animator.setGlobalTag("flipX", "")
   self.board:setNumber("facingDirection", mcontroller.facingDirection())
 
-  capturable.init()
-
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
     for _,notification in pairs(notifications) do
@@ -80,6 +82,8 @@ self.children = {}
   end)
 
   self.debug = true
+  
+  monster.setAggressive(true)
 
   message.setHandler("notify", function(_,_,notification)
       return notify(notification)
@@ -103,20 +107,18 @@ self.children = {}
   self.damageSources = ControlMap:new(config.getParameter("damageSources", {}))
   self.touchDamageEnabled = false
 
-  monster.setDamageBar("Special")
-
   monster.setInteractive(config.getParameter("interactive", false))
 
   monster.setAnimationParameter("chains", config.getParameter("chains"))
+  
+  if world.entityExists(self.parent) then
+      message.setHandler("pet.attemptCapture", function(_,_,...)
+                        return world.callScriptedEntity(self.parent, "capturable.attemptCapture", ...)
+                         end)
+  end
 end
 
 function stopMusic()
-    local players = world.playerQuery(mcontroller.position(), self.queryRange * 2)
-    for _,entityId in pairs(players) do
-      local pos = world.entityPosition(entityId)
-      local dis = world.magnitude(pos, mcontroller.position())
-      world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
-    end
 end
 function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
@@ -124,6 +126,9 @@ function update(dt)
   end
   if status.resourcePercentage("health") == 0 then
         stopMusic()
+    end
+    if not world.entityExists(self.parent) then
+        monster.setDamageBar("Special")
     end
   capturable.update(dt)
   self.damageTaken:update()
@@ -142,18 +147,7 @@ function update(dt)
     animator.setAnimationState("damage", "none")
   end
 
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
-    end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
-  end
+  monster.setDamageOnTouch(true)
 
   if self.behaviorTick >= self.behaviorTickRate then
     self.behaviorTick = self.behaviorTick - self.behaviorTickRate
@@ -199,7 +193,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -219,16 +213,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -243,9 +230,7 @@ repeat
       local pos = world.entityPosition(entityId)
       local dis = world.magnitude(pos, mcontroller.position())
       if dis < self.queryRange then
-          world.sendEntityMessage(entityId, "playAltMusic", {config.getParameter("music")}, 1.0)
-      else
-          world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
+          world.sendEntityMessage(entityId, "terraMusic", {id=entity.id(),file=config.getParameter("music"),expireType="entityDistance",entityID=entity.id(),entityDis=self.queryRange,priority=monster.level() + 10})
       end
     end
     for _,entityId in pairs(self.children) do
@@ -361,16 +346,38 @@ function setupTenant(...)
 end
 function defaultMove(barrage)
     self.targetPos = world.entityPosition(self.targetId)
-    mcontroller.setRotation(vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position())))
+    self.maxSpeed = 25
+    local targetDir = vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position()))
+    local myDir = mcontroller.rotation()
+    local diff = rotateUtil.getRelativeAngle(targetDir, myDir)
+    mcontroller.setRotation(rotateUtil.slowRotate(myDir, diff, 0.1))
+    local myXDiff = mcontroller.xPosition() - self.targetPos[1]
     if barrage then
-        self.targetPos[1] = self.targetPos[1] + 15
+        local offset = 15
+        if myXDiff < 0 then
+            offset = offset * -1
+        end
+        self.targetPos[1] = self.targetPos[1] + offset
+    elseif not self.secondPhase then
+        local offset = 15
+        if myXDiff < 0 then
+            offset = offset * -1
+        end
+        self.targetPos[1] = self.targetPos[1] + offset
+        self.targetPos[2] = self.targetPos[2] + 15
     else
         self.targetPos[2] = self.targetPos[2] + 15
     end
-    self.approachSpeed = 4
+    self.approachSpeed = 3
         self.summonTime = self.summonTime + 1
-        self.barrageSpeed = self.barrageSpeed - 0.1
+        if expertMode then
+            self.summonTime = self.summonTime + (0.5 - status.resourcePercentage("health") / 2)
+        end
+        self.barrageSpeed = 10 + 10 * status.resourcePercentage("health")
         local time = 50
+        if self.secondPhase then
+            time = 40
+        end
         if barrage then
             time = self.barrageSpeed
         end
@@ -381,13 +388,15 @@ function defaultMove(barrage)
             local approach = {math.cos(dir), math.sin(dir)}
             local toTarget = vec2.mul(approach,1)
             if not self.secondPhase then
-                world.spawnProjectile("bluelaser", mcontroller.position(), entity.id(), toTarget)
+                spawnLeveled.spawnProjectile("bluelaser", mcontroller.position(), entity.id(), toTarget, false, {level=monster.level(), power=8})
             else
                 local weak = ""
+                local power = 10
                 if barrage then
                     weak = "weak"
+                    power = 5
                 end
-                world.spawnProjectile("redlaser"..weak, mcontroller.position(), entity.id(), toTarget)
+                spawnLeveled.spawnProjectile("redlaser"..weak, mcontroller.position(), entity.id(), toTarget, false, {level=monster.level(),power=power})
             end
         end
 end
@@ -396,13 +405,22 @@ function chargeMove()
     self.targetPos = world.entityPosition(self.targetId)
     self.chargeDelay = self.chargeDelay - 1
     self.phaseTime = self.phaseTime - 1
-    if self.chargeDelay == 1 then
-        mcontroller.setRotation(vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position())))
+    if self.chargeDelay <= 25 then
+        local targetDir = vec2.angle(world.distance(world.entityPosition(self.targetId), mcontroller.position()))
+        local myDir = mcontroller.rotation()
+        local diff = rotateUtil.getRelativeAngle(targetDir, myDir)
+        mcontroller.setRotation(rotateUtil.slowRotate(myDir, diff, 0.2))
     end
     if self.chargeDelay <= 0 then
-        self.approachSpeed = 40
+        self.maxSpeed = 50
+        self.approachSpeed = 100
         mcontroller.setVelocity({0, 0})
-        self.chargeDelay = 50
+        self.chargeDelay = 60
+        if expertMode then
+            self.maxSpeed = 75 - (status.resourcePercentage("health") - 0.5) * 2 * 25
+            self.approachSpeed = 150 - (status.resourcePercentage("health") - 0.5) * 2 * 50
+            self.chargeDelay = 85 - (status.resourcePercentage("health") - 0.5) * 2 * 25
+        end
         self.phaseTime = self.phaseTime + 1
     else
         self.approachSpeed = 0
@@ -418,12 +436,17 @@ function transformMove()
         if not self.secondPhase then
             animator.setAnimationState("body","second")
             self.secondPhase = true
+            animator.setLightActive("glow", true)
+            animator.playSound("secondPhase")
         end
     else
         self.speen = self.speen + 1
     end
 end
 function move()
+    if world.timeOfDay() < 0.5 then
+        self.targetId = nil
+    end
     if self.targetId == nil then
         self.targetPos = vec2.add(mcontroller.position(), {0, 100})
         self.approachSpeed = 1
@@ -437,7 +460,7 @@ function move()
     end
     local time = 400
     if self.secondPhase then
-        time = (status.resourcePercentage("health") * 2) * 400
+        time = status.resourcePercentage("health") * 800
     end
   if self.phaseTime > time then
         if self.phase == "default" then
@@ -449,7 +472,7 @@ function move()
   end
   time = 5
   if self.secondPhase then
-      time = 400
+      time = 200
   end
   if self.phaseTime > time then
         if self.phase == "charge" then
@@ -485,8 +508,12 @@ function move()
     local toTarget = vec2.mul(approach,self.approachSpeed)
     mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), decel), toTarget))
     if world.magnitude(mcontroller.velocity(), {0, 0}) > self.maxSpeed then
-        mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), 0.9))
-    end
+      local angle = vec2.angle(world.distance(mcontroller.velocity(), {0, 0}))
+      local approach = {math.cos(angle), math.sin(angle)}
+      local new = vec2.mul(approach, self.maxSpeed)
+      mcontroller.setVelocity(new)
+  end
     animator.resetTransformationGroup("body")
     animator.rotateTransformationGroup("body", mcontroller.rotation())
+    animator.setLightPosition("glow", vec2.mul({math.cos(mcontroller.rotation()), math.sin(mcontroller.rotation())}, 10))
 end

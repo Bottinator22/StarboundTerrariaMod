@@ -1,0 +1,11 @@
+{
+  "itemName" : "souloflight",
+  "tooltipKind" : "terraria_small",
+  "price" : 250,
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "souloflight.png",
+  "description" : "The essence of light creatures.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Light",
+  "itemTags" : [ "reagent" ]
+}

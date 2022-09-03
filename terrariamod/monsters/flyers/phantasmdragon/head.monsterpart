@@ -1,0 +1,9 @@
+{
+  "name" : "phantasmdragonhead",
+  "category" : "phantasmdragonhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

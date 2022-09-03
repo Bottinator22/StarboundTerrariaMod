@@ -1,0 +1,8 @@
+{
+  "input" : [
+    { "item" : "hallowedbar", "count" : 30 }
+  ],
+  "duration" : 5,
+  "output" : { "item" : "hallowedhead", "count" : 1 },
+  "groups" : [ "craftinganvil3", "armours", "all" ]
+}

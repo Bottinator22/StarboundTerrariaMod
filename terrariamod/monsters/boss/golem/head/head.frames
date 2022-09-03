@@ -1,0 +1,15 @@
+{
+  "frameGrid" : {
+    "size" : [112, 118],
+    "dimensions" : [1, 6],
+    "names": [
+        ["idle.closed"],
+        ["idle.open"],
+        ["right.closed"],
+        ["right.open"],
+        ["left.closed"],
+        ["left.open"]
+    ]
+  }
+}
+ 

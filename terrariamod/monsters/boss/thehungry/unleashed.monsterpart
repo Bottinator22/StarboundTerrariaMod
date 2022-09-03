@@ -1,0 +1,9 @@
+{
+  "name" : "thehungryunleashed",
+  "category" : "thehungryunleashed",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "unleashed.png"
+  }
+}

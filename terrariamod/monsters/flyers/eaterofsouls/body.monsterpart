@@ -1,0 +1,9 @@
+{
+  "name" : "body",
+  "category" : "eaterofsouls",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

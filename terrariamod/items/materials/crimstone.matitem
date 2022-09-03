@@ -1,0 +1,11 @@
+{
+  "itemName" : "crimstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "crimstone.png",
+  "description" : "Stone of the Crimson.",
+  "shortdescription" : "Crimstone",
+
+  "materialId" : 50509
+}

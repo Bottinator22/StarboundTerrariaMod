@@ -1,0 +1,9 @@
+{
+  "name" : "worldfeederhead",
+  "category" : "worldfeederhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

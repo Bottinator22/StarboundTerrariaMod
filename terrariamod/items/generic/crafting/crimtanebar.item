@@ -1,0 +1,11 @@
+{
+  "itemName" : "crimtanebar",
+  "tooltipKind" : "terraria_small",
+  "price" : 500,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "crimtanebar.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Crimtane Bar",
+  "itemTags" : [ "reagent" ]
+}

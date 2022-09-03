@@ -1,0 +1,9 @@
+{
+  "name" : "wyvernlegs",
+  "category" : "wyvernlegs",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "legs.png"
+  }
+}

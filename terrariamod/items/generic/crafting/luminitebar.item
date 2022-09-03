@@ -1,0 +1,11 @@
+{
+  "itemName" : "luminitebar",
+  "tooltipKind" : "terraria_small",
+  "price" : 3000,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "luminitebar.png",
+  "description" : "It vibrates with luminous celestial energy.\n^gray;Material^reset;",
+  "shortdescription" : "Luminite Bar",
+  "itemTags" : [ "reagent" ]
+}

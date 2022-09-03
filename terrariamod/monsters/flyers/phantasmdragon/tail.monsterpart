@@ -1,0 +1,9 @@
+{
+  "name" : "phantasmdragontail",
+  "category" : "phantasmdragontail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

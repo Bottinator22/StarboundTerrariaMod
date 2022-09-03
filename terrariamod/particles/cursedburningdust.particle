@@ -5,17 +5,19 @@
     "looping" : true,
     "animation" : "/animations/statuseffects/cursedburning/burning.animation",
     "position" : [0, 0],
-    "finalVelocity" : [0, 3],
+    "finalVelocity" : [0, 0],
     "approach" : [0, 50],
     "destructionAction" : "shrink",
     "destructionTime" : 0.85,
     "fade" : 1,
-    "size" : 0.5,
+    "size" : 1,
     "layer" : "middle",
     "timeToLive" : 0.85,
     "collidesLiquid" : true,
     "variance" : {
-      "initialVelocity" : [2.0, 2.0]
+      "initialVelocity" : [4.0, 4.0],
+      "rotation": 180,
+      "angularVelocity": 180
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "itemName" : "tissuesample",
+  "tooltipKind" : "terraria_small",
+  "price" : 300,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "tissuesample.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Tissue Sample",
+  "itemTags" : [ "reagent" ]
+}

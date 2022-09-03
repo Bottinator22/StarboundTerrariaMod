@@ -49,6 +49,29 @@
             }
           }
         }
+      },
+      "bodyfullbright" : {
+        "properties" : {
+          "zLevel" : 20,
+          "anchorPart" : "body",
+          "fullbright" : true
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            }
+          },
+          "damage" : {
+            "stunned" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -73,6 +96,15 @@
       "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
       "burstCount" : 5,
       "particles" : []
+    }
+  },
+  
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [128, 0, 0],
+      "pointLight" : true
     }
   },
 

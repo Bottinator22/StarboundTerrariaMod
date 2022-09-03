@@ -1,0 +1,11 @@
+{
+  "name" : "moonlordhandeye",
+  "category" : "moonlordhand",
+  "type" : "eye",
+
+  "frames" : {
+    "eye" : "eye.png",
+    "pupil" : "pupil.png",
+    "deadeye": "deadeye.png"
+  }
+}

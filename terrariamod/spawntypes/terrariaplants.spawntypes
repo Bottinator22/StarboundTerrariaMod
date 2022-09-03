@@ -1,0 +1,39 @@
+[
+     // jungle
+  {
+    "name" : "snatcher",
+
+    "spawnParameters" : {
+      "area" : "surface",
+      "region" : "all",
+      "time" : "all"
+    },
+
+    "groupSize" : [1, 1],
+    "spawnChance" : 0.03,
+    "monsterType" : [
+      [0.9, "snatcher"],
+      [0.1, "angrytrapper"]
+    ],
+    "monsterParameters" : {
+    }
+  },
+  {
+    "name" : "maneater",
+
+    "spawnParameters" : {
+      "area" : "surface",
+      "region" : "all",
+      "time" : "all"
+    },
+
+    "groupSize" : [1, 1],
+    "spawnChance" : 0.03,
+    "monsterType" : [
+      [0.9, "maneater"],
+      [0.1, "angrytrapper"]
+    ],
+    "monsterParameters" : {
+    }
+  }
+] 

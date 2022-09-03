@@ -1,0 +1,9 @@
+{
+  "name" : "lunarpillarforeground",
+  "category" : "lunarpillarforeground",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "foreground.png"
+  }
+}

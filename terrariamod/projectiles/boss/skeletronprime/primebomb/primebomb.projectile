@@ -13,7 +13,7 @@
       "file" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config"
     }
   ],
-  "power" : 100,
+  "power" : 12,
   "damageType" : "NoDamage",
   "damageKind" : "default"
 }

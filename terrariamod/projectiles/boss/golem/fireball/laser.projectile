@@ -1,0 +1,20 @@
+{
+  "projectileName" : "golemfireball",
+  "physics" : "spikyballnogravity",
+  "image" : "fireball.png",
+  "bounces": 20,
+  "timeToLive": 250,
+  "speed" : 20,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 5,
+  "emitters" : [ "defaultorange" ],
+  "fullbright" : true,
+  "damageKind" : "fire",
+  "damageKindImage" : "/interface/statuses/fire.png",
+  "lightColor" : [100, 50, 0],
+  "renderLayer": "ForegroundEntity+2",
+  "statusEffects" : [
+    "burning"
+  ]
+}

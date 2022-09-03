@@ -1,0 +1,16 @@
+{
+  "projectileName" : "golemlaser",
+  "physics" : "nocollidelaser",
+  "image" : "laser.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 100,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "piercing": true,
+  "power" : 5,
+  "emitters" : [ "defaultyellow" ],
+  "fullbright" : true,
+  "damageKind" : "plasma",
+  "lightColor" : [100, 100, 0],
+  "renderLayer": "ForegroundEntity+2"
+}

@@ -1,0 +1,11 @@
+{
+  "itemName" : "terraria_beetlehusk",
+  "tooltipKind" : "terraria_small",
+  "price" : 1000,
+  "rarity" : "Rare",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "beetlehusk.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Beetle Husk",
+  "itemTags" : [ "reagent" ]
+}

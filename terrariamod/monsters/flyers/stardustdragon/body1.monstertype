@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormbody.lua"
+      "/scripts/terra_wormbody.lua"
     ],
 
     "behavior" : "monster",
@@ -52,7 +52,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 20,
+      "damage" : 1,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -104,7 +104,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 

@@ -1,0 +1,9 @@
+{
+  "name" : "moonlordhandhand",
+  "category" : "moonlordhand",
+  "type" : "hand",
+
+  "frames" : {
+    "hand" : "hand.png"
+  }
+}

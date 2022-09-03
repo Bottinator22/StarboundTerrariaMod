@@ -11,7 +11,7 @@ require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
 function spawnTwin(mtype)
     local ownerId = entity.id()
-    local handId = world.spawnMonster(mtype, mcontroller.position(), { level = monster.level(), ownerId = ownerId })
+    local handId = world.spawnMonster(mtype, mcontroller.position(), { level = monster.level(), ownerId = ownerId, expertMode = config.getParameter("expertMode") })
     table.insert(self.children, handId)
 end
 -- Engine callback - called on initialization of entity
@@ -102,6 +102,8 @@ self.children = {}
   self.forceRegions = ControlMap:new(config.getParameter("forceRegions", {}))
   self.damageSources = ControlMap:new(config.getParameter("damageSources", {}))
   self.touchDamageEnabled = false
+  
+  monster.setDamageBar("Special")
 
   monster.setInteractive(config.getParameter("interactive", false))
 
@@ -194,7 +196,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -214,16 +216,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -347,6 +342,9 @@ function move()
         status.setResourcePercentage("health", 0)
         return
     end
+    local hp = vec2.add(world.entityHealth(self.children[1]),world.entityHealth(self.children[2]))
+    local hpperc = hp[1] / hp[2]
+    status.setResourcePercentage("health",hpperc)
     self.targetPos = world.entityPosition(self.children[1])
     mcontroller.setPosition(self.targetPos)
     mcontroller.setVelocity({0, 0})

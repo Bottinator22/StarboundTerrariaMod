@@ -1,0 +1,11 @@
+{
+  "itemName" : "purpleice",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "purpleice.png",
+  "shortdescription" : "Purple Ice",
+  "description" : "Corrupt ice, tingly to the touch.",
+
+  "materialId" : 50505
+}

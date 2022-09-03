@@ -1,9 +1,0 @@
-{
-  "name" : "notRotate",
-  "category" : "friendlyprobe",
-  "type" : "notRotate",
-
-  "frames" : {
-    "notRotate" : "notRotate.png"
-  }
-}

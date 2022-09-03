@@ -1,0 +1,9 @@
+{
+  "name" : "giantwormtail",
+  "category" : "giantwormtail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

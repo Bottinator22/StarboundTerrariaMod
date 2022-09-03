@@ -1,0 +1,18 @@
+{
+  "projectileName" : "cursedflamethrow",
+  "physics" : "laser",
+  "image" : "flame.png",
+  "timeToLive": 0.5,
+  "damageKindImage" : "icon.png",
+  "speed" : 50,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 2,
+  "emitters" : [ "cursedflamethrow" ],
+  "fullbright" : true,
+  "damageKind" : "fire",
+  "lightColor" : [0, 128, 0],
+  "statusEffects" : [
+    "cursedinferno"
+  ]
+}

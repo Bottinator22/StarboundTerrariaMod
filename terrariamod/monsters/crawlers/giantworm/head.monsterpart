@@ -1,0 +1,9 @@
+{
+  "name" : "giantwormhead",
+  "category" : "giantwormhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

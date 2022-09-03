@@ -1,0 +1,9 @@
+{
+  "name" : "wyverntail",
+  "category" : "wyverntail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

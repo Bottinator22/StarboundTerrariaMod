@@ -1,0 +1,21 @@
+{
+  "itemName" : "wormfood",
+  "tooltipKind" : "terraria_small",
+  "price" : 0,
+  "level" : 1,
+  "maxStack" : 30,
+  "rarity" : "Legendary",
+  "category" : "mysteriousReward",
+  "description" : "Summons the Eater of Worlds\n^gray;Consumable^reset;",
+  "shortdescription" : "Worm Food",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "item.png",
+  "animation" : "/animations/items/summonitem.animation",
+  "animationCustom" : {},
+  "scripts" : ["/scripts/items/terra_summonitem.lua"],
+  
+  "monster": "eaterbossmanager",
+  "spawnOffset": [0, -50],
+  "spawnLevel": 2
+}

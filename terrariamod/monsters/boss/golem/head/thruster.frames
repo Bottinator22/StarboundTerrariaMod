@@ -1,0 +1,17 @@
+{
+  "frameGrid" : {
+    "size" : [112, 139],
+    "dimensions" : [1, 8],
+    "names": [
+        ["closed.1"],
+        ["open.1"],
+        ["closed.2"],
+        ["open.2"],
+        ["closed.3"],
+        ["open.3"],
+        ["closed.4"],
+        ["open.4"]
+    ]
+  }
+}
+ 

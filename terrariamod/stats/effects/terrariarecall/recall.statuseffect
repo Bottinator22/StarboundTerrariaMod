@@ -1,0 +1,6 @@
+{
+  "name" : "terraria_recall",
+  "effectConfig" : {},
+  "defaultDuration" : 50,
+  "scripts" : ["recall.lua"]
+}

@@ -1,0 +1,163 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 0,
+        "default" : "invis",
+        "states" : {
+          "idle" : {
+            "frames" : 1,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "invis": {
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 3,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "outmost" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "body", "outmost" ],
+          "offset" : [0.0, 0.0],
+          "fullbright": true
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "invis": {
+                "properties": {
+                    "image": "<partImage>:none.<frame>"
+                }
+            }
+          }
+        }
+      },
+      "outer" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "body", "outer" ],
+          "offset" : [0.0, 0.0],
+          "fullbright": true
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "invis": {
+                "properties": {
+                    "image": "<partImage>:none.<frame>"
+                }
+            }
+          }
+        }
+      },
+      "inner" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "body", "inner" ],
+          "offset" : [0.0, 0.0],
+          "fullbright": true
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "invis": {
+                "properties": {
+                    "image": "<partImage>:none.<frame>"
+                }
+            }
+          }
+        }
+      },
+      "inmost" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "body", "inmost" ],
+          "offset" : [0.0, 0.0],
+          "fullbright": true
+        },
+        "partStates" : {
+          "body" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "invis": {
+                "properties": {
+                    "image": "<partImage>:none.<frame>"
+                }
+            }
+          }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "body" : { "interpolated" : true },
+    "outmost" : { "interpolated" : true },
+    "outer" : { "interpolated" : true },
+    "inner" : { "interpolated" : true },
+    "inmost" : { "interpolated" : true },
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+  
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [256, 256, 0],
+      "pointLight" : true
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [],
+    "deathPuff" : []
+  }
+}

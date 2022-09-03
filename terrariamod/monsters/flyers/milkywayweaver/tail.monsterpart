@@ -1,0 +1,10 @@
+{
+  "name" : "milkywayweavertail",
+  "category" : "milkywayweavertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png",
+    "bodyfullbright": "tail_fullbright.png"
+  }
+}

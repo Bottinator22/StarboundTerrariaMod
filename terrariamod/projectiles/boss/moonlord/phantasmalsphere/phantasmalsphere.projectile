@@ -1,0 +1,31 @@
+{
+  "projectileName" : "moonlordphantasmalsphere",
+  "physics" : "rocket",
+  "image" : "projectile.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 90,
+  "animationCycle" : 0.25,
+  "frameNumber" : 2,
+  "power" : 2,
+  "timeToLive": 15,
+  "emitters" : [ ],
+  "fullbright" : true,
+  "renderLayer": "ForegroundEntity+6",
+  "lightColor" : [25, 200, 120],
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config"
+    }
+  ],
+  "damagePoly": [ [1.0, 2.0], [2.0, 1.0], [2.0, -1.0], [1.0, -2.0], [-1.0, -2.0], [-2.0, -1.0], [-2, 1.0], [-1.0, 2.0] ]	,
+  "piercing" : true,
+  "damageKind" : "fire",
+  "movementSettings": {
+    "collisionEnabled": false
+  },
+  "bounces" : -1,
+  
+  "scripts" : [ "projectile.lua" ],
+  "scriptDelta" : 1
+}

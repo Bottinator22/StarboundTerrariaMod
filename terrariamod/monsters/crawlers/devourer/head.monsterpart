@@ -1,0 +1,9 @@
+{
+  "name" : "devourerhead",
+  "category" : "devourerhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "itemName" : "terraria_healingpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "healing.png",
+  "rarity" : "rare",
+  "shortdescription" : "^#8c8ccd;Healing Potion^reset;",
+  "description" : "Restores 100 life\n^gray;Consumable^reset;",
+  "maxStack" : 30,
+  "price" : 1000,
+  "effects" : [["terraria_potionsickness",{"effect":"terraria_health+","duration":100}]],
+  "blockingEffects" : ["terraria_potionsickness"],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}//,"rarityLabel":"^#8c8ccd;Blue^reset;"
+}

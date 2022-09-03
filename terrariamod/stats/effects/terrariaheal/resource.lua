@@ -1,0 +1,1 @@
+function init() status.modifyResource(config.getParameter("resource","health"),effect.duration()) effect.expire() end

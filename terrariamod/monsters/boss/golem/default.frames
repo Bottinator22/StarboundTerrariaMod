@@ -1,0 +1,16 @@
+{
+  "frameGrid" : {
+    "size" : [186, 174],
+    "dimensions" : [1, 7],
+    "names": [
+        ["idle"],
+        ["jump.1"],
+        ["jump.2"],
+        ["jump.3"],
+        ["jump.4"],
+        ["jump.5"],
+        ["jump.6"]
+    ]
+  }
+}
+ 

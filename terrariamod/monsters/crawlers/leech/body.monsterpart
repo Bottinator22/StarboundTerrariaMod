@@ -1,0 +1,9 @@
+{
+  "name" : "leechbody",
+  "category" : "leechbody",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

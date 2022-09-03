@@ -1,7 +1,7 @@
 {
   "type" : "probe",
   "shortdescription" : "Probe",
-  "description" : "A minion of The Destroyer. Will be released from its owner segment when damaged.",
+  "description" : "A singular probe detached from the Destroyer's body serves as a remote laser battery, often in a swarm of other probes.",
 
   "categories" : [ "probe" ],
   "parts" : [ "body" ],
@@ -24,61 +24,18 @@
     "behaviorConfig" : {
       "damageOnTouch" : true,
 
-      "targetQueryRange" : 50,
-      "targetOnDamage" : true,
-      "keepTargetInSight" : true,
-      "keepTargetInRange" : 100,
+      "targetQueryRange" : 10,
+      "targetOnDamage" : false,
+      "keepTargetInSight" : false,
+      "keepTargetInRange" : 10,
       "targetOutOfSightTime" : 10.0,
 
       "hurtWaitForGround" : false,
 
       "wanderActions" : [
-        {
-          "name" : "action-stop",
-          "parameters" : {
-            "stopForce" : 20
-          }
-        }
       ],
 
       "concurrentHostileActions" : [
-        {
-          "name" : "action-fire",
-          "parameters" : {
-            "requireLineOfSight" : true,
-            "maximumRange" : 25,
-            "minimumRange" : 10,
-            "windupStopForce" : 0,
-            "faceTarget" : false,
-            "rotateToTarget" : true,
-            "windupState" : "idle",
-            "windupTime" : 4.0,
-
-            "projectileType" : "pinklaser",
-            "projectileParameters" : {
-              "speed" : 40,
-              "power" : 50
-            },
-            "fireOffset" : [0, 0],
-            "onGround" : false,
-            "fireState" : "",
-            "fireSound" : "fire",
-
-            "winddownStopForce" : 0,
-            "winddownState" : "idle",
-            "winddownTime" : 0.0
-          }
-        },
-        {
-          "name" : "approach-burn",
-          "parameters" : {
-            "burnTime" : 0.5,
-            "approachDistance" : 15,
-            "rotateGroup" : "notRotate",
-            "burnState" : "idle",
-            "idleState" : "idle"
-          }
-        }
       ],
 
       "approachActions" : [
@@ -101,7 +58,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 40,
+      "damage" : 5,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -125,8 +82,8 @@
       "gravityEnabled" : false,
 
       "airFriction" : 0,
-      "airForce" : 10,
-      "flySpeed" : 35
+      "liquidFriction": 0,
+      "liquidBuoyancy": 0.0
     },
 
     "bodyMaterialKind" : "robotic",
@@ -137,9 +94,6 @@
     },
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
-
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
 
     "stunDamageSuppression" : 0.2,
 
@@ -153,7 +107,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/monster_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
@@ -168,10 +122,10 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 100
+          "baseValue" : 50
         },
         "protection" : {
-          "baseValue" : 25.0
+          "baseValue" : 10.0
         },
         "healthRegen" : {
           "baseValue" : 0.0

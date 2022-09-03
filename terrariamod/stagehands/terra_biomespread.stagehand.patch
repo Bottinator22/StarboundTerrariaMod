@@ -1,0 +1,218 @@
+[
+    {"op":"add","path":"/biomes/corruption","value":{
+        "music": "/music/corruption.ogg",
+        "undergroundMusic": "/music/undergroundcorruption.ogg",
+        "spreadTypes": {
+            "material": ["ebonstone", "ebonsand", "ebonsand2", "ebonsandstone", "purpleice"],
+            "mod": ["corruptgrass"]
+        },
+        "spreadConversions": {
+            "material": {
+                "cobblestone": "ebonstone", 
+                "blaststone": "ebonstone", 
+                "direstone": "ebonstone", 
+                "geodestone": "ebonstone", 
+                "limestone": "ebonstone", 
+                "magmarock": "ebonstone", 
+                "moonrock": "ebonstone", 
+                "rock01": "ebonstone", 
+                "rock02": "ebonstone", 
+                "rock03": "ebonstone", 
+                "rock04": "ebonstone", 
+                "rock05": "ebonstone", 
+                "rock06": "ebonstone", 
+                "rock07": "ebonstone", 
+                "rock08": "ebonstone", 
+                "rock09": "ebonstone", 
+                "rock10": "ebonstone", 
+                "rock11": "ebonstone", 
+                "rock12": "ebonstone", 
+                "rock13": "ebonstone", 
+                "rock14": "ebonstone", 
+                "rock15": "ebonstone", 
+                "rock16": "ebonstone", 
+                "rock17": "ebonstone", 
+                "rock18": "ebonstone", 
+                "rock19": "ebonstone", 
+                "rock20": "ebonstone", 
+                "shadowblock": "ebonstone", 
+                "grassyrock": "ebonstone",
+                "biorock": "ebonstone", 
+                "biorock2": "ebonstone",
+                "rockbrick": "ebonstone",
+                "sand": "ebonsand",
+                "ash": "ebonsand",
+                "sewage": "ebonsand",
+                "bonematerial": "ebonsand",
+                "eyepiles": "ebonsand",
+                "gravel": "ebonsand",
+                "jellyblock": "ebonsand",
+                "slime": "ebonsand",
+                "stonerubble": "ebonsand",
+                "sand2": "ebonsand2",
+                "drysand": "ebonsand2",
+                "moondust": "ebonsand2",
+                "sandstone01": "ebonsandstone",
+                "moonstone": "ebonsandstone",
+                "ice": "purpleice"
+            },
+            "mod": {
+                "aliengrass": "corruptgrass",
+                "alpinegrass": "corruptgrass",
+                "aridgrass": "corruptgrass",
+                "charredgrass": "corruptgrass",
+                "colourfulgrass": "corruptgrass",
+                "crystalgrass": "corruptgrass",
+                "fleshgrass": "corruptgrass",
+                "flowerygrass": "corruptgrass",
+                "hivegrass": "corruptgrass",
+                "junglegrass": "corruptgrass",
+                "savannahgrass": "corruptgrass",
+                "slimegrass": "corruptgrass",
+                "snowygrass": "corruptgrass",
+                "tentaclegrass": "corruptgrass",
+                "toxicgrass": "corruptgrass",
+                "thickgrass": "corruptgrass",
+                "tilled": "corruptgrass",
+                "tilleddry": "corruptgrass",
+                "grass": "corruptgrass",
+                "sand": "corruptgrass"
+            },
+            "liquid": {
+                "water": "corruptwater"
+            }
+        },
+        "spreadOverrides": {
+            "material": {},
+            "mod": {}
+        },
+        "matSpreadRange": 4,
+        "matSpreadChance": 0.1,
+        "matSpreadTries": 2,
+        "modSpreadChance": 1,
+        "modSpreadTries": 10,
+        "modSpreadRange": 8,
+        "musicPriority": 5,
+        "musicBlocks": 5,
+        "musicDis": 25,
+        "monsterBlocks": 5,
+        "monsterLimit": 50,
+        "monsters": {
+            "devourerhead": {
+                "chance": 0.1,
+                "pos": "underground"
+            },
+            "worldfeederhead": {
+                "chance": 0.05,
+                "pos": "underground"
+            },
+            "eaterofsouls": {
+                "chance": 0.1
+            }
+        }
+    }},
+    {"op":"add","path":"/biomes/crimson","value":{
+        "music": "/music/crimson.ogg",
+        "undergroundMusic": "/music/undergroundcrimson.ogg",
+        "spreadTypes": {
+            "material": ["crimstone", "crimsand", "crimsand2", "crimsandstone", "redice"],
+            "mod": ["crimsongrass"]
+        },
+        "spreadConversions": {
+            "material": {
+                "cobblestone": "crimstone", 
+                "blaststone": "crimstone", 
+                "direstone": "crimstone", 
+                "geodestone": "crimstone", 
+                "limestone": "crimstone", 
+                "magmarock": "crimstone", 
+                "moonrock": "crimstone", 
+                "rock01": "crimstone", 
+                "rock02": "crimstone", 
+                "rock03": "crimstone", 
+                "rock04": "crimstone", 
+                "rock05": "crimstone", 
+                "rock06": "crimstone", 
+                "rock07": "crimstone", 
+                "rock08": "crimstone", 
+                "rock09": "crimstone", 
+                "rock10": "crimstone", 
+                "rock11": "crimstone", 
+                "rock12": "crimstone", 
+                "rock13": "crimstone", 
+                "rock14": "crimstone", 
+                "rock15": "crimstone", 
+                "rock16": "crimstone", 
+                "rock17": "crimstone", 
+                "rock18": "crimstone", 
+                "rock19": "crimstone", 
+                "rock20": "crimstone", 
+                "shadowblock": "crimstone", 
+                "grassyrock": "crimstone",
+                "biorock": "crimstone", 
+                "biorock2": "crimstone",
+                "rockbrick": "crimstone",
+                "sand": "crimsand",
+                "ash": "crimsand",
+                "sewage": "crimsand",
+                "bonematerial": "crimsand",
+                "eyepiles": "crimsand",
+                "gravel": "crimsand",
+                "jellyblock": "crimsand",
+                "slime": "crimsand",
+                "stonerubble": "crimsand",
+                "sand2": "crimsand2",
+                "drysand": "crimsand2",
+                "moondust": "crimsand2",
+                "sandstone01": "crimsandstone",
+                "moonstone": "crimsandstone",
+                "ice": "redice"
+            },
+            "mod": {
+                "aliengrass": "crimsongrass",
+                "alpinegrass": "crimsongrass",
+                "aridgrass": "crimsongrass",
+                "charredgrass": "crimsongrass",
+                "colourfulgrass": "crimsongrass",
+                "crystalgrass": "crimsongrass",
+                "fleshgrass": "crimsongrass",
+                "flowerygrass": "crimsongrass",
+                "hivegrass": "crimsongrass",
+                "junglegrass": "crimsongrass",
+                "savannahgrass": "crimsongrass",
+                "slimegrass": "crimsongrass",
+                "snowygrass": "crimsongrass",
+                "tentaclegrass": "crimsongrass",
+                "toxicgrass": "crimsongrass",
+                "thickgrass": "crimsongrass",
+                "tilled": "crimsongrass",
+                "tilleddry": "crimsongrass",
+                "grass": "crimsongrass",
+                "sand": "crimsongrass"
+            },
+            "liquid": {
+                "water": "crimsonwater"
+            }
+        },
+        "spreadOverrides": {
+            "material": {},
+            "mod": {}
+        },
+        "matSpreadRange": 4,
+        "matSpreadChance": 0.1,
+        "matSpreadTries": 2,
+        "modSpreadChance": 1,
+        "modSpreadTries": 10,
+        "modSpreadRange": 8,
+        "musicPriority": 5,
+        "musicBlocks": 5,
+        "musicDis": 25,
+        "monsterBlocks": 5,
+        "monsterLimit": 50,
+        "monsters": {
+            "crimera": {
+                "chance": 0.1
+            }
+        }
+    }}
+]

@@ -1,0 +1,21 @@
+{
+  "materialId" : 50504,
+  "materialName" : "ebonsandstone",
+  "particleColor" : [98, 75, 107, 255],
+  "itemDrop" : "ebonsandstonematerial",
+  "description" : "Sandstone, but corrupt.",
+  "shortdescription" : "Ebonsandstone",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ebonsandstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1850
+  }
+}

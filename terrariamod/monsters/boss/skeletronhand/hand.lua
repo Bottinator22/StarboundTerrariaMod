@@ -29,7 +29,7 @@ self.children = {}
   self.outOfSight = {}
   self.phase = "default" -- default, sweep
   self.phaseTime = config.getParameter("phaseTime", 0)
-  self.maxSpeed = 25
+  self.maxSpeed = 30
   self.notifications = {}
   self.ownerId = config.getParameter("ownerId")
   self.approachSpeed = 1
@@ -61,6 +61,8 @@ self.children = {}
   if config.getParameter("deathParticles") then
     monster.setDeathParticleBurst(config.getParameter("deathParticles"))
   end
+  
+  monster.setAggressive(true)
 
   script.setUpdateDelta(config.getParameter("initialScriptDelta", 1))
   mcontroller.setAutoClearControls(false)
@@ -115,6 +117,7 @@ function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
   end
+  monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 
@@ -133,64 +136,9 @@ function update(dt)
     animator.setAnimationState("damage", "none")
   end
 
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
-    end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
-  end
-
-  if self.behaviorTick >= self.behaviorTickRate then
-    self.behaviorTick = self.behaviorTick - self.behaviorTickRate
-    mcontroller.clearControls()
-
-    self.tradingEnabled = false
-    self.setFacingDirection = false
-    self.moving = false
-    self.rotated = false
-    self.forceRegions:clear()
-    self.damageSources:clear()
-    self.damageParts = {}
-    clearAnimation()
-
-    if self.behavior then
-      local board = self.behavior:blackboard()
-      board:setEntity("self", entity.id())
-      board:setPosition("self", mcontroller.position())
-      board:setNumber("dt", dt * self.behaviorTickRate)
-      board:setNumber("facingDirection", self.facingDirection or mcontroller.facingDirection())
-
-      self.behavior:run(dt * self.behaviorTickRate)
-    end
-    BGroup:updateGroups()
-
-    updateAnimation()
-
-    if not self.rotated and self.rotation then
-      mcontroller.setRotation(0)
-      animator.resetTransformationGroup(self.rotationGroup)
-      self.rotation = nil
-      self.rotationGroup = nil
-    end
-
-    self.interacted = false
-    self.damaged = false
-    self.stunned = false
-    self.notifications = {}
-
-    setDamageSources()
-    setPhysicsForces()
-    monster.setDamageParts(self.damageParts)
-    overrideCollisionPoly()
-  end
+  monster.setDamageOnTouch(true)
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -210,16 +158,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -336,7 +277,7 @@ end
 function defaultMove()
     self.targetPos = world.entityPosition(self.targetId)
     self.targetPos[1] = self.targetPos[1] + self.offset
-    self.approachSpeed = 1.5
+    self.approachSpeed = 1
 end
 function raiseMove()
     self.targetPos = world.entityPosition(self.ownerId)
@@ -344,10 +285,16 @@ function raiseMove()
     self.targetPos[2] = self.targetPos[2] + 10
     self.approachSpeed = 1.5
 end
+function backMove()
+    self.targetPos = world.entityPosition(self.targetId)
+    self.targetPos[1] = self.targetPos[1] + (self.offset * 1.2)
+    self.targetPos[2] = self.targetPos[2] + 8
+    self.approachSpeed = 5
+end
 function sweepMove()
     self.targetPos = world.entityPosition(self.targetId)
-    self.targetPos[1] = self.targetPos[1] + (self.offset * -1)
-    self.approachSpeed = 3.5
+    self.targetPos[1] = self.targetPos[1] + (self.offset * -0.5)
+    self.approachSpeed = 7
 end
 function move()
     if not world.entityExists(self.ownerId) then
@@ -365,19 +312,28 @@ function move()
     self.phaseTime = self.phaseTime + 1
   if self.phaseTime > 300 then
         if self.phase == "default" then
-            self.phase = "charge"
+            self.phase = "preparecharge"
             self.phaseTime = 0
         end
   end
-  if self.phaseTime > 50 then
+  if self.phaseTime > 45 then
         if self.phase == "charge" then
             self.phase = "default"
+            self.phaseTime = 0
+        end
+    end
+    if self.phaseTime > 25 then
+        if self.phase == "preparecharge" then
+            self.phase = "charge"
             self.phaseTime = 0
         end
     end
     if self.ownerPhase == "default" then
     if self.phase == "charge" then
             sweepMove()
+    end
+    if self.phase == "preparecharge" then
+            backMove()
     end
     if self.phase == "default" then
             defaultMove()
@@ -389,9 +345,12 @@ function move()
     local dir = vec2.angle(world.distance(self.targetPos, mcontroller.position()))
     local approach = {math.cos(dir), math.sin(dir)}
     local toTarget = vec2.mul(approach,self.approachSpeed)
-    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.95), toTarget))
+    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.99), toTarget))
     if world.magnitude(mcontroller.velocity(), {0, 0}) > self.maxSpeed then
-        mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), 0.9))
+      local angle = vec2.angle(world.distance(mcontroller.velocity(), {0, 0}))
+      local approach = {math.cos(angle), math.sin(angle)}
+      local new = vec2.mul(approach, self.maxSpeed)
+      mcontroller.setVelocity(new)
     end
     animator.resetTransformationGroup("body")
     animator.rotateTransformationGroup("body", mcontroller.rotation())

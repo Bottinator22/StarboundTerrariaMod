@@ -1,0 +1,185 @@
+{
+  "type" : "giantfungibulb",
+  "shortdescription" : "Giant Fungi Bulb",
+  "description" : "When the glowing fungus is ready to spread, these bulbs will sprout to spread its spores to other locations and hosts.",
+
+  "categories" : [ "giantfungibulb" ],
+  "parts" : [ "body" ],
+
+  "animation" : "giantfungibulb.animation",
+
+  "dropPools" : [],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/plants/giantfungibulb/plant.lua"
+    ],
+    
+    "animationScripts" : [
+      "/scripts/terra_chain.lua"
+    ],
+
+    "chains" : [
+      {
+        "segmentImage" : "/monsters/plants/giantfungibulb/chain.png",
+        "segmentSize" : 0.75,
+        "renderLayer" : "ForegroundEntity-1",
+        "fullbright" : false,
+        "sourcePart" : "beam",
+        "endPart" : "beam",
+        "jitter" : 0.0,
+        "waveform" : {
+          "movement" : 0.0,
+          "amplitude" : 0.0,
+          "frequency" : 1.0
+        }
+      }
+    ],
+    "renderLayer" : "ForegroundEntity",
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+    
+    "restrainWeakness": 20,
+    "speed": 2,
+    "maxSpeed": 15,
+    
+    "restrainShiftLimit": 7,
+    "restrainShiftInfrequency": 100,
+
+    "facingMode" : "transformation",
+
+    "seeThroughLiquid" : true,
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 50,
+      "targetOnDamage" : true,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 100,
+      "targetOutOfSightTime" : 10.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+      ],
+
+      "approachActions" : [
+      ]
+    },
+
+    "touchDamage" : {
+      "poly" : [ [1, 1], [1, -1], [-1, -1], [-1, 1] ]	,
+      "damage" : 5,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 0,
+      "statusEffects" : [ ]
+    },
+
+    "metaBoundBox" : [-4, -4, 4, 4],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [2, 2],[2, -2],[-2, -2],[-2, 2] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "organic",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "organic"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/monster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 1
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 100
+        },
+        "protection" : {
+          "baseValue" : 0.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 0.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 0.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 0.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false,
+    "captureHealthFraction" : 0.5
+  }
+}

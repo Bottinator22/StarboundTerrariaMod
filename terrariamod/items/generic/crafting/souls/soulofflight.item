@@ -1,0 +1,11 @@
+{
+  "itemName" : "soulofflight",
+  "tooltipKind" : "terraria_small",
+  "price" : 500,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "soulofflight.png",
+  "description" : "The essence of powerful flying creatures.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Flight",
+  "itemTags" : [ "reagent" ]
+}

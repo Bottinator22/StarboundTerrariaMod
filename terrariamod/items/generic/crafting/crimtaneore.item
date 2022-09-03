@@ -1,0 +1,12 @@
+{
+  "itemName" : "crimtaneore",
+  "tooltipKind" : "terraria_small",
+  "price" : 250,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "crimtaneore.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Crimtane Ore",
+  "itemTags" : [ "reagent" ],
+  "radioMessagesOnPickup" : [ "pickupore" ]
+}

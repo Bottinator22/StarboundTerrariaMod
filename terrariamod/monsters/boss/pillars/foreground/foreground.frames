@@ -1,0 +1,10 @@
+{
+  "frameGrid" : {
+    "size" : [200, 200],
+    "dimensions" : [2, 2],
+    "names": [
+        ["stardust", "vortex"],
+        ["nebula", "solar"]
+    ]
+  }
+}

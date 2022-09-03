@@ -1,0 +1,160 @@
+{
+  "type" : "eaterbossmanager",
+  "shortdescription" : "Eater of Worlds",
+  "description" : "Conceived from the bottomless malice of the Corruption, this mighty abyssal worm tunnels wildly to devour all in its path.",
+
+  "categories" : [ "eaterbossmanager" ],
+  "parts" : [ "body" ],
+
+  "animation" : "manager.animation",
+
+  "dropPools" : ["eaterofworlds"],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/boss/eaterboss/manager.lua"
+    ],
+    
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+    "music": "/music/terrariaboss1.ogg",
+
+    "facingMode" : "transformation",
+
+    "seeThroughLiquid" : true,
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 0,
+      "targetOnDamage" : false,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 0,
+      "targetOutOfSightTime" : 0.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+      ],
+
+      "approachActions" : [
+      ]
+    },
+
+    "touchDamage" : {
+      "poly" : [ [0, 0], [0, 0], [0, 0], [0, 0] ]	,
+      "damage" : 0,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 0,
+      "statusEffects" : [ ]
+    },
+
+    "metaBoundBox" : [-4, -4, 4, 4],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [3, 6.0], [6.0, 3], [6.0, -3], [3, -6.0], [-3, -6.0], [-6.0, -3], [-6, 3], [-3, 6.0] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "organic",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "organic"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/spacemonster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 0.8
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 500
+        },
+        "protection" : {
+          "baseValue" : 100.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "invulnerable": {
+            "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false
+  }
+}

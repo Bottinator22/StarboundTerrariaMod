@@ -9,9 +9,13 @@ require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/actions/terra_spawnLeveled.lua"
+require "/scripts/actions/terra_rotateUtil.lua"
 function spawnArm()
     local ownerId = entity.id()
     local armId = world.spawnMonster("skeletronprimearm", mcontroller.position(), { level = monster.level(), ownerId = ownerId, headId = self.ownerId, offset = {self.offset, 50} })
+    world.sendEntityMessage(armId, "damageTeam", entity.damageTeam())
+    self.armId = armId
     table.insert(self.children, armId)
 end
 -- Engine callback - called on initialization of entity
@@ -33,6 +37,7 @@ self.children = {}
   self.phaseTime = config.getParameter("phaseTime", 0)
   self.maxSpeed = 25
   self.notifications = {}
+  self.armId = nil
   self.ownerId = config.getParameter("ownerId")
   self.approachSpeed = 1
   message.setHandler("phase", function (_, _, phase)
@@ -56,6 +61,8 @@ self.children = {}
   self.board:setPosition("spawn", storage.spawnPosition)
 
   self.collisionPoly = mcontroller.collisionPoly()
+  
+  monster.setAggressive(true)
 
   if animator.hasSound("deathPuff") then
     monster.setDeathSound("deathPuff")
@@ -97,6 +104,12 @@ self.children = {}
       self.shouldDie = true
       status.addEphemeralEffect("monsterdespawn")
     end)
+  message.setHandler("damageTeam", function(_,_,team)
+        monster.setDamageTeam(team)
+        if self.armId then
+            world.sendEntityMessage(self.armId, "damageTeam", entity.damageTeam())
+        end
+  end)
 
   local deathBehavior = config.getParameter("deathBehavior")
   if deathBehavior then
@@ -117,6 +130,7 @@ function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
   end
+  monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 
@@ -135,18 +149,7 @@ function update(dt)
     animator.setAnimationState("damage", "none")
   end
 
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
-    end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
-  end
+  monster.setDamageOnTouch(true)
 
   if self.behaviorTick >= self.behaviorTickRate then
     self.behaviorTick = self.behaviorTick - self.behaviorTickRate
@@ -192,7 +195,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -212,16 +215,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -344,6 +340,7 @@ function defaultMove()
 end
 function rage()
     self.shootingTarget = world.entityPosition(self.targetId)
+    self.phaseTime = self.phaseTime + 2.5
 end
 function shoot()
     if self.noShoot then
@@ -354,18 +351,21 @@ function shoot()
     local dir = vec2.angle(world.distance(self.shootingTarget, mcontroller.position()))
     local approach = {math.cos(dir), math.sin(dir)}
     local toTarget = vec2.mul(approach,25)
-    world.spawnProjectile("primebomb", mcontroller.position(), entity.id(), toTarget)
+    spawnLeveled.spawnProjectile("primebomb", mcontroller.position(), entity.id(), toTarget, false, {level=monster.level(), power=25})
 end
 function move()
+    local following = false
     if not world.entityExists(self.ownerId) then
         status.setResourcePercentage("health", 0)
         return
     end
+    local ownerPos = world.entityPosition(self.ownerId)
     if self.targetId == nil then
-        self.targetPos = {mcontroller.xPosition(), 0}
+        self.targetPos = ownerPos
+        following = true
     else
     self.phaseTime = self.phaseTime + 1
-  if self.phaseTime > 100 then
+  if self.phaseTime > 140 then
         if self.phase == "default" then
             self.phase = "charge"
             self.phaseTime = 0
@@ -381,7 +381,10 @@ function move()
     if self.ownerPhase == "charge" then
         rage()
     end
-    mcontroller.setRotation(vec2.angle(world.distance(self.shootingTarget, mcontroller.position())))
+    local targetDir = vec2.angle(world.distance(self.shootingTarget, mcontroller.position()))
+    local myDir = mcontroller.rotation()
+    local diff = rotateUtil.getRelativeAngle(targetDir, myDir)
+    mcontroller.setRotation(rotateUtil.slowRotate(myDir, diff, 0.1))
     if self.phase == "charge" then
             shoot()
     end
@@ -389,10 +392,17 @@ function move()
             defaultMove()
     end
     end
+    local decel = 0.99
     local dir = vec2.angle(world.distance(self.targetPos, mcontroller.position()))
     local approach = {math.cos(dir), math.sin(dir)}
     local toTarget = vec2.mul(approach,self.approachSpeed)
-    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.95), toTarget))
+    if following then
+        if world.magnitude(self.targetPos, mcontroller.position()) < 10 then
+            toTarget = {0, 0}
+            decel = 0.8
+        end
+    end
+    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), decel), toTarget))
     if world.magnitude(mcontroller.velocity(), {0, 0}) > self.maxSpeed then
         mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), 0.9))
     end

@@ -1,0 +1,9 @@
+{
+  "name" : "wallofflesh",
+  "category" : "wallofflesh",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "mouth.png"
+  }
+}

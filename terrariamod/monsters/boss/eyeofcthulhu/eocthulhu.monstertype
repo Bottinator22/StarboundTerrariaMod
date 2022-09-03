@@ -1,7 +1,7 @@
 {
   "type" : "eocthulhu",
   "shortdescription" : "Eye of Cthulhu",
-  "description" : "Description pending",
+  "description" : "A piece of Cthulhu ripped from his body centuries ago in a bloody war. It wanders the night seeking its host body... and revenge!",
 
   "categories" : [ "eocthulhu" ],
   "parts" : [ "body" ],
@@ -48,7 +48,7 @@
 
     "touchDamage" : {
       "poly" : [ [3, 3.0], [6.0, 1.5], [6.0, -1.5], [3, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
-      "damage" : 50,
+      "damage" : 10,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -106,7 +106,7 @@
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -115,7 +115,7 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 1000
+          "baseValue" : 750
         },
         "protection" : {
           "baseValue" : -1.0

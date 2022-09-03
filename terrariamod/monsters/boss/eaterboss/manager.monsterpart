@@ -1,0 +1,9 @@
+{
+  "name" : "eaterbossmanager",
+  "category" : "eaterbossmanager",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "manager.png"
+  }
+}

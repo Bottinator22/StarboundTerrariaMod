@@ -1,0 +1,14 @@
+1.0 - Release
+1.1 - The Destroyer now uses the new method from TerraLib 
+(Destroyer is the only worm that doesn't use TerraLib by default, it was the first worm I ever made, created before TerraLib,
+and it's been optimised as well due to its large size, so TerraLib updates won't immediately apply to it)
+1.2 - Worm heads are now layered above their body segments. This makes them look less weird at times.
+Also, minor bugfixes that I likely forgot. (or they don't exist)
+1.2.1 - Nerfed some of the naturally spawning worms.
+1.3 - Added Plantera (summoned by breaking Plantera's Bulbs, which now naturally generate relatively rarely in Jungle biomes), boss projectiles are now set up to be leveled, removed friendly variant of Destroyer,
+Destroyer now supports capturing (though you must manually set capturable to true), nerfed some of the boss's HP. Ported a few more worms, added some files for some other worms. Improved the AI of the bosses as well. Plantera supports capturing as well, in the same way as The Destroyer.
+1.4 - Bosses are beatable. Skeletron Prime now supports capturing in the same way as Plantera, changed how Plantera is restrained by its hooks, added the Crawltipede, Milkyway Weaver, Giant Worm, Leech, and Wyvern. The Wyvern spawns in the atmosphere minibiome, which is the area high up in planets. Added Hallowed Armour (fully functional, but not craftable, although, currently, it's just a slight recolour of the Soldier's set, cause I can't make sprites...). Added the Man Eater and Snatcher.
+1.4.1 - Massive optimisation of The Destroyer.
+1.5 - Various graphical and behavioural improvements. Added the Wall of Flesh, the Phantasmal Dragon, and healing potions. 
+1.6 - Redid the Eater of Worlds and added the Brain of Cthulhu. Also, bosses behave a bit more like they do in Terraria.
+1.7 - Added summon items for the Eater of Worlds and the Brain of Cthulhu. Added the Lunatic Cultist and Moon Lord; they are functionally mostly complete and playable, but graphically incomplete, as they still don't have some effects. More minor fixes and balance changes that I may have forgotten about. Hallowed Armour is also craftable now, but I still need a better sprite.

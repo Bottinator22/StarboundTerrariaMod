@@ -1,7 +1,7 @@
 {
   "type" : "boneserpenttail",
   "shortdescription" : "Bone Serpent",
-  "description" : "A bony serpent, slithering around the underworld.",
+  "description" : "Mighty serpentine dragons once ruled hell, but long ago shed their obsidian scales. A skeletal husk is all that remains.",
 
   "categories" : [ "boneserpenttail" ],
   "parts" : [ "body" ],
@@ -12,9 +12,9 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormtail.lua"
+      "/scripts/terra_wormtail.lua"
     ],
-    "segmentSize": 1.0,
+    "segmentSize": 1.2,
     "behavior" : "monster",
     "deathBehavior" : "monster-death",
 
@@ -47,7 +47,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 20,
+      "damage" : 2,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -84,9 +84,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -100,7 +97,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 

@@ -1,0 +1,17 @@
+{
+  "projectileName" : "planterathornball",
+  "physics" : "spikyball",
+  "piercing": true,
+  "bounces" : -1,
+  "timeToLive": 250,
+  "image" : "thornball.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 20,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 5,
+  "emitters" : [ ],
+  "fullbright" : false,
+  "damageKind" : "default",
+  "lightColor" : [0, 0, 0]
+}

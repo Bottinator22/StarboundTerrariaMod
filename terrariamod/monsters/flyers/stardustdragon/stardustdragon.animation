@@ -9,11 +9,6 @@
             "frames" : 1,
             "cycle" : 1,
             "mode" : "loop"
-          },
-          "flipped" : {
-            "frames" : 1,
-            "cycle" : 1,
-            "mode" : "loop"
           }
         }
       },
@@ -55,20 +50,15 @@
       "body" : {
         "properties" : {
           "zLevel" : 10,
-          "transformationGroups" : [ "body" ],
+          "transformationGroups" : [ "flip", "body" ],
           "offset" : [0.0, 0.0],
-          "fullbright" : true
+          "fullbright": true
         },
         "partStates" : {
           "body" : {
             "idle" : {
               "properties" : {
                 "image" : "<partImage>:idle.<frame>"
-              }
-            },
-            "flipped" : {
-              "properties" : {
-                "image" : "<partImage>:flipped.<frame>"
               }
             }
           },
@@ -88,7 +78,7 @@
 
   "transformationGroups" : {
     "body" : { "interpolated" : true },
-    "facing" : { "interpolated" : false }
+    "flip" : { "interpolated" : false }
   },
 
   "effects" : {

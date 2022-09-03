@@ -28,6 +28,26 @@
             "frames" : 1
           }
         }
+      },
+      "releaseParticles" : {
+        "default" : "off",
+        "states" : {
+          "off" : {
+            "frames" : 1,
+            "properties" : {
+              "particleEmittersOff" : [ "releaseParticles" ]
+            }
+          },
+          "on" : {
+            "frames" : 1,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "off",
+            "properties" : {
+              "particleEmittersOn" : [ "releaseParticles" ]
+            }
+          }
+        }
       }
     },
 
@@ -52,11 +72,6 @@
             }
           },
           "damage" : {
-            "stunned" : {
-              "properties" : {
-                "image" : "<partImage>:idle.<frame>"
-              }
-            }
           }
         }
       },
@@ -80,11 +95,6 @@
             }
           },
           "damage" : {
-            "stunned" : {
-              "properties" : {
-                "image" : "<partImage>:idle.<frame>"
-              }
-            }
           }
         }
       }
@@ -97,6 +107,14 @@
     "body" : { "interpolated" : true },
     "facing" : { "interpolated" : false }
   },
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [128, 0, 0],
+      "pointLight" : true
+    }
+  },
 
   "effects" : {
     "blink" : {
@@ -107,6 +125,32 @@
   },
 
   "particleEmitters" : {
+    "captureParticles" : {
+      "particles" : [
+        { "particle" : "monstercapture" }
+      ]
+    },
+    "releaseParticles" : {
+      "particles" : [
+        { "particle" : "monsterrelease" }
+      ]
+    },
+    "teleportOut" : {
+      "particles" : [
+        { "particle" : "monstercapture" }
+      ]
+    },
+    "teleportIn" : {
+      "particles" : [
+        { "particle" : "monsterrelease" }
+      ]
+    },
+
+    "levelUp" : {
+      "particles" : [
+        { "particle" : "monsterlevelup" }
+      ]
+    },
     "deathPoof" : {
       "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
       "burstCount" : 5,
@@ -116,6 +160,7 @@
 
   "sounds" : {
     "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
-    "deathPuff" : [ "/sfx/npc/explode.ogg" ]
+    "deathPuff" : [ "/sfx/npc/explode.ogg" ],
+    "roar": ["/sfx/npc/boss_summon.ogg"]
   }
 }

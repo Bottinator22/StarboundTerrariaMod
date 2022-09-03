@@ -1,0 +1,10 @@
+{
+  "name" : "moonlordarm",
+  "category" : "moonlordarm",
+  "type" : "arm",
+
+  "frames" : {
+    "armlower" : "armlower.png",
+    "armupper" : "armupper.png"
+  }
+}

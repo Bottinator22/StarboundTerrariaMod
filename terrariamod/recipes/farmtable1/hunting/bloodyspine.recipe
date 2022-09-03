@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "bone", "count" : 6 }
+  ],
+  "output" : { "item" : "bloodyspine", "count" : 1},
+  "groups" : [ "craftingfarm", "hunting" ]
+}

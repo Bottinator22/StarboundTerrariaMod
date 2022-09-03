@@ -1,6 +1,3 @@
-require "/scripts/behavior.lua"
-require "/scripts/pathing.lua"
-require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/poly.lua"
 require "/scripts/drops.lua"
@@ -9,10 +6,34 @@ require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/actions/terra_spawnLeveled.lua"
+require "/scripts/actions/terra_rotateUtil.lua"
 
 -- Engine callback - called on initialization of entity
 function init()
-  self.pathing = {}
+    self.pathing = {}
+    fireTime = math.random(0, 250)
+    ownerId = config.getParameter("ownerId")
+  targetId = nil
+  targetPos = mcontroller.position()
+  queryRange = 100
+  keepTargetInRange = 250
+  targets = {}
+    outOfSight = {}
+targetCheckTPS = 3
+targetCheckTime = 0
+orbitDis = math.random() * 10 + 10
+orbitDir = 0
+orbitDirDir = (math.random() - 0.5) * 0.1
+if orbitDirDir < 0.025 and orbitDirDir > -0.025 then
+    if orbitDirDir > 0 then
+        orbitDirDir = 0.03
+    else
+        orbitDirDir = -0.03
+    end
+end
+maxSpeed = 50
+monster.setAggressive(true)
 
   self.shouldDie = true
   self.notifications = {}
@@ -25,7 +46,9 @@ function init()
     end
     storage.spawnPosition = groundSpawnPosition or position
   end
-
+  message.setHandler("damageTeam", function(_,_,team)
+        monster.setDamageTeam(team)
+  end)
   self.behavior = behavior.behavior(config.getParameter("behavior"), sb.jsonMerge(config.getParameter("behaviorConfig", {}), skillBehaviorConfig()), _ENV)
   self.board = self.behavior:blackboard()
   self.board:setPosition("spawn", storage.spawnPosition)
@@ -50,7 +73,7 @@ function init()
   capturable.init()
 
   -- Listen to damage taken
-  self.damageTaken = damageListener("damageTaken", function(notifications)
+  damageTaken = damageListener("damageTaken", function(notifications)
     for _,notification in pairs(notifications) do
       if notification.healthLost > 0 then
         self.damaged = true
@@ -89,89 +112,126 @@ function init()
   monster.setInteractive(config.getParameter("interactive", false))
 
   monster.setAnimationParameter("chains", config.getParameter("chains"))
-end
-
-function update(dt)
-  if config.getParameter("facingMode", "control") == "transformation" then
-    mcontroller.controlFace(1)
-  end
   
-  capturable.update(dt)
-  self.damageTaken:update()
-
-  if status.resourcePositive("stunned") then
-    animator.setAnimationState("damage", "stunned")
-    animator.setGlobalTag("hurt", "hurt")
-    self.stunned = true
-    mcontroller.clearControls()
-    if self.damaged then
-      self.suppressDamageTimer = config.getParameter("stunDamageSuppression", 0.5)
-      monster.setDamageOnTouch(false)
+  mcontroller.controlFace(1)
+  monster.setDamageOnTouch(true)
+end
+function targeting()
+    targetCheckTime = targetCheckTime + 1  
+    if targetCheckTime >= targetCheckTPS - 1 then
+        
+    if #targets == 0 then
+    local newTargets = world.entityQuery(mcontroller.position(), queryRange, {includedTypes = {"player","npc","monster"}})
+    table.sort(newTargets, function(a, b)
+      return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
+    end)
+    for _,entityId in pairs(newTargets) do
+      if entity.isValidTarget(entityId) then
+        table.insert(targets, entityId)
+      end
     end
-    return
-  else
-    animator.setGlobalTag("hurt", "")
-    animator.setAnimationState("damage", "none")
   end
-
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
+repeat
+    targetId = targets[1]
+    local testTargetId = targetId
+    if testTargetId == nil then break end
+    -- {math.floor(mcontroller.position()[1]+0.5), math.floor(mcontroller.position()[2]+0.5)}
+    if not world.entityExists(testTargetId)
+       or world.magnitude(world.entityPosition(testTargetId), mcontroller.position()) > keepTargetInRange then
+      table.remove(targets, 1)
+      testTargetId = nil
     end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
+    if not testTargetId or not entity.isValidTarget(testTargetId) then
+        table.remove(targets, 1)
+        testTargetId = nil
+    end
+
+    if not testTargetId then
+      outOfSight[targetId] = nil
+    end
+    targetId = testTargetId
+  until #targets <= 0 or targetId
+    targetCheckTime = 0
   end
-
-  if self.behaviorTick >= self.behaviorTickRate then
-    self.behaviorTick = self.behaviorTick - self.behaviorTickRate
-    mcontroller.clearControls()
-
-    self.tradingEnabled = false
-    self.setFacingDirection = false
-    self.moving = false
-    self.rotated = false
-    self.forceRegions:clear()
-    self.damageSources:clear()
-    self.damageParts = {}
-    clearAnimation()
-
-    if self.behavior then
-      local board = self.behavior:blackboard()
-      board:setEntity("self", entity.id())
-      board:setPosition("self", mcontroller.position())
-      board:setNumber("dt", dt * self.behaviorTickRate)
-      board:setNumber("facingDirection", self.facingDirection or mcontroller.facingDirection())
-
-      self.behavior:run(dt * self.behaviorTickRate)
+end
+function firing()
+    if not targetId then
+        --followMove()
+        return
     end
-    BGroup:updateGroups()
-
-    updateAnimation()
-
-    if not self.rotated and self.rotation then
-      mcontroller.setRotation(0)
-      animator.resetTransformationGroup(self.rotationGroup)
-      self.rotation = nil
-      self.rotationGroup = nil
+    if not world.entityExists(targetId) then
+        return
     end
-
-    self.interacted = false
-    self.damaged = false
-    self.stunned = false
-    self.notifications = {}
-
-    setDamageSources()
-    setPhysicsForces()
-    monster.setDamageParts(self.damageParts)
-    overrideCollisionPoly()
-  end
-  self.behaviorTick = self.behaviorTick + 1
-  --world.spawnMonster("probetrail", mcontroller.position(), {rotation = mcontroller.rotation()})
+    --local targetPosition = world.entityPosition(targetId)
+    --if targetPosition then
+    --    world.debugLine(mcontroller.position(), targetPosition, "red") -- boss -> target red line
+    --end
+    fireTime = fireTime - 1
+    if fireTime <= 0 then
+        if not status.resourcePositive("stunned") then
+            if not world.lineTileCollision(mcontroller.position(), world.entityPosition(targetId), {"Block", "Dynamic", "Slippery"}) then -- trying to shoot target will fail (projectile hits block), so don't shoot
+                animator.playSound("fire")
+                local dir = vec2.angle(world.distance(world.entityPosition(targetId), mcontroller.position()))
+                local approach = {math.cos(dir), math.sin(dir)}
+                local toTarget = vec2.mul(approach,1)
+                spawnLeveled.spawnProjectile("pinklaser", mcontroller.position(), entity.id(), toTarget, false, {level=monster.level(),power=8})
+                fireTime = 250
+            else
+                fireTime = 10
+            end
+        else
+            fireTime = 250
+        end
+    end
+    move()
+end
+function update(dt)
+  
+  damageTaken:update()
+  
+  targeting()
+  firing()
+  animator.setLightActive("glow", not world.pointTileCollision({math.floor(mcontroller.xPosition()+0.5), math.floor(mcontroller.yPosition()+0.5)}, {"Block"}))
+end
+function move()
+    orbitDir = orbitDir + orbitDirDir
+    local directTargetPos = world.entityPosition(targetId)
+    if world.magnitude(mcontroller.position(), directTargetPos) > orbitDis + 5 then
+        orbitDir = vec2.angle(world.distance(mcontroller.position(), directTargetPos))
+    end
+    targetPos = vec2.add(vec2.mul({math.cos(orbitDir), math.sin(orbitDir)},orbitDis), directTargetPos)
+    
+    local dir = vec2.angle(world.distance(targetPos, mcontroller.position()))
+    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.99), vec2.mul({math.cos(dir), math.sin(dir)},0.75)))
+    if world.magnitude(mcontroller.velocity(), {0, 0}) > maxSpeed then
+      local angle = vec2.angle(world.distance(mcontroller.velocity(), {0, 0}))
+      mcontroller.setVelocity(vec2.mul({math.cos(angle), math.sin(angle)}, maxSpeed))
+    end
+    local myDir = mcontroller.rotation()
+    mcontroller.setRotation(rotateUtil.slowRotate(myDir, rotateUtil.getRelativeAngle(vec2.angle(world.distance(directTargetPos, mcontroller.position())), myDir), 0.25))
+    animator.resetTransformationGroup("body")
+    animator.rotateTransformationGroup("body", mcontroller.rotation())
+end
+function followMove()
+    if not ownerId then
+        return
+    end
+    if not world.entityExists(ownerId) then
+        return
+    end
+    orbitDir = orbitDir + orbitDirDir
+    local directTargetPos = world.entityPosition(ownerId)
+    if world.magnitude(mcontroller.position(), directTargetPos) > 10 then
+        orbitDir = vec2.angle(world.distance(mcontroller.position(), directTargetPos))
+    end
+    targetPos = vec2.add(vec2.mul({math.cos(orbitDir), math.sin(orbitDir)},5), directTargetPos)
+    
+    local dir = vec2.angle(world.distance(targetPos, mcontroller.position()))
+    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.99), vec2.mul({math.cos(dir), math.sin(dir)},0.75)))
+    if world.magnitude(mcontroller.velocity(), {0, 0}) > maxSpeed then
+      local angle = vec2.angle(world.distance(mcontroller.velocity(), {0, 0}))
+      mcontroller.setVelocity(vec2.mul({math.cos(angle), math.sin(angle)}, maxSpeed))
+    end
 end
 
 function skillBehaviorConfig()
@@ -199,13 +259,6 @@ function shouldDie()
 end
 
 function die()
-  if not capturable.justCaptured then
-    if self.deathBehavior then
-      self.deathBehavior:run(script.updateDt())
-    end
-    capturable.die()
-  end
-  spawnDrops()
 end
 
 function uninit()

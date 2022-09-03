@@ -1,0 +1,11 @@
+{
+  "itemName" : "vortexfragment",
+  "tooltipKind" : "terraria_small",
+  "price" : 2500,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "vortexfragment.png",
+  "description" : "Swirling energies emanate from this fragment.\n^gray;Material^reset;",
+  "shortdescription" : "Vortex Fragment",
+  "itemTags" : [ "reagent" ]
+}

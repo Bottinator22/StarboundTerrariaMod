@@ -1,0 +1,81 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body": {
+        "priority": 0,
+        "default": "stardust",
+        "states": {
+            "stardust": {},
+            "vortex": {},
+            "nebula": {},
+            "solar": {}
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 10,
+          "fullbright": true,
+          "transformationGroups" : [ "scale", "body" ],
+          "offset" : [0.0, 0.0]
+        },
+        "partStates" : {
+            "body": {
+                "stardust": {
+                    "properties" : {
+                        "image": "<partImage>:stardust?multiply=FFFFFF10"
+                    }
+                },
+                "vortex": {
+                    "properties" : {
+                        "image": "<partImage>:vortex?multiply=FFFFFF10"
+                    }
+                },
+                "nebula": {
+                    "properties" : {
+                        "image": "<partImage>:nebula?multiply=FFFFFF10"
+                    }
+                },
+                "solar": {
+                    "properties" : {
+                        "image": "<partImage>:solar?multiply=FFFFFF10"
+                    }
+                }
+            }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "scale": { "interpolated" : true },
+    "body": { "interpolated" : true },
+    "flip" : {"interpolated": false},
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ]
+  }
+}

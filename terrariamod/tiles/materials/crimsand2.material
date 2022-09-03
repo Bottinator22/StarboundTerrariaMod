@@ -1,0 +1,21 @@
+{
+  "materialId" : 50507,
+  "materialName" : "crimsand2",
+  "particleColor" : [89, 84, 75, 255],
+  "itemDrop" : "crimsand",
+  "description" : "Crimson sand.",
+  "shortdescription" : "Hardened Crimsand",
+  "footstepSound" : "/sfx/blocks/footstep_sand2.ogg",
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crimsand2.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1830
+  }
+}

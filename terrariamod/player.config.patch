@@ -3,5 +3,12 @@
 {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"mechskull"} },
 {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"mecheye"} },
 {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"sleye"} },
-{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"voodoodollclothier"} }
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"voodoodollclothier"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"bloodyspine"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"wormfood"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"celestialsigil"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"luminitebar"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"hallowedhead"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"hallowedchest"} },
+{"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"hallowedpants"} }
 ]

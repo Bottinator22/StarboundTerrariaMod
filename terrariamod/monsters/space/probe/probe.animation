@@ -150,6 +150,14 @@
       "directives" : "fade=ffffff;0.5"
     }
   },
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [128, 0, 0],
+      "pointLight" : true
+    }
+  },
 
   "particleEmitters" : {
     "deathPoof" : {

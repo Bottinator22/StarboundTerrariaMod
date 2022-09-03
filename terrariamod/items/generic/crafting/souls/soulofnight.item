@@ -1,0 +1,11 @@
+{
+  "itemName" : "soulofnight",
+  "tooltipKind" : "terraria_small",
+  "price" : 250,
+  "rarity" : "Common",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "soulofnight.png",
+  "description" : "The essence of dark creatures.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Night",
+  "itemTags" : [ "reagent" ]
+}

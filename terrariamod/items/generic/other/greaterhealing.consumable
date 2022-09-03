@@ -1,0 +1,16 @@
+{
+  "itemName" : "terraria_greaterhealingpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "greaterhealing.png",
+  "rarity" : "Uncommon",
+  "shortdescription" : "^#d9b38f;Greater Healing Potion^reset;",
+  "description" : "Restores 150 life\n^gray;Consumable; Material^reset;",
+  "maxStack" : 30,
+  "price" : 5000,
+  "effects" : [["terraria_potionsickness",{"effect":"terraria_health+","duration":150}]],
+  "blockingEffects" : ["terraria_potionsickness"],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}//,"rarityLabel":"^#d9b38f;Orange^reset;"
+}

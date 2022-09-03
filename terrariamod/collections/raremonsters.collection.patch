@@ -1,0 +1,7 @@
+[
+    {"op":"add","path":"/collectables/dunesplicer","value":{
+      "order" : 58,
+      "monsterType" : "dunesplicerhead",
+      "icon" : "/monsters/crawlers/dunesplicer/head.png:idle.1"
+    }}
+]

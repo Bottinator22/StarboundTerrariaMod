@@ -1,0 +1,21 @@
+{
+  "materialId" : 50508,
+  "materialName" : "crimsandstone",
+  "particleColor" : [89, 84, 75, 255],
+  "itemDrop" : "crimsandstonematerial",
+  "description" : "Sandstone, but crimson.",
+  "shortdescription" : "Crimsandstone",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crimsandstone.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1850
+  }
+}

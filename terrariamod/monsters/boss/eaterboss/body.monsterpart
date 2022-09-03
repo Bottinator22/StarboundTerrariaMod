@@ -1,0 +1,9 @@
+{
+  "name" : "eaterbosssegment",
+  "category" : "eaterbosssegment",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

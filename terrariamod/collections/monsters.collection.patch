@@ -1,0 +1,7 @@
+[
+    {"op":"add","path":"/collectables/tombcrawler","value":{
+      "order" : 61,
+      "monsterType" : "tombcrawlerhead",
+      "icon" : "/monsters/crawlers/tombcrawler/head.png:idle.1"
+    }}
+]

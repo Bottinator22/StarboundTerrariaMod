@@ -4,6 +4,7 @@
   "type" : "body",
 
   "frames" : {
-    "body" : "hand.png"
+    "body" : "hand.png",
+    "bodyfullbright": "hand_fullbright.png"
   }
 }

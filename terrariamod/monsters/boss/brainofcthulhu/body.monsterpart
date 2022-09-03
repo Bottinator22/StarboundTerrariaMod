@@ -1,0 +1,9 @@
+{
+  "name" : "brainofcthulhu",
+  "category" : "brainofcthulhu",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

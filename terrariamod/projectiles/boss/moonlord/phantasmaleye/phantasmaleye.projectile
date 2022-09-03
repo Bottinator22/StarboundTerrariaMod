@@ -1,0 +1,29 @@
+{
+  "projectileName" : "moonlordphantasmaleye",
+  "physics" : "rocket",
+  "image" : "projectile.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 60,
+  "animationCycle" : 0.25,
+  "frameNumber" : 1,
+  "power" : 2,
+  "emitters" : [ ],
+  "fullbright" : true,
+  "renderLayer": "ForegroundEntity+6",
+  "lightColor" : [25, 200, 120],
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config"
+    }
+  ],
+  "damageType" : "NoDamage",
+  "damageKind" : "fire",
+  
+  "scripts" : [ "/scripts/projectiles/homingprojectile.lua" ],
+  "scriptDelta" : 3,
+  
+  "rotationRate" : 3.0,
+  "homingDistance": 100,
+  "trackingLimit" : 7.0
+}

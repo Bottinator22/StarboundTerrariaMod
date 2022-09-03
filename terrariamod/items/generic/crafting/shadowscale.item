@@ -1,0 +1,11 @@
+{
+  "itemName" : "shadowscale",
+  "tooltipKind" : "terraria_small",
+  "price" : 300,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "shadowscale.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Shadow Scale",
+  "itemTags" : [ "reagent" ]
+}

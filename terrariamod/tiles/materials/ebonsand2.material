@@ -1,0 +1,21 @@
+{
+  "materialId" : 50503,
+  "materialName" : "ebonsand2",
+  "particleColor" : [98, 75, 107, 255],
+  "itemDrop" : "ebonsand",
+  "description" : "Corrupt sand.",
+  "shortdescription" : "Ebonsand",
+  "footstepSound" : "/sfx/blocks/footstep_sand2.ogg",
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ebonsand2.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1830
+  }
+}

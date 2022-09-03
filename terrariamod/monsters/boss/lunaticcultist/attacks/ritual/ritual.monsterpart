@@ -1,0 +1,12 @@
+{
+  "name" : "cultistritual",
+  "category" : "cultistritual",
+  "type" : "body",
+
+  "frames" : {
+    "outmost" : "ritual1.png",
+    "outer" : "ritual2.png",
+    "inner" : "ritual1.png",
+    "inmost" : "ritual2.png"
+  }
+}

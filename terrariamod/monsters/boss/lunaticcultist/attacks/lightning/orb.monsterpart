@@ -1,0 +1,9 @@
+{
+  "name" : "cultistlightning",
+  "category" : "cultistlightning",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "lightningorb.png"
+  }
+}

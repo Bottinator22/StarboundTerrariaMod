@@ -5,11 +5,13 @@ require "/scripts/vec2.lua"
 require "/scripts/poly.lua"
 require "/scripts/drops.lua"
 require "/scripts/status.lua"
-require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
+require "/scripts/companions/capturable.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/actions/terra_rotateUtil.lua"
 
+local maxBend
 -- Engine callback - called on initialization of entity
 function init()
   self.pathing = {}
@@ -17,19 +19,19 @@ self.ownerId = 0
 self.headId = 0
 self.childId = 0
 self.lastHealth = 0
+maxBend = config.getParameter("maxBend", 180) * math.pi / 180
+monster.setAggressive(true)
 setHealth(config.getParameter("ownerHealth"))
 
     message.setHandler("healthChild", function(_,_,health)
         setHealth(health)
   end)
-    message.setHandler("setVariables", function(_,_,...)
-    setVariables(...)
-    end)
     message.setHandler("damageTeam", function(_,_,team)
         monster.setDamageTeam(team)
+        setVariables(config.getParameter("ownerId"), 0, config.getParameter("headId"))
   end)
-    message.setHandler("update", function(_, _, dt)
-        followOwner()
+    message.setHandler("update", function(_, _, angle)
+        followOwner(angle)
   end)
   self.shouldDie = true
   self.notifications = {}
@@ -63,8 +65,6 @@ setHealth(config.getParameter("ownerHealth"))
 
   animator.setGlobalTag("flipX", "")
   self.board:setNumber("facingDirection", mcontroller.facingDirection())
-
-  capturable.init()
 
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
@@ -101,7 +101,13 @@ setHealth(config.getParameter("ownerHealth"))
 
   monster.setAnimationParameter("chains", config.getParameter("chains"))
 end
-
+function updateMove(angle)
+    followOwner(angle)
+end
+function collectSegments(segmentposes)
+    table.insert(segmentposes, mcontroller.position())
+    world.callScriptedEntity(self.headId, "collectSegmentsDone", segmentposes)
+end
 function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
@@ -187,6 +193,7 @@ function update(dt)
       self.lastHealth = status.resourcePercentage("health")
       sendHealthOwner(status.resourcePercentage("health"))
   end
+  animator.setLightActive("glow", not world.pointTileCollision({math.floor(mcontroller.xPosition()+0.5), math.floor(mcontroller.yPosition()+0.5)}, {"Block"}))
 end
 
 function skillBehaviorConfig()
@@ -296,27 +303,33 @@ function setupTenant(...)
   require("/scripts/tenant.lua")
   tenant.setHome(...)
 end
-function followOwner()
+function followOwner(ownerDir)
   if world.entityPosition(self.ownerId) then
-    local toBoss2 = world.magnitude(world.entityPosition(self.ownerId), mcontroller.position()) - 2.5
-    local toBoss = {toBoss2, toBoss2}
-  local bossPosition = world.entityPosition(self.ownerId)
-  local angleToBoss = vec2.angle(world.distance(bossPosition, mcontroller.position()))
-  local calculatedAngle = {math.cos(angleToBoss), math.sin(angleToBoss)}
-  local posChange = vec2.mul(vec2.mul(toBoss,calculatedAngle), {1, 1})
-  mcontroller.setPosition(vec2.add(mcontroller.position(), posChange))
+    local toBoss = -2.7
+  local ownerPos = world.entityPosition(self.ownerId)
+  local angle = vec2.angle(world.distance(ownerPos, mcontroller.position()))
+  local diff = rotateUtil.getRelativeAngle(angle, ownerDir)
+  local newDiff = math.max(math.min(diff, maxBend), maxBend * -1)
+  local newAngle = ownerDir + newDiff
+  local calculatedAngle = {math.cos(newAngle), math.sin(newAngle)}
+  local posChange = vec2.mul(calculatedAngle, toBoss)
+  mcontroller.setPosition(vec2.add(ownerPos, posChange))
   mcontroller.setVelocity({0, 0})
-  mcontroller.setRotation(angleToBoss)
+  mcontroller.setRotation(newAngle)
     animator.resetTransformationGroup("body")
-  animator.rotateTransformationGroup("body", angleToBoss)
+  animator.rotateTransformationGroup("body", newAngle)
   end
 end
 function setVariables(ownerId, count, headId)
     self.ownerId = ownerId
     self.headId = headId
+    status.setStatusProperty("headId", self.headId)
+    message.setHandler("pet.attemptCapture", function(_,_,...)
+                        return world.callScriptedEntity(headId, "capturable.attemptCapture", ...)
+                         end)
 end
 function sendHealthOwner(health)
-    world.sendEntityMessage(self.ownerId, "healthOwner", health)
+    --world.sendEntityMessage(self.ownerId, "healthOwner", health)
 end
 function setHealth(health)
     self.lastHealth = health

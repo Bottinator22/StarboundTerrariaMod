@@ -1,0 +1,11 @@
+{
+  "itemName" : "redice",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "redice.png",
+  "shortdescription" : "Red Ice",
+  "description" : "Crimson ice, tingly to the touch.",
+
+  "materialId" : 50510
+}

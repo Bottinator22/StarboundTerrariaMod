@@ -1,0 +1,50 @@
+{
+  // ==============================================================================================
+  //                                        TERRARIA ENEMY DROPS
+  // ==============================================================================================
+
+    //=================================
+    //              ENEMIES
+    //=================================
+    
+  "wyvern" : [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "flightsoul"}
+      ]
+    }]
+  ],
+  
+    //=================================
+    //              DROPS
+    //=================================
+  "nightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.2, "item" : ["soulofnight", 1]}
+      ]
+    }]
+  ],
+  "lightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 0.2, "item" : ["souloflight", 1]}
+      ]
+    }]
+  ],
+  "flightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["soulofflight", 5]},
+        {"weight" : 0.90, "item" : ["soulofflight", 10]},
+        {"weight" : 0.80, "item" : ["soulofflight", 15]},
+        {"weight" : 0.70, "item" : ["soulofflight", 20]},
+        {"weight" : 0.60, "item" : ["soulofflight", 25]},
+        {"weight" : 0.50, "item" : ["soulofflight", 30]},
+        {"weight" : 0.40, "item" : ["soulofflight", 35]},
+        {"weight" : 0.30, "item" : ["soulofflight", 40]}
+      ]
+    }]
+  ]
+}

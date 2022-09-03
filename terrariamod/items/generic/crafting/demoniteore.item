@@ -1,0 +1,12 @@
+{
+  "itemName" : "demoniteore",
+  "tooltipKind" : "terraria_small",
+  "price" : 250,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "demoniteore.png",
+  "description" : "Pulsing with dark energy.\n^gray;Material^reset;",
+  "shortdescription" : "Demonite Ore",
+  "itemTags" : [ "reagent" ],
+  "radioMessagesOnPickup" : [ "pickupore" ]
+}

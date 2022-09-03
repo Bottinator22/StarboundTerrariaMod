@@ -1,0 +1,9 @@
+{
+  "name" : "fungispore",
+  "category" : "fungispore",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

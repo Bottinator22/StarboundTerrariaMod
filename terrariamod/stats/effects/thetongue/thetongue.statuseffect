@@ -1,0 +1,13 @@
+{
+  "name" : "thetongue",
+  "effectConfig" : {
+  },
+  "defaultDuration" : 1,
+
+  "scripts" : [
+    "thetongue.lua"
+  ],
+  
+  "label" : "The Tongue",
+  "icon" : "/interface/statuses/thetongue.png"
+}

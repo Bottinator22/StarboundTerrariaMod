@@ -1,0 +1,9 @@
+{
+  "name" : "cultistdecoy",
+  "category" : "cultistdecoy",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "decoy.png"
+  }
+}

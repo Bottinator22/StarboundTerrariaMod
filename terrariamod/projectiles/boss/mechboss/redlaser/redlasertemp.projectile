@@ -1,0 +1,17 @@
+{
+  "projectileName" : "redlasertemp",
+  "physics" : "laser",
+  "image" : "redlaser.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 50,
+  "animationCycle" : 0.5,
+  "frameNumber" : 1,
+  "power" : 5,
+  "emitters" : [ "defaultred" ],
+  "fullbright" : true,
+  "damageKind" : "plasma",
+  "lightColor" : [200, 0, 0],
+  "piercing": true,
+  "scripts" : [ "temp.lua" ],
+  "scriptDelta" : 1
+}

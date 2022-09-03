@@ -1,0 +1,11 @@
+{
+  "itemName" : "demonitebar",
+  "tooltipKind" : "terraria_small",
+  "price" : 500,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "demonitebar.png",
+  "description" : "Pulsing with dark energy.\n^gray;Material^reset;",
+  "shortdescription" : "Demonite Bar",
+  "itemTags" : [ "reagent" ]
+}

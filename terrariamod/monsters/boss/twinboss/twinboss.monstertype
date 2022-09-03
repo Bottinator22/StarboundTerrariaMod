@@ -72,7 +72,7 @@
       "statusEffects" : [ ]
     },
 
-    "metaBoundBox" : [-4, -4, 4, 4],
+    "metaBoundBox" : [-8, -8, 8, 8],
     "scale" : 0.5,
 
     "movementSettings" : {
@@ -100,9 +100,6 @@
     },
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
-
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
 
     "stunDamageSuppression" : 0.2,
 

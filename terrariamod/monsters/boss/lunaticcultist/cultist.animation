@@ -1,0 +1,165 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "body" : {
+        "priority" : 0,
+        "default" : "idle",
+        "states" : {
+          "standing" : {
+            "frames" : 1,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "standingcast" : {
+            "frames" : 1,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "standingcastup" : {
+            "frames" : 1,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "flywindup" : {
+            "frames" : 1,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "idle" : {
+            "frames" : 3,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "castup" : {
+            "frames" : 3,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "cast" : {
+            "frames" : 3,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          },
+          "laugh" : {
+            "frames" : 3,
+            "cycle" : 0.35,
+            "mode" : "loop"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 3,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "body" ],
+          "offset" : [0.0, 0.0]
+        },
+        "partStates" : {
+          "body" : {
+            "standing" : {
+              "properties" : {
+                "image" : "<partImage>:standing.<frame>"
+              }
+            },
+            "standingcast" : {
+              "properties" : {
+                "image" : "<partImage>:standingcast.<frame>"
+              }
+            },
+            "standingcastup" : {
+              "properties" : {
+                "image" : "<partImage>:standingcastup.<frame>"
+              }
+            },
+            "flywindup" : {
+              "properties" : {
+                "image" : "<partImage>:flywindup.<frame>"
+              }
+            },
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "castup" : {
+              "properties" : {
+                "image" : "<partImage>:castup.<frame>"
+              }
+            },
+            "cast" : {
+              "properties" : {
+                "image" : "<partImage>:cast.<frame>"
+              }
+            },
+            "laugh" : {
+              "properties" : {
+                "image" : "<partImage>:laugh.<frame>"
+              }
+            }
+          },
+          "damage" : {
+            "stunned" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "body" : { "interpolated" : true },
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    },
+    "afterimage": {
+      "emissionRate" : 40,
+      "particles" : [
+        { "particle" : "cultistafterimage", "offset" : [0, 0] }
+      ]
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/monsters/boss/lunaticcultist/sounds/die.ogg" ],
+    "misc": ["/monsters/boss/lunaticcultist/sounds/misc1.ogg","/monsters/boss/lunaticcultist/sounds/misc2.ogg","/monsters/boss/lunaticcultist/sounds/misc3.ogg","/monsters/boss/lunaticcultist/sounds/misc4.ogg"],
+    "spawn": ["/monsters/boss/lunaticcultist/sounds/misc2.ogg"],
+    "castice": ["/monsters/boss/lunaticcultist/sounds/castice.ogg"],
+    "castlightning": ["/monsters/boss/lunaticcultist/sounds/castlightning.ogg"],
+    "summon": ["/monsters/boss/lunaticcultist/sounds/summon.ogg"],
+    "laugh": ["/monsters/boss/lunaticcultist/sounds/laugh.ogg"]
+  }
+}

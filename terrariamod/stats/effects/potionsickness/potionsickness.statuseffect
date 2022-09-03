@@ -1,0 +1,7 @@
+{
+  "name" : "terraria_potionsickness",
+  "effectConfig" : {},
+  "defaultDuration" : 60,
+  "label" : "Cannot consume any more healing items",
+  "icon" : "potionsickness.png"
+}

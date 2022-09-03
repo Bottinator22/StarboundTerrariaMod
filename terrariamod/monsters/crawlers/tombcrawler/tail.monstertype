@@ -1,7 +1,7 @@
 {
   "type" : "tombcrawlertail",
   "shortdescription" : "Tomb Crawler",
-  "description" : "Loves to eat desert miners. Beware when raiding tombs.",
+  "description" : "The desert is home to one of the largest varieties of worms across the land. It has a voracious appetite for careless explorers.",
 
   "categories" : [ "tombcrawlertail" ],
   "parts" : [ "body" ],
@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormtail.lua"
+      "/scripts/terra_wormtail.lua"
     ],
     "segmentSize": 1.4,
     "behavior" : "monster",
@@ -47,7 +47,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 20,
+      "damage" : 1,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -84,9 +84,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -100,7 +97,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
@@ -124,6 +121,9 @@
           "baseValue" : 0.0
         },
         "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity": {
           "baseValue" : 1.0
         }
       },

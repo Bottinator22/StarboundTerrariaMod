@@ -11,5 +11,5 @@
   "animationConfig" : "cursedinferno.animation",
 
   "label" : "Cursed Inferno",
-  "icon" : "/interface/statuses/fire.png"
+  "icon" : "cursedinferno.png"
 }

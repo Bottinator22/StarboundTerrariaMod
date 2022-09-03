@@ -1,0 +1,168 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "eye" : {
+        "priority" : 0,
+        "default" : "idle",
+        "states" : {
+          "idle": {},
+          "dead": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "loop"
+          }
+        }
+      },
+      "hand": {
+        "priority" : 0,
+        "default" : "open",
+        "states" : {
+          "open": {},
+          "closed": {},
+          "attack": {},
+          "opening": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "open"
+          },
+          "closing": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "closed"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 2,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "eye": {
+        "properties" : {
+          "zLevel" : 0,
+          "offset" : [0.0, 0.0]
+        },
+        "partStates": {
+            "eye": {
+                "idle": {
+                    "properties": {
+                        "image": "<partImage>"
+                    }
+                }
+            }
+        }
+      },
+      "pupil": {
+        "properties" : {
+          "zLevel" : 2,
+          "offset" : [0.0, 0.0],
+          "transformationGroups": ["pupilscale", "pupil", "pupilflip"],
+          "image": "<partImage>"
+        }
+      },
+      "deadeye": {
+        "properties" : {
+          "zLevel" : 4,
+          "offset" : [0.0, 0.0]
+        },
+        "partStates": {
+            "eye": {
+                "dead": {
+                    "properties": {
+                        "image": "<partImage>:idle.<frame>"
+                    }
+                }
+            }
+        }
+      },
+      "hand": {
+        "properties" : {
+          "zLevel" : 5,
+          "offset" : [0.25, 5.875]
+        },
+        "partStates": {
+            "hand": {
+                "open": {
+                    "properties": {
+                        "image": "<partImage>:open"
+                    }
+                },
+                "closed": {
+                    "properties": {
+                        "image": "<partImage>:closed"
+                    }
+                },
+                "attack": {
+                    "properties": {
+                        "image": "<partImage>:attack"
+                    }
+                },
+                "opening": {
+                    "properties": {
+                        "image": "<partImage>:opening.<frame>"
+                    }
+                },
+                "closing": {
+                    "properties": {
+                        "image": "<partImage>:closing.<frame>"
+                    }
+                }
+            }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "body" : { "interpolated" : true },
+    "pupilscale": { "interpolated" : true },
+    "pupil": { "interpolated" : true },
+    "pupilflip": { "interpolated" : false },
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+  
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [255, 255, 255],
+      "pointLight" : true
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg"],
+    "shoot": ["/monsters/boss/moonlord/hand/shoot1.ogg", "/monsters/boss/moonlord/hand/shoot2.ogg"]
+  }
+}

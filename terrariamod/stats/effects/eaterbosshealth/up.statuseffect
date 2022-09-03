@@ -1,0 +1,11 @@
+{
+  "name" : "eaterbosstail",
+  "defaultDuration" : 5.0,
+  "effectConfig": {
+    "healthAmount": 50
+  },
+
+  "scripts" : [
+    "effect.lua"
+  ]
+}

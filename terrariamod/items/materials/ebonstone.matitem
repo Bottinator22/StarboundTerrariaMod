@@ -1,0 +1,11 @@
+{
+  "itemName" : "ebonstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "ebonstone.png",
+  "description" : "Stone of the Corruption.",
+  "shortdescription" : "Ebonstone",
+
+  "materialId" : 50500
+}

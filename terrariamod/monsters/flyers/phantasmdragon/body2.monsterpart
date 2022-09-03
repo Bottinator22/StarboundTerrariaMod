@@ -1,0 +1,9 @@
+{
+  "name" : "phantasmdragonbody2",
+  "category" : "phantasmdragonbody2",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body2.png"
+  }
+}

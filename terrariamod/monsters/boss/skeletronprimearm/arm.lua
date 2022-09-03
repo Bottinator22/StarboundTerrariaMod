@@ -30,6 +30,7 @@ self.offScreen = true
   message.setHandler("phase", function (_, _, phase)
         self.headPhase = phase
     end)
+      monster.setAggressive(false)
   storage.spawnTime = world.time()
   if storage.spawnPosition == nil or config.getParameter("wasRelocated", false) then
     local position = mcontroller.position()
@@ -86,6 +87,9 @@ self.offScreen = true
       self.shouldDie = true
       status.addEphemeralEffect("monsterdespawn")
     end)
+  message.setHandler("damageTeam", function(_,_,team)
+        monster.setDamageTeam(team)
+  end)
 
   local deathBehavior = config.getParameter("deathBehavior")
   if deathBehavior then
@@ -179,7 +183,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -199,16 +203,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then

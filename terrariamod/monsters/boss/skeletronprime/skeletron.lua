@@ -11,13 +11,28 @@ require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
 function spawnHand(monstertype)
     local ownerId = entity.id()
-    local handId = world.spawnMonster(monstertype, mcontroller.position(), { level = monster.level(), phaseTime = 0, ownerId = ownerId })
+    local handId = world.spawnMonster(monstertype, mcontroller.position(), { level = self.mLevel, phaseTime = 0, ownerId = ownerId })
+    world.sendEntityMessage(handId, "damageTeam", entity.damageTeam())
     table.insert(self.children, handId)
+end
+function ownerId()
+    if capturable.ownerUuid() then
+        local playerIds = world.players()
+        table.sort(playerIds, function(a)
+      return world.entityUniqueId(a) == capturable.ownerUuid() end)
+        return playerIds[1]
+    else
+        return nil
+    end
 end
 -- Engine callback - called on initialization of entity
 function init()
 self.offScreen = true
 self.children = {}
+self.mLevel = monster.level()
+    if ownerId() then
+        self.mLevel = 5
+    end
   self.shouldDie = true
   self.targetId = nil
   self.queryRange = 100
@@ -98,6 +113,8 @@ self.children = {}
   self.touchDamageEnabled = false
 
   monster.setDamageBar("Special")
+  
+  monster.setAggressive(true)
 
   monster.setInteractive(config.getParameter("interactive", false))
 
@@ -109,12 +126,6 @@ self.children = {}
 end
 
 function stopMusic()
-    local players = world.playerQuery(mcontroller.position(), self.queryRange * 2)
-    for _,entityId in pairs(players) do
-      local pos = world.entityPosition(entityId)
-      local dis = world.magnitude(pos, mcontroller.position())
-      world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
-    end
 end
 function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
@@ -123,6 +134,7 @@ function update(dt)
   if status.resourcePercentage("health") == 0 then
         stopMusic()
     end
+    monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 
@@ -141,18 +153,7 @@ function update(dt)
     animator.setAnimationState("damage", "none")
   end
 
-  -- Suppressing touch damage
-  if self.suppressDamageTimer then
-    monster.setDamageOnTouch(false)
-    self.suppressDamageTimer = math.max(self.suppressDamageTimer - dt, 0)
-    if self.suppressDamageTimer == 0 then
-      self.suppressDamageTimer = nil
-    end
-  elseif status.statPositive("invulnerable") then
-    monster.setDamageOnTouch(false)
-  else
-    monster.setDamageOnTouch(self.touchDamageEnabled)
-  end
+  monster.setDamageOnTouch(true)
 
   if self.behaviorTick >= self.behaviorTickRate then
     self.behaviorTick = self.behaviorTick - self.behaviorTickRate
@@ -198,7 +199,7 @@ function update(dt)
     overrideCollisionPoly()
   end
   if #self.targets == 0 then
-    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc"}})
+    local newTargets = world.entityQuery(mcontroller.position(), self.queryRange, {includedTypes = {"player","npc", "monster"}})
     table.sort(newTargets, function(a, b)
       return world.magnitude(world.entityPosition(a), mcontroller.position()) < world.magnitude(world.entityPosition(b), mcontroller.position())
     end)
@@ -218,16 +219,9 @@ repeat
       table.remove(self.targets, 1)
       self.targetId = nil
     end
-
-    if self.targetId and false then
-      local timer = self.outOfSight[targetId] or 3.0
-      timer = timer - dt
-      if timer <= 0 then
+    if not self.targetId or not entity.isValidTarget(targetId) then
         table.remove(self.targets, 1)
-        selftargetId = nil
-      else
-        self.outOfSight[targetId] = timer
-      end
+        self.targetId = nil
     end
 
     if not self.targetId then
@@ -242,9 +236,7 @@ repeat
       local pos = world.entityPosition(entityId)
       local dis = world.magnitude(pos, mcontroller.position())
       if dis < self.queryRange then
-          world.sendEntityMessage(entityId, "playAltMusic", {config.getParameter("music")}, 1.0)
-      else
-          world.sendEntityMessage(entityId, "stopAltMusic", 2.0)
+          world.sendEntityMessage(entityId, "terraMusic", {id=entity.id(),file=config.getParameter("music"),expireType="entityDistance",entityID=entity.id(),entityDis=self.queryRange,priority=monster.level() + 10})
       end
     end
     for _,entityId in pairs(self.children) do
@@ -370,12 +362,38 @@ function chargeMove()
     animator.setAnimationState("body","charging")
 end
 function move()
+    if not ownerId() and world.timeOfDay() < 0.5 or deathCharging then
+        if not deathCharging then
+            deathCharging = true
+            animator.playSound("roar")
+            status.setPersistentEffects("deathCharge", {{stat="protection",amount=100},{stat="powerMultiplier",amount=100}})
+        end
+        self.phase = "charge"
+        self.phaseTime = 0
+        self.maxSpeed = 50
+        self.approachSpeed = 5
+    end
+    local following = false
+    local decel = 0.99
     if self.targetId == nil then
-        self.targetPos = {mcontroller.xPosition(), 0}
+        if ownerId() then
+            self.targetId = ownerId()
+            self.targetPos = world.entityPosition(self.targetId)
+            following = true
+            mcontroller.setRotation(math.rad(90))
+            if self.phase == "charge" then
+                defaultMove()
+                self.phase = "default"
+                self.phaseTime = 0
+            end
+        else
+            self.targetPos = {mcontroller.xPosition(), 0}
+        end
     else
     self.phaseTime = self.phaseTime + 1
   if self.phaseTime > 1000 then
         if self.phase == "default" then
+            animator.playSound("roar")
             self.phase = "charge"
             self.phaseTime = 0
         end
@@ -388,6 +406,7 @@ function move()
     end
     if self.phase == "charge" then
         chargeMove()
+        decel = 0.95
     end
     if self.phase == "default" then
         defaultMove()
@@ -396,7 +415,13 @@ function move()
     local dir = vec2.angle(world.distance(self.targetPos, mcontroller.position()))
     local approach = {math.cos(dir), math.sin(dir)}
     local toTarget = vec2.mul(approach,self.approachSpeed)
-    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), 0.95), toTarget))
+    if following then
+        if world.magnitude(self.targetPos, mcontroller.position()) < 10 then
+            toTarget = {0, 0}
+            decel = 0.8
+        end
+    end
+    mcontroller.setVelocity(vec2.add(vec2.mul(mcontroller.velocity(), decel), toTarget))
     if world.magnitude(mcontroller.velocity(), {0, 0}) > self.maxSpeed then
         mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), 0.9))
     end

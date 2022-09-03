@@ -1,0 +1,21 @@
+{
+  "materialId" : 50509,
+  "materialName" : "crimstone",
+  "particleColor" : [89, 84, 75, 255],
+  "itemDrop" : "crimstonematerial",
+  "shortdescription" : "Crimstone",
+  "description" : "Stone of the Crimson.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "crimstone.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "multiColored" : false,
+    "occludesBelow" : true,
+    "zLevel" : 1640
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "terraria_healingpotions" : [
+	"^yellow;Items spawned at cursor location.",
+	"/spawnitem terraria_lesserhealingpotion 30",
+	"/spawnitem terraria_healingpotion 30",
+	"/spawnitem terraria_greaterhealingpotion 30",
+	"/spawnitem terraria_superhealingpotion 30"
+  ]
+}

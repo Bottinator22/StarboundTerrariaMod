@@ -1,0 +1,9 @@
+{
+  "frameGrid" : {
+    "size" : [156, 76],
+    "dimensions" : [2, 1],
+    "names" : [
+      [ "idle.1", "flipped.1" ]
+    ]
+  }
+}

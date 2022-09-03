@@ -1,0 +1,28 @@
+{
+  "projectileName" : "cultistshadowfireball",
+  "physics" : "rocket",
+  "image" : "projectile.png",
+  "damageKindImage" : "icon.png",
+  "speed" : 50,
+  "animationCycle" : 0.35,
+  "frameNumber" : 4,
+  "power" : 12,
+  "emitters" : [],
+  "fullbright" : false,
+  "hydrophobic": true,
+  "lightColor" : [25, 0, 75],
+  "actionOnReap" : [
+    {
+      "action" : "config",
+      "file" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config"
+    }
+  ],
+  "damageType" : "NoDamage",
+  "damageKind" : "fire",
+  
+  "scripts" : [ "/scripts/projectiles/homingprojectile.lua" ],
+  "scriptDelta" : 3,
+  
+  "rotationRate" : 2.0,
+  "trackingLimit" : 2.0
+}

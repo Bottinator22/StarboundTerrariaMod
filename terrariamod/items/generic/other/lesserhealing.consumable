@@ -1,0 +1,16 @@
+{
+  "itemName" : "terraria_lesserhealingpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "lesserhealing.png",
+  "rarity" : "Common",
+  "shortdescription" : "Lesser Healing Potion",
+  "description" : "Restores 50 life\n^gray;Consumable; Material^reset;",
+  "maxStack" : 30,
+  "price" : 300,
+  "effects" : [["terraria_potionsickness","terraria_health+"]],
+  "blockingEffects" : ["terraria_potionsickness"],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}//,"rarityLabel":"White"
+}

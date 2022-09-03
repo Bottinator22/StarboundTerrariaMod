@@ -1,0 +1,16 @@
+{
+  "itemName" : "terraria_superhealingpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "superhealing.png",
+  "rarity" : "Uncommon",
+  "shortdescription" : "^#9cf6a0;Super Healing Potion^reset;",
+  "description" : "Restores 200 life\n^gray;Consumable^reset;",
+  "maxStack" : 30,
+  "price" : 15000,
+  "effects" : [["terraria_potionsickness",{"effect":"terraria_health+","duration":200}]],
+  "blockingEffects" : ["terraria_potionsickness"],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}//,"rarityLabel":"^#ade25e;Lime^reset;"
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "moonlordbody",
+  "category" : "moonlord",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

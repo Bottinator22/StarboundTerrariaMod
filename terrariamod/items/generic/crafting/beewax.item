@@ -1,0 +1,11 @@
+{
+  "itemName" : "terraria_beewax",
+  "tooltipKind" : "terraria_small",
+  "price" : 300,
+  "rarity" : "Uncommon",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "beewax.png",
+  "description" : "^gray;Material^reset;",
+  "shortdescription" : "Bee Wax",
+  "itemTags" : [ "reagent" ]
+}

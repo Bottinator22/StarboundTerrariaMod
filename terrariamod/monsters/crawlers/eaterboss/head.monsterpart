@@ -1,9 +1,0 @@
-{
-  "name" : "eaterbosshead",
-  "category" : "eaterbosshead",
-  "type" : "body",
-
-  "frames" : {
-    "body" : "head.png"
-  }
-}

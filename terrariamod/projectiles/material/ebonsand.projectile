@@ -1,0 +1,20 @@
+{
+  "projectileName" : "ebonsand",
+  "physics" : "grenade",
+  "image" : "ebonsand.png",
+  "animationCycle" : 1,
+  "frameNumber" : 1,
+  "power" : 0,
+
+  "speed" : 0,
+
+  "actionOnReap" : [
+    {
+      "action" : "tile",
+      "materials" : [
+        {"kind" : "ebonsand"}
+      ]
+    }
+  ],
+  "damageKind" : "default"
+}

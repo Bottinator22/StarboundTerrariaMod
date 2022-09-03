@@ -1,0 +1,11 @@
+{
+  "itemName" : "solarfragment",
+  "tooltipKind" : "terraria_small",
+  "price" : 2500,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "solarfragment.png",
+  "description" : "The fury of the universe lies within this fragment.\n^gray;Material^reset;",
+  "shortdescription" : "Solar Fragment",
+  "itemTags" : [ "reagent" ]
+}

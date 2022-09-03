@@ -1,0 +1,10 @@
+{
+  "name" : "cultistlightningnode",
+  "category" : "cultistlightningnode",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "node.png",
+    "beam" : "beam.png"
+  }
+}

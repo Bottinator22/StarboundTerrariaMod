@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormheadflier.lua"
+      "/scripts/terra_wormheadflier.lua"
     ],
     
     "renderLayer" : "Monster+1",
@@ -62,7 +62,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 100,
+      "damage" : 5,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -120,7 +120,7 @@
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0

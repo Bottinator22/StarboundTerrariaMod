@@ -1,7 +1,7 @@
 {
   "type" : "dunesplicertail",
   "shortdescription" : "Dune Splicer",
-  "description" : "The bane of desert miners. Migrates to the surface during sandstorms.",
+  "description" : "The world's largest, most deadly worm. Strengthened by ancient magicks, it can devour a spicy Terrarian quicker than they realize.",
 
   "categories" : [ "dunesplicertail" ],
   "parts" : [ "body" ],
@@ -13,7 +13,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormtail.lua"
+      "/scripts/terra_wormtail.lua"
     ],
     "segmentSize": 2.0,
     "behavior" : "monster",
@@ -48,7 +48,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 20,
+      "damage" : 3,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -85,9 +85,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -101,7 +98,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
@@ -125,6 +122,9 @@
           "baseValue" : 0.0
         },
         "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity": {
           "baseValue" : 1.0
         }
       },

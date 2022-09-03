@@ -1,0 +1,6 @@
+{
+  "name" : "terraria_health+",
+  "effectConfig" : {},
+  "defaultDuration" : 50,
+  "scripts" : ["resource.lua"]
+}

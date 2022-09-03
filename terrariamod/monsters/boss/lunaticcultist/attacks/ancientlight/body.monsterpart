@@ -1,0 +1,9 @@
+{
+  "name" : "cultistancientlight",
+  "category" : "cultistancientlight",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "ancientlight.png"
+  }
+}

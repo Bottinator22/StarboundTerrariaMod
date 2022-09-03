@@ -1,7 +1,7 @@
 {
   "type" : "tombcrawlerhead",
   "shortdescription" : "Tomb Crawler",
-  "description" : "Loves to eat desert miners. Beware when raiding tombs.",
+  "description" : "The desert is home to one of the largest varieties of worms across the land. It has a voracious appetite for careless explorers.",
 
   "categories" : [ "tombcrawlerhead" ],
   "parts" : [ "body" ],
@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormheaddigger.lua"
+      "/scripts/terra_wormheaddigger.lua"
     ],
     "renderLayer" : "Monster+1",
     "behavior" : "monster",
@@ -20,7 +20,9 @@
     "capturedLevel": 2,
     "size": 10,
     "bodySegment": "tombcrawlerbody",
-    "speed": 1,
+    "speed": 1.25,
+    "minSpeed": 10,
+    "digSound": true,
 
     "facingMode" : "transformation",
 
@@ -58,7 +60,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 50,
+      "damage" : 7,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -82,8 +84,8 @@
       "gravityEnabled" : false,
 
       "airFriction" : 0,
-      "airForce" : 10,
-      "flySpeed" : 35
+      "liquidFriction": 0,
+      "liquidBuoyancy": 0.0
     },
 
     "bodyMaterialKind" : "organic",
@@ -94,9 +96,6 @@
     },
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
-
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
 
     "stunDamageSuppression" : 0.2,
 
@@ -110,13 +109,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/monster_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -125,7 +124,7 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 100
+          "baseValue" : 200
         },
         "protection" : {
           "baseValue" : 0.0
@@ -134,6 +133,9 @@
           "baseValue" : 0.5
         },
         "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity": {
           "baseValue" : 1.0
         }
       },
@@ -154,6 +156,7 @@
     "mouthOffset" : [0, 0],
     "feetOffset" : [0, -4],
     "capturable" : true,
-    "captureHealthFraction" : 0.5
+    "captureHealthFraction" : 0.5,
+    "captureCollectables" : { "monsters" : "tombcrawler" }
   }
 }

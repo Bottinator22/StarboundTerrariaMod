@@ -1,0 +1,25 @@
+{
+  "projectileName" : "walloffleshtongue",
+  "physics" : "laser",
+  "timeToLive" : 99999,
+  "image" : "tongue.png",
+  "animationCycle" : 1,
+  "frameNumber" : 1,
+  "periodicActions" : [],
+  "actionOnReap" : [],
+  "speed" : 0,
+  "power" : 0,
+
+  "onlyHitTerrain" : true,
+
+  "boundBox" : [-5, -5, 5, 5],
+  "persistentStatusEffects" : ["thetongue"],
+  "statusEffectArea" : [ [4, 4],[4, -4],[-4, -4],[-4, 4] ],
+  "emitters" : [ ],
+  "orientationLocked" : true,
+
+  "piercing" : true,
+  "bounces" : -1,
+
+  "scripts" : [ "/projectiles/boss/wallofflesh/tongue/tongue.lua" ]
+}

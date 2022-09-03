@@ -1,0 +1,11 @@
+{
+  "name" : "brainfadein",
+  "defaultDuration" : 0.5,
+  "effectConfig": {
+    "fadeIn": true
+  },
+
+  "scripts" : [
+    "brainfade.lua"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "cultisticemist",
+  "category" : "cultisticemist",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "icemist.png"
+  }
+}

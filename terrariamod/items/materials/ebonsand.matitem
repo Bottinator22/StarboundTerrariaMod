@@ -1,0 +1,11 @@
+{
+  "itemName" : "ebonsand",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "ebonsand.png",
+  "description" : "Corrupt sand.",
+  "shortdescription" : "Ebonsand",
+
+  "materialId" : 50502
+}

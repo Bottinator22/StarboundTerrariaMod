@@ -1,6 +1,6 @@
 {
   // ==============================================================================================
-  //                                        MECHANICAL BOSS DROPS
+  //                                        TERRARIA BOSS DROPS
   // ==============================================================================================
 
     //=================================
@@ -11,7 +11,9 @@
     [0, {
       "fill" : [
         {"pool" : "money"},
-        {"pool" : "hallowedbarsmall"}
+        {"pool" : "hallowedbarlarge"},
+        {"pool" : "terraria_bossgreaterhealing"},
+        {"pool" : "mightsoul"}
       ]
     }]
   ],
@@ -19,7 +21,9 @@
     [0, {
       "fill" : [
         {"pool" : "money"},
-        {"pool" : "hallowedbarmed"}
+        {"pool" : "hallowedbarmed"},
+        {"pool" : "terraria_bossgreaterhealinghalf"},
+        {"pool" : "sightsoul"}
       ]
     }]
   ],
@@ -27,15 +31,9 @@
     [0, {
       "fill" : [
         {"pool" : "money"},
-        {"pool" : "hallowedbarlarge"}
-      ]
-    }]
-  ],
-  "skeletronPrimeArms" : [
-    [0, {
-      "fill" : [
-        {"pool" : "money"},
-        {"pool" : "hallowedbarsmall"}
+        {"pool" : "hallowedbarlarge"},
+        {"pool" : "terraria_bossgreaterhealing"},
+        {"pool" : "frightsoul"}
       ]
     }]
   ],
@@ -43,7 +41,8 @@
     [0, {
         "fill": [
             {"pool" : "money"},
-            {"pool" : "perfectitem"}
+            {"pool" : "perfectitem"},
+            {"pool" : "terraria_bosshealing"}
         ]
     }]
   ],
@@ -51,8 +50,64 @@
     [0, {
         "fill": [
             {"pool" : "money"},
-            {"pool" : "durasteel"}
+            {"pool" : "terraria_bosslesserhealing"},
+            {"pool" : "crimtaneorelarge"},
+            {"pool" : "demoniteorelarge"}
         ]
+    }]
+  ],
+  "golem": [
+    [0, {
+        "fill": [
+            {"pool" : "money"},
+            {"pool" : "terraria_bossgreaterhealing"},
+            {"pool" : "beetlehusk"}
+        ]
+    }]
+  ],
+  "moonlord" : [
+    [0, {
+      "fill" : [
+        {"pool" : "moneylarge"},
+        {"pool" : "luminite"},
+        {"pool" : "terraria_bosssuperhealing"}
+      ]
+    }]
+  ],
+  "brainofcthulhu": [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "crimtaneorelarge"},
+        {"pool" : "terraria_bosslesserhealing"}
+      ]
+    }]
+  ],
+  "terraria_creeper": [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "crimtaneore"},
+        {"pool" : "tissuesample"}
+      ]
+    }]
+  ],
+  "eaterofworlds": [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "demoniteorelarge"},
+        {"pool" : "terraria_bosslesserhealing"}
+      ]
+    }]
+  ],
+  "eaterofworldssegment": [
+    [0, {
+      "fill" : [
+        {"pool" : "money"},
+        {"pool" : "demoniteore"},
+        {"pool" : "shadowscale"}
+      ]
     }]
   ],
   
@@ -66,10 +121,10 @@
       ]
     }]
   ],
-  "durasteel": [
+  "titanium": [
     [0, {
       "pool" : [
-        {"weight" : 1, "item" : ["durasteelbar", 15]}
+        {"weight" : 1, "item" : ["titaniumbar", 15]}
       ]
     }]
   ],
@@ -96,6 +151,165 @@
         {"weight" : 1, "item" : ["hallowedbar", 30]},
         {"weight" : 0.50, "item" : ["hallowedbar", 40]},
         {"weight" : 0.10, "item" : ["hallowedbar", 50]}
+      ]
+    }]
+  ],
+    "luminite" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["luminiteore", 60]},
+        {"weight" : 0.50, "item" : ["luminiteore", 70]},
+        {"weight" : 0.20, "item" : ["luminiteore", 80]}
+      ]
+    }]
+  ],
+  "moneylarge" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["money", 8000]},
+        {"weight" : 0.50, "item" : ["money", 9000]},
+        {"weight" : 0.20, "item" : ["money", 10000]}
+      ]
+    }]
+  ],
+  "terraria_bosslesserhealing": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_lesserhealingpotion", 5]},
+        {"weight" : 0.70, "item" : ["terraria_lesserhealingpotion", 10]},
+        {"weight" : 0.50, "item" : ["terraria_lesserhealingpotion", 15]}
+      ]
+    }]
+  ],
+  "terraria_bosshealing": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_healingpotion", 5]},
+        {"weight" : 0.70, "item" : ["terraria_healingpotion", 10]},
+        {"weight" : 0.50, "item" : ["terraria_healingpotion", 15]}
+      ]
+    }]
+  ],
+  "terraria_bossgreaterhealing": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_greaterhealingpotion", 5]},
+        {"weight" : 0.70, "item" : ["terraria_greaterhealingpotion", 10]},
+        {"weight" : 0.50, "item" : ["terraria_greaterhealingpotion", 15]}
+      ]
+    }]
+  ],
+  "terraria_bossgreaterhealinghalf": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_greaterhealingpotion", 3]},
+        {"weight" : 0.70, "item" : ["terraria_greaterhealingpotion", 5]},
+        {"weight" : 0.50, "item" : ["terraria_greaterhealingpotion", 7]}
+      ]
+    }]
+  ],
+  "terraria_bosssuperhealing": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_superhealingpotion", 5]},
+        {"weight" : 0.70, "item" : ["terraria_superhealingpotion", 10]},
+        {"weight" : 0.50, "item" : ["terraria_superhealingpotion", 15]}
+      ]
+    }]
+  ],
+  "mightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["soulofmight", 25]},
+        {"weight" : 0.70, "item" : ["soulofmight", 30]},
+        {"weight" : 0.40, "item" : ["soulofmight", 35]},
+        {"weight" : 0.10, "item" : ["soulofmight", 40]}
+      ]
+    }]
+  ],
+  "sightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["soulofsight", 13]},
+        {"weight" : 0.70, "item" : ["soulofsight", 15]},
+        {"weight" : 0.40, "item" : ["soulofsight", 17]},
+        {"weight" : 0.10, "item" : ["soulofsight", 20]}
+      ]
+    }]
+  ],
+  "frightsoul" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["souloffright", 25]},
+        {"weight" : 0.70, "item" : ["souloffright", 30]},
+        {"weight" : 0.40, "item" : ["souloffright", 35]},
+        {"weight" : 0.10, "item" : ["souloffright", 40]}
+      ]
+    }]
+  ],
+  "beetlehusk" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["terraria_beetlehusk", 4]},
+        {"weight" : 0.70, "item" : ["terraria_beetlehusk", 5]},
+        {"weight" : 0.40, "item" : ["terraria_beetlehusk", 6]},
+        {"weight" : 0.10, "item" : ["terraria_beetlehusk", 8]}
+      ]
+    }]
+  ],
+  "shadowscale": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["shadowscale", 1]},
+        {"weight" : 0.50, "item" : ["shadowscale", 2]}
+      ]
+    }]
+  ],
+  "demoniteore" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["demoniteore", 2]},
+        {"weight" : 0.70, "item" : ["demoniteore", 3]},
+        {"weight" : 0.40, "item" : ["demoniteore", 4]},
+        {"weight" : 0.10, "item" : ["demoniteore", 5]}
+      ]
+    }]
+  ],
+  "demoniteorelarge" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["demoniteore", 30]},
+        {"weight" : 0.70, "item" : ["demoniteore", 45]},
+        {"weight" : 0.40, "item" : ["demoniteore", 70]},
+        {"weight" : 0.10, "item" : ["demoniteore", 90]}
+      ]
+    }]
+  ],
+  "tissuesample": [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["tissuesample", 1]},
+        {"weight" : 0.50, "item" : ["tissuesample", 2]}
+      ]
+    }]
+  ],
+  "crimtaneore" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["crimtaneore", 2]},
+        {"weight" : 0.70, "item" : ["crimtaneore", 3]},
+        {"weight" : 0.40, "item" : ["crimtaneore", 4]},
+        {"weight" : 0.10, "item" : ["crimtaneore", 5]}
+      ]
+    }]
+  ],
+  "crimtaneorelarge" : [
+    [0, {
+      "pool" : [
+        {"weight" : 1, "item" : ["crimtaneore", 30]},
+        {"weight" : 0.70, "item" : ["crimtaneore", 45]},
+        {"weight" : 0.40, "item" : ["crimtaneore", 70]},
+        {"weight" : 0.10, "item" : ["crimtaneore", 90]}
       ]
     }]
   ]

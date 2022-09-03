@@ -1,15 +1,22 @@
 {
   "itemName" : "voodoodollclothier",
+  "tooltipKind" : "terraria_small",
   "price" : 0,
   "level" : 1,
   "maxStack" : 30,
   "rarity" : "Legendary",
   "category" : "mysteriousReward",
-  "description" : "Summons Skeletron",
+  "description" : "Summons Skeletron\n^gray;Consumable^reset;",
   "shortdescription" : "Clothier Voodoo Doll",
   "twoHanded" : true,
 
   "inventoryIcon" : "item.png",
+  "animation" : "/animations/items/summonitem.animation",
   "animationCustom" : {},
-  "scripts" : ["script.lua"]
+  "scripts" : ["/scripts/items/terra_summonitem.lua"],
+  
+  "monster": "skeletron",
+  "spawnOffset": [0, 5],
+  "spawnLevel": 2,
+  "allowAtNightOnly": true
 }

@@ -1,0 +1,285 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "tongue" : {
+        "priority" : 0,
+        "default" : "off",
+        "states" : {
+          "off" : {},
+          "on" : {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "loop"
+            }
+        }
+      },
+      "beam" : {
+        "priority" : 0,
+        "default" : "off",
+        "states" : {
+          "off" : {},
+          "on" : {}
+        }
+      },
+      "eye" : {
+        "priority" : 0,
+        "default" : "idle",
+        "states" : {
+          "idle": {},
+          "dead": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "loop"
+          }
+        }
+      },
+      "eyesocket": {
+        "priority" : 0,
+        "default" : "open",
+        "states" : {
+          "open": {},
+          "closed": {},
+          "opening": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "open"
+          },
+          "closing": {
+            "frames": 4,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "closed"
+          }
+        }
+      },
+      "mouth": {
+        "priority" : 0,
+        "default" : "closed",
+        "states" : {
+          "open": {},
+          "closed": {},
+          "opening": {
+            "frames": 3,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "open"
+          },
+          "closing": {
+            "frames": 3,
+            "cycle": 0.35,
+            "mode": "transition",
+            "transition": "closed"
+          }
+        }
+      },
+      "damage" : {
+        "priority" : 2,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "head": {
+        "properties" : {
+          "zLevel" : 0,
+          "transformationGroups": [ "body" ],
+          "offset" : [0.0, -17.25],
+          "image": "<partImage>"
+        }
+      },
+      "mouth": {
+        "properties" : {
+          "zLevel" : 1,
+          "transformationGroups": [ "body" ],
+          "offset" : [0.125, -26.5],
+          "beamSource" : [0, 0]
+        },
+        "partStates": {
+            "mouth": {
+                "open": {
+                    "properties": {
+                        "image": "<partImage>:open"
+                    }
+                },
+                "closed": {
+                    "properties": {
+                        "image": "<partImage>:closed"
+                    }
+                },
+                "opening": {
+                    "properties": {
+                        "image": "<partImage>:opening.<frame>"
+                    }
+                },
+                "closing": {
+                    "properties": {
+                        "image": "<partImage>:closing.<frame>"
+                    }
+                }
+            }
+        }
+      },
+      "eye": {
+        "properties" : {
+          "zLevel" : 1,
+          "transformationGroups": [ "body" ],
+          "offset" : [0.0, 0.0]
+        },
+        "partStates": {
+            "eye": {
+                "idle": {
+                    "properties": {
+                        "image": "<partImage>"
+                    }
+                }
+            }
+        }
+      },
+      "pupil": {
+        "properties" : {
+          "zLevel" : 2,
+          "offset" : [0.0, 0.0],
+          "transformationGroups": ["pupilscale", "body",  "pupil"],
+          "image": "<partImage>"
+        }
+      },
+      "deadeye": {
+        "properties" : {
+          "zLevel" : 4,
+          "transformationGroups": [ "body" ],
+          "offset" : [0.0, 0.0]
+        },
+        "partStates": {
+            "eye": {
+                "dead": {
+                    "properties": {
+                        "image": "<partImage>:idle.<frame>"
+                    }
+                }
+            }
+        }
+      },
+      "eyesocket": {
+        "properties" : {
+          "zLevel" : 5,
+          "transformationGroups": [ "body" ],
+          "offset" : [0.0, -0.5]
+        },
+        "partStates": {
+            "eyesocket": {
+                "open": {
+                    "properties": {
+                        "image": "<partImage>:open"
+                    }
+                },
+                "closed": {
+                    "properties": {
+                        "image": "<partImage>:closed"
+                    }
+                },
+                "opening": {
+                    "properties": {
+                        "image": "<partImage>:opening.<frame>"
+                    }
+                },
+                "closing": {
+                    "properties": {
+                        "image": "<partImage>:closing.<frame>"
+                    }
+                }
+            }
+        }
+      },
+      "beam" : {
+        "properties" : {
+          "transformationGroups" : ["beam", "body", "pupil" ],
+          "offset" : [0.0, 0.0],
+          "beamSource" : [0.0, 0.0],
+          "centered" : false,
+          "zLevel" : 2,
+          "fullbright": true,
+          "damageArea": [ [0.0, 2], [0.0, -2], [2.0, -2], [2.0, 2] ]
+        },
+        "partStates" : {
+          "beam" : {
+            "on" : {
+              "properties" : {
+                "beamEnd" : [2, 0.0]
+              }
+            }
+          }
+        }
+      },
+      "tongueend": {
+        "properties" : {
+          "zLevel" : 10,
+          "offset" : [0, 0],
+          "anchorPart": "mouth",
+          "transformationGroups": ["tongueend", "body"]
+        },
+        "partStates": {
+            "tongue": {
+                "on": {
+                    "properties": {
+                        "image": "<partImage>:idle.<frame>",
+                        "beamEnd" : [2, 0.0]
+                    }
+                }
+            }
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "pupilscale": { "interpolated" : true },
+    "beam" : { "interpolated" : true },
+    "body" : { "interpolated" : true },
+    "pupil": { "interpolated" : true },
+    "tongueend": { "interpolated" : true },
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+  
+  "lights" : {
+    "glow" : {
+      "active" : true,
+      "position" : [0, 0],
+      "color" : [255, 255, 255],
+      "pointLight" : true
+    }
+  },
+  
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg"],
+    "shoot": ["/monsters/boss/moonlord/hand/shoot1.ogg", "/monsters/boss/moonlord/hand/shoot2.ogg"],
+    "laser": ["/monsters/boss/moonlord/head/laser.ogg"]
+  }
+}

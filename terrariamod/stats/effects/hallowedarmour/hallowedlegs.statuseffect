@@ -1,0 +1,9 @@
+{
+  "name" : "hallowedlegs",
+  "effectConfig" : {
+  },
+
+  "scripts" : [
+    "legs.lua"
+  ]
+}

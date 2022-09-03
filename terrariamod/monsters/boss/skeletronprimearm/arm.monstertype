@@ -8,9 +8,7 @@
 
   "animation" : "skeletron.animation",
 
-  "dropPools" : [
-    "skeletronPrimeArms"
-  ],
+  "dropPools" : [],
 
   "baseParameters" : {
     "scripts" : [

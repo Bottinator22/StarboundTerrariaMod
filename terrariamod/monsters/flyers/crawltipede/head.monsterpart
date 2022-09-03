@@ -1,0 +1,10 @@
+{
+  "name" : "crawltipedehead",
+  "category" : "crawltipedehead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png",
+    "bodyfullbright" : "head_fullbright.png"
+  }
+}

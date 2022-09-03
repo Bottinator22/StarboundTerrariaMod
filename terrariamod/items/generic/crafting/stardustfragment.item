@@ -1,0 +1,11 @@
+{
+  "itemName" : "stardustfragment",
+  "tooltipKind" : "terraria_small",
+  "price" : 2500,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "stardustfragment.png",
+  "description" : "Entrancing particles revolve around this fragment.\n^gray;Material^reset;",
+  "shortdescription" : "Stardust Fragment",
+  "itemTags" : [ "reagent" ]
+}

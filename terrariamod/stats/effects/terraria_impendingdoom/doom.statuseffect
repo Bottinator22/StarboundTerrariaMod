@@ -1,0 +1,11 @@
+{
+  "name" : "terraria_impendingdoom",
+  "effectConfig" : {},
+  "defaultDuration" : 60,
+
+  "scripts" : [
+    "doom.lua"
+  ],
+
+  "label" : "Impending doom approaches..."
+}

@@ -1,0 +1,10 @@
+{
+  "name" : "moonlordcore",
+  "category" : "moonlord",
+  "type" : "core",
+
+  "frames" : {
+    "core" : "core.png",
+    "coresocket": "coresocket.png"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "diggertail",
+  "category" : "diggertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

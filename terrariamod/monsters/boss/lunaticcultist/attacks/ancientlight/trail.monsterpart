@@ -1,0 +1,9 @@
+{
+  "name" : "cultistancientlighttrail",
+  "category" : "cultistancientlighttrail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "ancientlighttrail.png"
+  }
+}

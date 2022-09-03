@@ -1,0 +1,11 @@
+{
+  "itemName" : "soulofsight",
+  "tooltipKind" : "terraria_small",
+  "price" : 1000,
+  "rarity" : "Rare",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "soulofsight.png",
+  "description" : "The essence of omniscient watchers.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Sight",
+  "itemTags" : [ "reagent" ]
+}

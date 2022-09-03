@@ -1,0 +1,9 @@
+{
+  "name" : "hallowedarmour",
+  "effectConfig" : {
+  },
+
+  "scripts" : [
+    "hallowed.lua"
+  ]
+}

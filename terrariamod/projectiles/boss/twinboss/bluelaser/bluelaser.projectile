@@ -6,9 +6,9 @@
   "speed" : 50,
   "animationCycle" : 0.5,
   "frameNumber" : 1,
-  "power" : 75,
+  "power" : 3,
   "emitters" : [ "defaultblue" ],
   "fullbright" : true,
   "damageKind" : "plasma",
-  "lightColor" : [50, 50, 255]
+  "lightColor" : [15, 15, 200]
 }

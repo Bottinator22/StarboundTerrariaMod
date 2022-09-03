@@ -1,0 +1,9 @@
+{
+  "name" : "lunaticcultist",
+  "category" : "lunaticcultist",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

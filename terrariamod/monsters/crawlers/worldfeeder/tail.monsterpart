@@ -1,0 +1,9 @@
+{
+  "name" : "worldfeedertail",
+  "category" : "worldfeedertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

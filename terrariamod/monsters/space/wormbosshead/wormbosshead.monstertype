@@ -1,14 +1,14 @@
 {
   "type" : "wormbosshead",
   "shortdescription" : "The Destroyer",
-  "description" : "A deadly worm that can wipe out entire populations.",
+  "description" : "A mechanical simulacrum of Cthulhu's spine decorated in laser-armed probes, which detach from its body when damaged.",
 
   "categories" : [ "wormbosshead" ],
   "parts" : [ "body" ],
 
   "animation" : "wormbosshead.animation",
 
-  "dropPools" : ["theDestroyer"],
+  "dropPools" : [],
 
   "baseParameters" : {
     "scripts" : [
@@ -16,10 +16,19 @@
     ],
     
     "renderLayer" : "Monster+1",
-
+    
+    "size": 80,
     "behavior" : "monster",
     "deathBehavior" : "monster-death",
+    "capturedLevel": 5,
+    "bodySegment": "wormbossbody",
     "music": "/music/terrariaboss3.ogg",
+    "speed": 2,
+    "minSpeed": 15,
+    "maxSpeed": 50,
+    "digSound": true,
+    
+    "treatLiquidAsGround": true,
 
     "facingMode" : "transformation",
 
@@ -45,23 +54,12 @@
       ],
 
       "deathActions" : [
-        {
-          "name" : "action-projectile",
-          "parameters" : {
-            "projectileCount" : 1,
-            "projectileType" : "mechenergypickup",
-            "projectileParameters" : {},
-            "aimDirection" : [1, 0],
-            "inaccuracy" : 0,
-            "fireOffset" : [0, 0]
-          }
-        }
       ]
     },
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 100,
+      "damage" : 20,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -85,8 +83,8 @@
       "gravityEnabled" : false,
 
       "airFriction" : 0,
-      "airForce" : 10,
-      "flySpeed" : 35
+      "liquidFriction": 0,
+      "liquidBuoyancy": 0.0
     },
 
     "bodyMaterialKind" : "robotic",
@@ -97,9 +95,6 @@
     },
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
-
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
 
     "stunDamageSuppression" : 0.2,
 
@@ -113,13 +108,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/monster_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -131,7 +126,7 @@
           "baseValue" : 5000
         },
         "protection" : {
-          "baseValue" : -1.0
+          "baseValue" : 0.0
         },
         "healthRegen" : {
           "baseValue" : 0.0
@@ -171,6 +166,7 @@
 
     "mouthOffset" : [0, 0],
     "feetOffset" : [0, -4],
-    "capturable" : false
+    "capturable" : false,
+    "captureHealthFraction" : 0.5
   }
 }

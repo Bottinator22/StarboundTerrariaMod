@@ -44,8 +44,8 @@
     },
 
     "touchDamage" : {
-      "poly" : [ [1.5, 2.0], [2.0, 1.5], [2.0, -1.5], [1.5, -2.0], [-1.5, -2.0], [-2.0, -1.5], [-2, 1.5], [-1.5, 2.0] ],
-      "damage" : 50,
+      "poly" : [ [1.0, 2.0], [2.0, 1.0], [2.0, -1.0], [1.0, -2.0], [-1.0, -2.0], [-2.0, -1.0], [-2, 1.0], [-1.0, 2.0] ]	,
+      "damage" : 8,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -58,7 +58,7 @@
 
     "movementSettings" : {
       "collisionEnabled": false,
-      "collisionPoly" : [ [3, 4.0], [4.0, 3], [4.0, -3], [3, -4.0], [-3, -4.0], [-4.0, -3], [-4, 3], [-3, 4.0] ]	,
+      "collisionPoly" : [ [2, 4.0], [4.0, 2], [4.0, -2], [2, -4.0], [-2, -4.0], [-4.0, -2], [-4, 2], [-2, 4.0] ]	,
 
       "mass" : 2.0,
       "walkSpeed" : 35,
@@ -82,9 +82,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -97,13 +94,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/monster_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0

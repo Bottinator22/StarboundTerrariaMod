@@ -1,0 +1,21 @@
+{
+  "materialId" : 50500,
+  "materialName" : "ebonstone",
+  "particleColor" : [98, 75, 107, 255],
+  "itemDrop" : "ebonstonematerial",
+  "shortdescription" : "Ebonstone",
+  "description" : "Stone of the Corruption.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "ebonstone.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "multiColored" : false,
+    "occludesBelow" : true,
+    "zLevel" : 1640
+  }
+}

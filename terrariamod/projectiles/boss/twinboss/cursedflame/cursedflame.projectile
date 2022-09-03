@@ -2,16 +2,16 @@
   "projectileName" : "cursedflame",
   "physics" : "laser",
   "image" : "flame.png",
-  "timeToLive": 0.5,
+  "timeToLive": 1,
   "damageKindImage" : "icon.png",
   "speed" : 50,
   "animationCycle" : 0.5,
   "frameNumber" : 1,
-  "power" : 50,
+  "power" : 4,
   "emitters" : [ "cursedflame" ],
   "fullbright" : true,
   "damageKind" : "fire",
-  "lightColor" : [0, 255, 0],
+  "lightColor" : [0, 200, 0],
   "statusEffects" : [
     "cursedinferno"
   ]

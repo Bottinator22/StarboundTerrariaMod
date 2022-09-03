@@ -1,0 +1,11 @@
+{
+  "name" : "moonlordheadhead",
+  "category" : "moonlordhead",
+  "type" : "head",
+
+  "frames" : {
+    "head" : "head.png",
+    "mouth": "mouth.png",
+    "tongueend": "tongue/tongueend.png"
+  }
+}

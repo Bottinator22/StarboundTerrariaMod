@@ -1,0 +1,9 @@
+{
+  "name" : "devourertail",
+  "category" : "devourertail",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "tail.png"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type" : "skeletronprime",
   "shortdescription" : "Skeletron Prime",
-  "description" : "Description pending",
+  "description" : "Mechanically reconstructed for reviving Cthulhu, this Skeletron has more arms than ever before, and a variety of fierce weapons.",
 
   "categories" : [ "skeletronprime" ],
   "parts" : [ "body" ],
@@ -48,7 +48,7 @@
 
     "touchDamage" : {
       "poly" : [ [1.5, 3.0], [3.0, 1.5], [3.0, -1.5], [1.5, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
-      "damage" : 50,
+      "damage" : 10,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -85,9 +85,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -100,13 +97,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/skeletron_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -158,6 +155,7 @@
 
     "mouthOffset" : [0, 0],
     "feetOffset" : [0, -4],
-    "capturable" : false
+    "capturable" : false,
+    "captureHealthFraction" : 0.5
   }
 }

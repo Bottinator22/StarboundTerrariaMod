@@ -1,0 +1,9 @@
+{
+  "name" : "angrytrapper",
+  "category" : "angrytrapper",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

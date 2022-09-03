@@ -1,0 +1,22 @@
+{
+  "materialId" : 50505,
+  "materialName" : "purpleice",
+  "particleColor" : [98, 75, 107, 255],
+  "itemDrop" : "purpleice",
+  "shortdescription" : "Purple Ice",
+  "description" : "Corrupt ice, tingly to the touch.",
+  "footstepSound" : "/sfx/blocks/footstep_ice.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "purpleice.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : false,
+    "zLevel" : 1880
+  }
+}

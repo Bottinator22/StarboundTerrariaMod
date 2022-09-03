@@ -1,0 +1,10 @@
+{
+  "name" : "milkywayweaverbody",
+  "category" : "milkywayweaverbody",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png",
+    "bodyfullbright": "body_fullbright.png"
+  }
+}

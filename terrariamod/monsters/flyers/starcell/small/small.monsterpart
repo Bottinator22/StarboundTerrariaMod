@@ -1,0 +1,10 @@
+{
+  "name" : "starcellsmall",
+  "category" : "starcellsmall",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "small.png",
+    "bodyfullbright" : "small_fullbright.png"
+  }
+}

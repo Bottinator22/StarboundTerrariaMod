@@ -1,0 +1,9 @@
+{
+  "name" : "wallofflesheye",
+  "category" : "wallofflesheye",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "eye.png"
+  }
+}

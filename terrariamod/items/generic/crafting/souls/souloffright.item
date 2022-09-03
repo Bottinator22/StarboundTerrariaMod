@@ -1,0 +1,11 @@
+{
+  "itemName" : "souloffright",
+  "tooltipKind" : "terraria_small",
+  "price" : 1000,
+  "rarity" : "Rare",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "souloffright.png",
+  "description" : "The essence of pure terror.\n^gray;Material^reset;",
+  "shortdescription" : "Soul Of Fright",
+  "itemTags" : [ "reagent" ]
+}

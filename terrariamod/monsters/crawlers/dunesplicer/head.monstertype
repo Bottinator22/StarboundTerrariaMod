@@ -1,7 +1,7 @@
 {
   "type" : "dunesplicerhead",
   "shortdescription" : "Dune Splicer",
-  "description" : "The bane of desert miners. Migrates to the surface during sandstorms.",
+  "description" : "The world's largest, most deadly worm. Strengthened by ancient magicks, it can devour a spicy Terrarian quicker than they realize.",
 
   "categories" : [ "dunesplicerhead" ],
   "parts" : [ "body" ],
@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/wormheaddigger.lua"
+      "/scripts/terra_wormheaddigger.lua"
     ],
     "renderLayer" : "Monster+1",
     "behavior" : "monster",
@@ -21,7 +21,9 @@
     
     "size": 21,
     "bodySegment": "dunesplicerbody",
-    "speed": 2,
+    "speed": 1.5,
+    "minSpeed": 10,
+    "digSound": true,
 
     "facingMode" : "transformation",
 
@@ -59,7 +61,7 @@
 
     "touchDamage" : {
       "poly" : [ [0.75, 1.0], [1.0, 0.75], [1.0, -0.75], [0.75, -1.0], [-0.75, -1.0], [-1.0, -0.75], [-1.0, 0.75], [-0.75, 1.0] ]	,
-      "damage" : 100,
+      "damage" : 10,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -83,8 +85,8 @@
       "gravityEnabled" : false,
 
       "airFriction" : 0,
-      "airForce" : 10,
-      "flySpeed" : 35
+      "liquidFriction": 0,
+      "liquidBuoyancy": 0.0
     },
 
     "bodyMaterialKind" : "organic",
@@ -95,9 +97,6 @@
     },
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
-
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
 
     "stunDamageSuppression" : 0.2,
 
@@ -111,13 +110,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/monster_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -126,7 +125,7 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 250
+          "baseValue" : 400
         },
         "protection" : {
           "baseValue" : 0.0
@@ -135,6 +134,9 @@
           "baseValue" : 0.5
         },
         "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity": {
           "baseValue" : 1.0
         }
       },
@@ -155,6 +157,7 @@
     "mouthOffset" : [0, 0],
     "feetOffset" : [0, -4],
     "capturable" : true,
-    "captureHealthFraction" : 0.5
+    "captureHealthFraction" : 0.5,
+    "captureCollectables" : { "raremonsters" : "dunesplicer" }
   }
 }

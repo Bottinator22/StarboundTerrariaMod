@@ -1,0 +1,61 @@
+[
+  {
+    "op": "add",
+    "path": "/Terraria",
+    "value": [
+      {
+        "name": "Boss 1",
+        "directory": "/music/terrariaboss1.ogg"
+      },
+      {
+        "name": "Boss 2",
+        "directory": "/music/terrariaboss2.ogg"
+      },
+      {
+        "name": "Boss 3",
+        "directory": "/music/terrariaboss3.ogg"
+      },
+      {
+        "name": "Boss 4",
+        "directory": "/music/terrariaboss4.ogg"
+      },
+      {
+        "name": "Boss 5",
+        "directory": "/music/terrariaboss5.ogg"
+      },
+      {
+        "name": "Plantera",
+        "directory": "/music/plantera.ogg"
+      },
+      {
+        "name": "Lunar Events",
+        "directory": "/music/pillars.ogg"
+      },
+      {
+        "name": "Moon Lord",
+        "directory": "/music/moonlord.ogg"
+      },
+      {
+        "name": "Corruption",
+        "directory": "/music/corruption.ogg"
+      },
+      {
+        "name": "Crimson",
+        "directory": "/music/crimson.ogg"
+      },
+      {
+        "name": "Underground Corruption",
+        "directory": "/music/undergroundcorruption.ogg"
+      },
+      {
+        "name": "Underground Crimson",
+        "directory": "/music/undergroundcrimson.ogg"
+      }
+    ]
+  },
+  {
+    "op": "add",
+    "path": "/##album_icons##/Terraria",
+    "value": "/interface/scripted/fm_musicplayer/terraria-icon.png"
+  }
+]

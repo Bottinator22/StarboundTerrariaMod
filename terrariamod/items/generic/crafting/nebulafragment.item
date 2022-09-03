@@ -1,0 +1,11 @@
+{
+  "itemName" : "nebulafragment",
+  "tooltipKind" : "terraria_small",
+  "price" : 2500,
+  "rarity" : "Legendary",
+  "category" : "craftingMaterial",
+  "inventoryIcon" : "nebulafragment.png",
+  "description" : "The power of a galaxy resides within this fragment.\n^gray;Material^reset;",
+  "shortdescription" : "Nebula Fragment",
+  "itemTags" : [ "reagent" ]
+}

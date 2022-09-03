@@ -1,0 +1,9 @@
+{
+  "name" : "worldfeederbody",
+  "category" : "worldfeederbody",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

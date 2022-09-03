@@ -1,0 +1,9 @@
+{
+  "name" : "ancientvision",
+  "category" : "ancientvision",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "op": "add",
+    "path": "/collectables/terrariaboss1",
+    "value": {
+      "icon": "/music/terrariaboss1.ogg",
+      "title": "Terraria - Boss 1",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/terrariaboss2",
+    "value": {
+      "icon": "/music/terrariaboss2.ogg",
+      "title": "Terraria - Boss 2",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/terrariaboss3",
+    "value": {
+      "icon": "/music/terrariaboss3.ogg",
+      "title": "Terraria - Boss 3",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/terrariaboss4",
+    "value": {
+      "icon": "/music/terrariaboss4.ogg",
+      "title": "Terraria - Boss 4",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/terrariaboss5",
+    "value": {
+      "icon": "/music/terrariaboss5.ogg",
+      "title": "Terraria - Boss 5",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/plantera",
+    "value": {
+      "icon": "/music/plantera.ogg",
+      "title": "Terraria - Plantera",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/pillars",
+    "value": {
+      "icon": "/music/pillars.ogg",
+      "title": "Terraria - Lunar Events",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/moonlord",
+    "value": {
+      "icon": "/music/moonlord.ogg",
+      "title": "Terraria - Moon Lord",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/corruption",
+    "value": {
+      "icon": "/music/corruption.ogg",
+      "title": "Terraria - Corruption",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/crimson",
+    "value": {
+      "icon": "/music/crimson.ogg",
+      "title": "Terraria - Crimson",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/undergroundcorruption",
+    "value": {
+      "icon": "/music/undergroundcorruption.ogg",
+      "title": "Terraria - Underground Corruption",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  },
+  {
+    "op": "add",
+    "path": "/collectables/undergroundcrimson",
+    "value": {
+      "icon": "/music/undergroundcrimson.ogg",
+      "title": "Terraria - Underground Crimson",
+      "description": "Scott Lloyd Shelly",
+      "special": false
+    }
+  }
+]

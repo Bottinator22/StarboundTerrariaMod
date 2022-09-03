@@ -1,0 +1,10 @@
+{
+  "name" : "milkywayweaverhead",
+  "category" : "milkywayweaverhead",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "head.png",
+    "bodyfullbright" : "head_fullbright.png"
+  }
+}

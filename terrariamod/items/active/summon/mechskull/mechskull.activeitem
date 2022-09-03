@@ -1,15 +1,23 @@
 {
   "itemName" : "mechskull",
+  "tooltipKind" : "terraria_small",
   "price" : 0,
   "level" : 1,
   "maxStack" : 30,
   "rarity" : "Legendary",
   "category" : "mysteriousReward",
-  "description" : "Summons Skeletron Prime",
+  "description" : "Summons Skeletron Prime\n^gray;Consumable^reset;",
   "shortdescription" : "Mechanical Skull",
   "twoHanded" : true,
 
   "inventoryIcon" : "item.png",
+  "animation" : "/animations/items/summonitem.animation",
   "animationCustom" : {},
-  "scripts" : ["script.lua"]
+  "scripts" : ["/scripts/items/terra_summonitem.lua"],
+  
+  "monster": "skeletronprime",
+  "spawnOffset": [35, 35],
+  "spawnLevel": 5,
+  "allowAtNightOnly": true,
+  "allowAnyHorizontalSide": true
 }

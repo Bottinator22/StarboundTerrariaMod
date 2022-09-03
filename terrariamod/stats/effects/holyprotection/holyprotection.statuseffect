@@ -1,0 +1,13 @@
+{
+  "name" : "holyprotection",
+  "effectConfig" : {
+  },
+  "defaultDuration" : 30,
+
+  "scripts" : [
+    "holyprotection.lua"
+  ],
+  
+  "label" : "Holy Protection",
+  "icon" : "/interface/statuses/holyprotection.png"
+}

@@ -1,15 +1,23 @@
 {
   "itemName" : "mechworm",
+  "tooltipKind" : "terraria_small",
   "price" : 0,
   "level" : 1,
   "maxStack" : 30,
   "rarity" : "Legendary",
   "category" : "mysteriousReward",
-  "description" : "Summons The Destroyer",
+  "description" : "Summons The Destroyer\n^gray;Consumable^reset;",
   "shortdescription" : "Mechanical Worm",
   "twoHanded" : true,
 
   "inventoryIcon" : "mechworm.png",
+  "animation" : "/animations/items/summonitem.animation",
   "animationCustom" : {},
-  "scripts" : ["mechworm.lua"]
+  "scripts" : ["/scripts/items/terra_summonitem.lua"],
+  
+  "monster": "wormbosshead",
+  "spawnOffset": [5, -50],
+  "spawnLevel": 5,
+  "allowAtNightOnly": true,
+  "allowAnyHorizontalSide": true
 }

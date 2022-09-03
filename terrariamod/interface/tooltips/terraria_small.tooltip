@@ -1,0 +1,16 @@
+{
+  "background" : {
+    "type" : "background",
+    "fileHeader" : "/interface/tooltips/terraria_small_h.png",
+    "fileBody" : "/interface/tooltips/terraria_small_b.png",
+    "fileFooter" : "/interface/tooltips/terraria_small_f.png"
+  },
+  
+  "descriptionLabel" : {
+    "type" : "label",
+    "position" : [11, 66],
+    "hAnchor" : "left",
+    "vAnchor" : "top",
+    "wrapWidth" : 120
+  }
+}

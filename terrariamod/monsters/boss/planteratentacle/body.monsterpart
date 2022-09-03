@@ -1,0 +1,9 @@
+{
+  "name" : "planteratentacle",
+  "category" : "planteratentacle",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

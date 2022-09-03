@@ -1,0 +1,67 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "damage" : {
+        "priority" : 3,
+        "default" : "none",
+        "states" : {
+          "none" : {
+            "frames" : 1
+          },
+          "stunned" : {
+            "frames" : 1
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "armupper" : {
+        "properties" : {
+          "zLevel" : 10,
+          "transformationGroups" : [ "flip", "upper" ],
+          "offset" : [0.0, 0.0],
+          "image": "<partImage>"
+        }
+      },
+      "armlower" : {
+        "properties" : {
+          "zLevel" : 5,
+          "transformationGroups" : [ "flip", "lower" ],
+          "offset" : [0.0, 0.0],
+          "image": "<partImage>"
+        }
+      }
+    }
+  },
+  "globalTagDefaults" : {
+  },
+
+  "transformationGroups" : {
+    "upper" : { "interpolated" : true },
+    "lower": { "interpolated" : true },
+    "flip" : {"interpolated": false},
+    "facing" : { "interpolated" : false }
+  },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "particleEmitters" : {
+    "deathPoof" : {
+      "offsetRegion" : [-3.0, -3.0, 3.0, 3.0],
+      "burstCount" : 5,
+      "particles" : []
+    }
+  },
+
+  "sounds" : {
+    "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
+    "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ]
+  }
+}

@@ -1,10 +1,11 @@
 {
   "itemName" : "hallowedbar",
+  "tooltipKind" : "terraria_small",
   "price" : 1500,
   "rarity" : "Rare",
   "category" : "craftingMaterial",
   "inventoryIcon" : "hallowedbar.png",
-  "description" : "Can make powerful equipment!",
+  "description" : "^gray;Material^reset;",
   "shortdescription" : "Hallowed Bar",
   "itemTags" : [ "reagent" ]
 }

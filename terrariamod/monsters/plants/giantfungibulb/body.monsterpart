@@ -1,0 +1,9 @@
+{
+  "name" : "giantfungibulb",
+  "category" : "giantfungibulb",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

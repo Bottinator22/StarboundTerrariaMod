@@ -1,0 +1,20 @@
+{
+  "frameGrid" : {
+    "size" : [90, 100],
+    "dimensions" : [1, 4],
+    "names": [
+        ["open"],
+        ["opening.3"],
+        ["opening.2"],
+        ["closed"]
+    ]
+  },
+  "aliases": {
+    "opening.1": "closed",
+    "opening.4": "open",
+    "closing.1": "open",
+    "closing.2": "opening.3",
+    "closing.3": "opening.2",
+    "closing.4": "closed"
+  }
+}

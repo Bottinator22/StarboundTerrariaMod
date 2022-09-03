@@ -1,0 +1,201 @@
+{
+  "type" : "moonlordhead",
+  "shortdescription" : "Moon Lord Head",
+  "description" : "get lasered",
+
+  "categories" : [ "moonlordhead" ],
+  "parts" : [ "head", "eye" ],
+
+  "animation" : "head.animation",
+
+  "dropPools" : [],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/boss/moonlord/head/head.lua"
+    ],
+    
+    "animationScripts" : [
+      "/scripts/terra_chain.lua"
+    ],
+
+    "chains" : [
+      {
+        "segmentImage" : "/monsters/boss/moonlord/head/laser.png",
+        "endSegmentImage" : "/monsters/boss/moonlord/head/laserend.png",
+        "segmentSize" : 5.9,
+        "renderLayer" : "ForegroundEntity+5",
+        "fullbright" : true,
+        "sourcePart" : "beam",
+        "endPart" : "beam",
+        "light": [25, 200, 120],
+        "crop": {
+            "imageWidth": 48,
+            "imageHeight": 18
+        }
+      },
+      {
+        "startSegmentImage" : "/monsters/boss/moonlord/head/tongue/tonguestart.png",
+        "segmentImage" : "/monsters/boss/moonlord/head/tongue/tongue.png",
+        "endSegmentImage" : "/monsters/boss/moonlord/head/tongue/tonguehalf.png",
+        "segmentSize" : 1.5,
+        "renderLayer" : "BackgroundOverlay-1",
+        "fullbright" : false,
+        "sourcePart" : "mouth",
+        "endPart" : "tongueend",
+        "crop": {
+            "imageWidth": 14,
+            "imageHeight": 11
+        }
+      }
+    ],
+    
+    "behavior" : "monster",
+    "deathBehavior" : "monster-death",
+
+    "facingMode" : "transformation",
+
+    "seeThroughLiquid" : true,
+    "renderLayer" : "BackgroundOverlay-2",
+    "behaviorConfig" : {
+      "damageOnTouch" : true,
+
+      "targetQueryRange" : 50,
+      "targetOnDamage" : true,
+      "keepTargetInSight" : true,
+      "keepTargetInRange" : 100,
+      "targetOutOfSightTime" : 10.0,
+
+      "hurtWaitForGround" : false,
+
+      "wanderActions" : [
+      ],
+
+      "hostileActions" : [
+      ],
+
+      "approachActions" : [
+      ]
+    },
+
+    "touchDamage" : {
+      "poly" : [ [1.0, 2.0], [2.0, 1.0], [2.0, -1.0], [1.0, -2.0], [-1.0, -2.0], [-2.0, -1.0], [-2, 1.0], [-1.0, 2.0] ]	,
+      "damage" : 5,
+
+      "teamType" : "enemy",
+      "damageSourceKind" : "impact",
+      "knockback" : 40,
+      "statusEffects" : [ ]
+    },
+    "damageParts" : {
+      "beam" : {
+        "damage" : 30,
+
+        "damageSourceKind" : "electric",
+        "knockback" : 0,
+        "statusEffects" : [ ]
+      }
+    },
+
+    "metaBoundBox" : [-8, -8, 8, 8],
+    "scale" : 0.5,
+
+    "movementSettings" : {
+      "collisionEnabled": false,
+      "collisionPoly" : [ [2, 4.0], [4.0, 2], [4.0, -2], [2, -4.0], [-2, -4.0], [-4.0, -2], [-4, 2], [-2, 4.0] ]	,
+
+      "mass" : 2.0,
+      "walkSpeed" : 35,
+      "runSpeed" : 35,
+
+      "bounceFactor" : 0,
+      "groundFriction" : 10,
+      "gravityEnabled" : false,
+
+      "airFriction" : 0,
+      "airForce" : 10,
+      "flySpeed" : 35
+    },
+
+    "bodyMaterialKind" : "organic",
+
+    "knockoutTime" : 0,
+    "knockoutAnimationStates" : {
+      "damage" : "stunned"
+    },
+    "deathParticles" : "deathPoof",
+    "knockoutEffect" : "",
+
+    "stunDamageSuppression" : 0.2,
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "organic"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : true,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/monster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "grit" : {
+          "baseValue" : 1
+        },
+        "knockbackStunTime" : {
+          "baseValue" : 0.0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 900
+        },
+        "protection" : {
+          "baseValue" : -1.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 1.0
+        },
+        "lavaImmunity" : {
+          "baseValue" : 1.0
+        },
+        "fireStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "iceStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "electricStatusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "poisonStatusImmunity" : {
+          "baseValue" : 1.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -4],
+    "capturable" : false
+  }
+}

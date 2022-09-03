@@ -1,7 +1,7 @@
 {
   "type" : "skeletron",
   "shortdescription" : "Skeletron",
-  "description" : "Description pending",
+  "description" : "The disembodied bones of a former tyrant pulsed with a hatred so strong, it left behind a mighty curse which guards the Dungeon.",
 
   "categories" : [ "skeletron" ],
   "parts" : [ "body" ],
@@ -46,19 +46,10 @@
       ]
     },
     "damageSources": {
-        "doom": {
-        "poly" : [ [1.5, 3.0], [3.0, 1.5], [3.0, -1.5], [1.5, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
-        "damage" : 10000,
-
-        "teamType" : "enemy",
-        "damageSourceKind" : "impact",
-        "knockback" : 40,
-        "statusEffects" : [ ]
-      }
     },
     "touchDamage" : {
       "poly" : [ [1.5, 3.0], [3.0, 1.5], [3.0, -1.5], [1.5, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
-      "damage" : 50,
+      "damage" : 10,
 
       "teamType" : "enemy",
       "damageSourceKind" : "impact",
@@ -95,9 +86,6 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
-    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
-    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
-
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
@@ -110,13 +98,13 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/spacemonster_primary.lua"
+        "/stats/skeletron_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
       "stats" : {
         "grit" : {
-          "baseValue" : 0.8
+          "baseValue" : 1
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -125,7 +113,7 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 1000
+          "baseValue" : 750
         },
         "protection" : {
           "baseValue" : -1.0
