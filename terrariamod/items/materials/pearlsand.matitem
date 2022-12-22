@@ -1,0 +1,11 @@
+{
+  "itemName" : "pearlsand",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "pearlsand.png",
+  "description" : "Hallowed sand.",
+  "shortdescription" : "Pearlsand",
+
+  "materialId" : 50514
+}

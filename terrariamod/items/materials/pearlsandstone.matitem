@@ -1,0 +1,10 @@
+{
+  "itemName" : "pearlsandstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "pearlsandstone.png",
+  "description" : "Sandstone, but hallowed.",
+  "shortdescription" : "Pearlsandstone",
+  "materialId" : 50516
+}

@@ -1,0 +1,15 @@
+{
+  "itemName" : "terraria_hunterpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "hunter.png",
+  "rarity" : "rare",
+  "shortdescription" : "^#8c8ccd;Hunter Potion^reset;",
+  "description" : "Shows the location of enemies\n^gray;Consumable^reset;",
+  "maxStack" : 30,
+  "price" : 2000,
+  "effects" : [["terraria_hunter"]],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}
+}

@@ -1,0 +1,9 @@
+{
+  "name" : "body",
+  "category" : "terraria_redslime",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "materialId" : 50516,
+  "materialName" : "pearlsandstone",
+  "particleColor" : [255, 75, 200, 255],
+  "itemDrop" : "pearlsandstonematerial",
+  "description" : "Sandstone, but hallowed.",
+  "shortdescription" : "Pearlsandstone",
+  "footstepSound" : "/sfx/blocks/footstep_stone.ogg",
+  "health" : 4,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pearlsandstone.png",
+    "variants" : 5,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 1850
+  }
+}

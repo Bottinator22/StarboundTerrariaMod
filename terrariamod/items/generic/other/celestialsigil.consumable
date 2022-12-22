@@ -1,0 +1,19 @@
+{
+  "itemName" : "celestialsigil",
+  "tooltipKind" : "terraria_small",
+  "price" : 0,
+  "level" : 1,
+  "maxStack" : 30,
+  "rarity" : "Legendary",
+  "category" : "mysteriousReward",
+  "description" : "Summons the Impending Doom\n^gray;Consumable",
+  "shortdescription" : "Celestial Sigil",
+  
+  "effects" : [["terraria_impendingdoom"]],
+  "blockingEffects" : ["terraria_impendingdoom", "moonlordconstant"],
+  "windupTime" : 0.17,
+  "emote" : "",
+  "emitters" : [ "stimuse" ],
+
+  "inventoryIcon" : "celestialsigil.png"
+}

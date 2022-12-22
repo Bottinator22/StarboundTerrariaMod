@@ -1,0 +1,23 @@
+{
+  "materialId" : 50514,
+  "materialName" : "pearlsand",
+  "particleColor" : [255, 75, 200, 255],
+  "itemDrop" : "pearlsand",
+  "description" : "Hallowed sand.",
+  "shortdescription" : "pearlsand",
+  "footstepSound" : "/sfx/blocks/footstep_sand.ogg",
+  "falling" : true,
+  "cascading" : true,
+  "health" : 1,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pearlsand.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : true,
+    "multiColored" : false,
+    "zLevel" : 430
+  }
+}

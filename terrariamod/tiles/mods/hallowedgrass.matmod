@@ -1,0 +1,16 @@
+{
+  "modId" : 50517,
+  "modName" : "hallowedgrass",
+  "description" : "Grass of the Hallow.",
+  "footstepSound" : "/sfx/blocks/footstep_grass.ogg",
+  "health" : 0,
+  "grass": true,
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "hallowedgrass.png",
+    "variants" : 5,
+    "multiColored" : false,
+    "zLevel" : 0
+  }
+}

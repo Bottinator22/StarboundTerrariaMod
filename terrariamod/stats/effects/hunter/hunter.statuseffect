@@ -1,0 +1,7 @@
+{
+  "name" : "terraria_hunter",
+  "defaultDuration" : 480,
+  "scripts" : ["hunter.lua"],
+  "label" : "Shows the location of enemies",
+  "icon" : "hunter.png"
+}

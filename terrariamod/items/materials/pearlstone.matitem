@@ -1,0 +1,11 @@
+{
+  "itemName" : "pearlstonematerial",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "pearlstone.png",
+  "description" : "Stone of the Hallow.",
+  "shortdescription" : "Pearlstone",
+
+  "materialId" : 50513
+}

@@ -1,0 +1,21 @@
+{
+  "materialId" : 50513,
+  "materialName" : "pearlstone",
+  "particleColor" : [255, 75, 200, 255],
+  "itemDrop" : "pearlstonematerial",
+  "shortdescription" : "Pearlstone",
+  "description" : "Stone of the Hallow.",
+  "footstepSound" : "/sfx/blocks/footstep_stone3.ogg",
+  "health" : 6,
+  "category" : "materials",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pearlstone.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "multiColored" : false,
+    "occludesBelow" : true,
+    "zLevel" : 1640
+  }
+}

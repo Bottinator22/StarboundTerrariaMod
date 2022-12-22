@@ -1,0 +1,22 @@
+{
+  "materialId" : 50512,
+  "materialName" : "pinkice",
+  "particleColor" : [255, 75, 200, 255],
+  "itemDrop" : "pinkice",
+  "shortdescription" : "Pink Ice",
+  "description" : "Hallowed ice, tingly to the touch.",
+  "footstepSound" : "/sfx/blocks/footstep_ice.ogg",
+  "health" : 2,
+  "category" : "materials",
+  "damageTable" : "/tiles/flammableDamage.config",
+
+  "renderTemplate" : "/tiles/classicmaterialtemplate.config",
+  "renderParameters" : {
+    "texture" : "pinkice.png",
+    "variants" : 3,
+    "lightTransparent" : false,
+    "occludesBelow" : false,
+    "multiColored" : false,
+    "zLevel" : 1880
+  }
+}

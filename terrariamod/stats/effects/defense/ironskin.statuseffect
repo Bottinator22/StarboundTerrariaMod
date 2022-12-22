@@ -1,0 +1,7 @@
+{
+  "name" : "terraria_ironskin",
+  "defaultDuration" : 480,
+  "scripts" : ["defense.lua"],
+  "label" : "Increase defense by 8",
+  "icon" : "ironskin.png"
+}

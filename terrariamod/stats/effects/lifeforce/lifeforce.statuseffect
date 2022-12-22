@@ -1,0 +1,8 @@
+{
+  "name" : "terraria_lifeforce",
+  "defaultDuration" : 480,
+  "effectConfig" : {"healthEffectiveMultiplier" : 1.2},
+  "scripts" : ["/stats/effects/maxhealthboost/maxhealthboost.lua"],
+  "label" : "20% increased max life",
+  "icon" : "lifeforce.png"
+}

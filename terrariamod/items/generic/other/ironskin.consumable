@@ -1,0 +1,15 @@
+{
+  "itemName" : "terraria_ironskinpotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "ironskin.png",
+  "rarity" : "rare",
+  "shortdescription" : "^#8c8ccd;Ironskin Potion^reset;",
+  "description" : "Increases defense by 8\n^gray;Consumable^reset;",
+  "maxStack" : 30,
+  "price" : 2000,
+  "effects" : [["terraria_ironskin"]],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}
+}

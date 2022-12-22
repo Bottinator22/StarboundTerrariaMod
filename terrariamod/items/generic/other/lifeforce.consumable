@@ -1,0 +1,15 @@
+{
+  "itemName" : "terraria_lifeforcepotion",
+  "tooltipKind" : "terraria_small",
+  "inventoryIcon" : "lifeforce.png",
+  "rarity" : "rare",
+  "shortdescription" : "^#8c8ccd;Lifeforce Potion^reset;",
+  "description" : "Increases max life by 20%\n^gray;Consumable^reset;",
+  "maxStack" : 30,
+  "price" : 2000,
+  "effects" : [["terraria_lifeforce"]],
+  "windupTime" : 0.17,
+  "category" : "medicine",
+  "emitters" : [ "drinking" ],
+  "tooltipFields" : {"subtitle":"Potion"}
+}

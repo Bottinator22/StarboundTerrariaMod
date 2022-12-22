@@ -1,0 +1,11 @@
+{
+  "itemName" : "pinkice",
+  "price" : 0,
+  "category" : "block",
+  "rarity" : "Common",
+  "inventoryIcon" : "pinkice.png",
+  "shortdescription" : "Pink Ice",
+  "description" : "Hallowed ice, tingly to the touch.",
+
+  "materialId" : 50512
+}
