@@ -133,7 +133,7 @@ function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
   end
-  monster.setAggressive(true)
+  monster.setAggressive(false)
   monster.setDamageOnTouch(true)
   if status.resourcePercentage("health") == 0 then
         stopMusic()

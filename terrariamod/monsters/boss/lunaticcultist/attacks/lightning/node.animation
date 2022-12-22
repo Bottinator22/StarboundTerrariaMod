@@ -56,11 +56,6 @@
               "properties" : {
                 "image" : "<partImage>:idle.<frame>"
               }
-            },
-            "invis": {
-                "properties": {
-                    "image": "<partImage>:none.<frame>"
-                }
             }
           }
         }

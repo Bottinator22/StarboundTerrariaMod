@@ -187,6 +187,7 @@ function update(dt)
       secondPhase = true
       status.setPersistentEffects("invuln", {{stat="invulnerable",amount=1}})
       world.callScriptedEntity(ownerId, "doSecondPhase")
+      monster.setAggressive(false)
   end
   monster.setDamageOnTouch(true)
   targeting()

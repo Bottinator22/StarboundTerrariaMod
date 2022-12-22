@@ -128,19 +128,19 @@
           "baseValue" : 1.0
         },
         "lavaImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "fireStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "iceStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "electricStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "poisonStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         }
       },
 

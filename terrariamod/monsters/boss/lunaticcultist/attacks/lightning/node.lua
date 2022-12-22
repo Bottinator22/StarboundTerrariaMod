@@ -59,7 +59,7 @@ self.children = {}
 
   capturable.init()
   
-  monster.setAggressive(true)
+  monster.setAggressive(false)
 
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
@@ -99,10 +99,10 @@ self.children = {}
   monster.setAnimationParameter("chains", config.getParameter("chains"))
 end
 function update(dt)
+    monster.setDamageTeam(world.entityDamageTeam(ownerId))
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
   end
-    monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 
@@ -263,6 +263,6 @@ function move()
         dir = dir + (math.random() - 0.5) * math.pi * 0.2
         local approach = {math.cos(dir), math.sin(dir)}
         local offset = {math.cos(mcontroller.rotation()), math.sin(mcontroller.rotation())}
-        world.spawnMonster("cultistlightningnode", vec2.add(mcontroller.position(), vec2.mul(offset, length)), {level=monster.level(), ownerId=ownerId, direction=approach, target=target})
+        world.spawnMonster("cultistlightningnode", vec2.add(mcontroller.position(), vec2.mul(offset, length)), {level=monster.level(), ownerId=ownerId, direction=approach, target=target,damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
     end
 end

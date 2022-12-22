@@ -115,7 +115,7 @@ self.baseTurnSpeed = 0.1
   self.touchDamageEnabled = false
 
   
-  monster.setAggressive(true)
+  monster.setAggressive(false)
 
   monster.setInteractive(config.getParameter("interactive", false))
 
@@ -358,7 +358,7 @@ function move()
     if flipped then
         animator.rotateTransformationGroup("beam", math.pi * 1.5)
     else
-        animator.rotateTransformationGroup("beam", math.pi / 2)
+        animator.rotateTransformationGroup("beam", math.pi * 0.5)
         height = height * -1
     end
     animator.translateTransformationGroup("beam", {-5, height})

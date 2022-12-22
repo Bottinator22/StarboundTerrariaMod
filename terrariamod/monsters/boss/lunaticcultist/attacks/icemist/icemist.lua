@@ -54,7 +54,7 @@ self.children = {}
 
   capturable.init()
   
-  monster.setAggressive(true)
+  monster.setAggressive(false)
 
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
@@ -97,7 +97,6 @@ function update(dt)
   if config.getParameter("facingMode", "control") == "transformation" then
     mcontroller.controlFace(1)
   end
-    monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 

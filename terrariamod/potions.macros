@@ -5,5 +5,12 @@
 	"/spawnitem terraria_healingpotion 30",
 	"/spawnitem terraria_greaterhealingpotion 30",
 	"/spawnitem terraria_superhealingpotion 30"
+  ],
+
+  "terraria_buffpotions" : [
+	"^yellow;Items spawned at cursor location.",
+	"/spawnitem terraria_ironskinpotion 30",
+	"/spawnitem terraria_hunterpotion 30",
+	"/spawnitem terraria_lifeforcepotion 30"
   ]
 }

@@ -43,7 +43,7 @@ initialized = false
   targets = {}
 targetCheckTPS = 10
 targetCheckTime = 1
-monster.setAggressive(true)
+monster.setAggressive(false)
 
   message.setHandler("damageTeam", function(_,_,team)
         monster.setDamageTeam(team)
@@ -97,9 +97,9 @@ monster.setAggressive(true)
   if ownerId() then
       level = 7
   end
-  headId = world.spawnMonster("golemhead", mcontroller.position(), {ownerId=entity.id(),level=level, damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
-  leftHandId = world.spawnMonster("golemfist", mcontroller.position(), {ownerId=entity.id(),headId=headId,level=level, anchorPos={-4.25, -0.5}, fistType="left", damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
-  rightHandId = world.spawnMonster("golemfist", mcontroller.position(), {ownerId=entity.id(),headId=headId,level=level, anchorPos={4.25, -0.5}, damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
+  headId = world.spawnMonster("terraria_golemhead", mcontroller.position(), {ownerId=entity.id(),level=level, damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
+  leftHandId = world.spawnMonster("terraria_golemfist", mcontroller.position(), {ownerId=entity.id(),headId=headId,level=level, anchorPos={-4.25, -0.5}, fistType="left", damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
+  rightHandId = world.spawnMonster("terraria_golemfist", mcontroller.position(), {ownerId=entity.id(),headId=headId,level=level, anchorPos={4.25, -0.5}, damageTeam=entity.damageTeam().team, damageTeamType = entity.damageTeam().type})
 end
 function targeting()
     if targetId then
@@ -142,6 +142,7 @@ function doSecondPhase()
     secondPhase = true
     monster.setDamageBar("Special")
     status.clearPersistentEffects("invuln")
+    monster.setAggressive(true)
 end
 function update(dt)
   capturable.update(dt)

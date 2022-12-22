@@ -214,5 +214,107 @@
                 "chance": 0.1
             }
         }
+    }},
+    {"op":"add","path":"/biomes/hallow","value":{
+        "music": "/music/hallow.ogg",
+        "nightMusic": "/music/night.ogg",
+        "undergroundMusic": "/music/undergroundhallow.ogg",
+        "spreadTypes": {
+            "material": ["pearlstone", "pearlsand", "pearlsand2", "pearlsandstone", "pinkice"],
+            "mod": ["hallowedgrass"]
+        },
+        "spreadConversions": {
+            "material": {
+                "cobblestone": "pearlstone", 
+                "blaststone": "pearlstone", 
+                "direstone": "pearlstone", 
+                "geodestone": "pearlstone", 
+                "limestone": "pearlstone", 
+                "magmarock": "pearlstone", 
+                "moonrock": "pearlstone", 
+                "rock01": "pearlstone", 
+                "rock02": "pearlstone", 
+                "rock03": "pearlstone", 
+                "rock04": "pearlstone", 
+                "rock05": "pearlstone", 
+                "rock06": "pearlstone", 
+                "rock07": "pearlstone", 
+                "rock08": "pearlstone", 
+                "rock09": "pearlstone", 
+                "rock10": "pearlstone", 
+                "rock11": "pearlstone", 
+                "rock12": "pearlstone", 
+                "rock13": "pearlstone", 
+                "rock14": "pearlstone", 
+                "rock15": "pearlstone", 
+                "rock16": "pearlstone", 
+                "rock17": "pearlstone", 
+                "rock18": "pearlstone", 
+                "rock19": "pearlstone", 
+                "rock20": "pearlstone", 
+                "shadowblock": "pearlstone", 
+                "grassyrock": "pearlstone",
+                "biorock": "pearlstone", 
+                "biorock2": "pearlstone",
+                "rockbrick": "pearlstone",
+                "sand": "pearlsand",
+                "ash": "pearlsand",
+                "sewage": "pearlsand",
+                "bonematerial": "pearlsand",
+                "eyepiles": "pearlsand",
+                "gravel": "pearlsand",
+                "jellyblock": "pearlsand",
+                "slime": "pearlsand",
+                "stonerubble": "pearlsand",
+                "sand2": "pearlsand2",
+                "drysand": "pearlsand2",
+                "moondust": "pearlsand2",
+                "sandstone01": "pearlsandstone",
+                "moonstone": "pearlsandstone",
+                "ice": "pinkice"
+            },
+            "mod": {
+                "aliengrass": "hallowedgrass",
+                "alpinegrass": "hallowedgrass",
+                "aridgrass": "hallowedgrass",
+                "charredgrass": "hallowedgrass",
+                "colourfulgrass": "hallowedgrass",
+                "crystalgrass": "hallowedgrass",
+                "fleshgrass": "hallowedgrass",
+                "flowerygrass": "hallowedgrass",
+                "hivegrass": "hallowedgrass",
+                "junglegrass": "hallowedgrass",
+                "savannahgrass": "hallowedgrass",
+                "slimegrass": "hallowedgrass",
+                "snowygrass": "hallowedgrass",
+                "tentaclegrass": "hallowedgrass",
+                "toxicgrass": "hallowedgrass",
+                "thickgrass": "hallowedgrass",
+                "tilled": "hallowedgrass",
+                "tilleddry": "hallowedgrass",
+                "grass": "hallowedgrass",
+                "sand": "hallowedgrass"
+            },
+            "liquid": {
+                "water": "hallowedwater"
+            }
+        },
+        "spreadOverrides": {
+            "material": {},
+            "mod": {}
+        },
+        "matSpreadRange": 4,
+        "matSpreadChance": 0.1,
+        "matSpreadTries": 2,
+        "modSpreadChance": 1,
+        "modSpreadTries": 10,
+        "modSpreadRange": 8,
+        "musicPriority": 5,
+        "musicBlocks": 5,
+        "musicDis": 25,
+        "monsterBlocks": 5,
+        "monsterLimit": 50,
+        "monsters": {
+        }
     }}
 ]
