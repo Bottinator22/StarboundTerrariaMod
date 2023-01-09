@@ -33,6 +33,7 @@ local lastHealth
 local segmentSize
 local maxBend
 local isFirst = false
+local damageTimer = 0
 -- Engine callback - called on initialization of entity
 function init()
     self.pathing = {}
@@ -115,27 +116,6 @@ setHealth(config.getParameter("ownerHealth"))
 
   animator.setGlobalTag("flipX", "")
   --self.board:setNumber("facingDirection", mcontroller.facingDirection())
-
-  -- Listen to damage taken
-  damageTaken = damageListener("damageTaken", function(notifications)
-    for _,notification in pairs(notifications) do
-      if notification.healthLost > 0 then
-        self.damaged = true
-        if status.resourcePercentage("health") ~= lastHealth then -- unfortunately, for whatever reason, damage notifications are never cleared, and I have no idea how to clear them
-            sendHealthOwner(status.resourcePercentage("health"))
-            sendHealthChild(status.resourcePercentage("health"))
-            lastHealth = status.resourcePercentage("health")
-            if probe then
-                if not releasingProbe then
-                    if math.random() > 0.75 then
-                        releasingProbe = true
-                    end
-                end
-            end
-        end
-      end
-    end
-  end)
 
   self.debug = true
 
@@ -263,9 +243,22 @@ function update(dt)
              status.setResourcePercentage("health", 0) 
          end
      end
-  
-  damageTaken:update()
-
+  local damageTaken, nextStep = status.damageTakenSince(damageTimer)
+  for k,v in  next, damageTaken do
+    if status.resourcePercentage("health") ~= lastHealth then
+        sendHealthChild(status.resourcePercentage("health"))
+        lastHealth = status.resourcePercentage("health")
+            
+    end
+    if probe then
+        if not releasingProbe then
+            if math.random() > 0.75 then
+                releasingProbe = true
+            end
+        end
+    end
+  end
+  damageTimer = nextStep
   if probe then
     targeting()
     firing()

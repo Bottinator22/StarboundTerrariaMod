@@ -76,7 +76,7 @@ self.children = {}
 
   capturable.init()
   
-  monster.setAggressive(true)
+  monster.setAggressive(false)
 
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
@@ -132,7 +132,6 @@ function update(dt)
   if status.resourcePercentage("health") == 0 then
         stopMusic()
     end
-    monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 
@@ -325,6 +324,7 @@ function move()
         if liveCreepers <= 0 then
             secondPhase = true
             animator.playSound("secondPhase")
+            monster.setAggressive(true)
             animator.setAnimationState("body", "secidle")
             self.maxSpeed = 20
         end

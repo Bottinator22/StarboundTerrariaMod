@@ -9,6 +9,6 @@
   "power" : 2,
   "emitters" : [ ],
   "fullbright" : false,
-  "damageKind" : "default",
+  "damageKind" : "poison",
   "lightColor" : [0, 0, 0]
 }

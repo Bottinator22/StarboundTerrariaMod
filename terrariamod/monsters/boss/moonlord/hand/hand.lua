@@ -154,11 +154,12 @@ function update(dt)
   if alive and open then
       monster.setDamageBar("default")
       status.removeEphemeralEffect("invulnerable")
+      monster.setAggressive(true)
   else
       monster.setDamageBar("none")
       status.addEphemeralEffect("invulnerable", 1)
+      monster.setAggressive(false)
   end
-  monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 

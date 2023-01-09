@@ -1,0 +1,9 @@
+{
+  "name" : "body",
+  "category" : "terraria_illuminantslime",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "body.png"
+  }
+}

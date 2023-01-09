@@ -14,6 +14,9 @@
     "scripts" : [
       "/monsters/boss/skeletronprimelaser/hand.lua"
     ],
+    "animationScripts": [
+      "/scripts/terra_afterimage.lua"
+    ],
 
     "behavior" : "monster",
     "deathBehavior" : "monster-death",

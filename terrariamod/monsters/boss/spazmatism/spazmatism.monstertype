@@ -16,6 +16,9 @@
     "scripts" : [
       "/monsters/boss/spazmatism/spaz.lua"
     ],
+    "animationScripts": [
+      "/scripts/terra_afterimage.lua"
+    ],
 
     "behavior" : "monster",
     "deathBehavior" : "monster-death",

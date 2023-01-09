@@ -80,7 +80,7 @@ self.children = {}
 
   capturable.init()
   
-  monster.setAggressive(true)
+  monster.setAggressive(false)
 
   -- Listen to damage taken
   self.damageTaken = damageListener("damageTaken", function(notifications)
@@ -158,17 +158,18 @@ function update(dt)
         secondPhase = true
         animator.setAnimationState("core", "open")
         status.removeEphemeralEffect("invulnerable")
+        monster.setAggressive(true)
     else
         status.setResourcePercentage("health", healthperc)
         status.addEphemeralEffect("invulnerable", 1)
+        monster.setAggressive(false)
     end
   else
-      
+      monster.setAggressive(true)
   end
   if status.resourcePercentage("health") == 0 and secondPhase then
         stopMusic()
     end
-    monster.setAggressive(true)
   capturable.update(dt)
   self.damageTaken:update()
 

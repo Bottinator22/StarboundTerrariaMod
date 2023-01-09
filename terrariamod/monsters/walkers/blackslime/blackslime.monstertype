@@ -1,31 +1,43 @@
 {
-  "type" : "retinazer",
-  "shortdescription" : "Retinazer",
-  "description" : "Belonging to a pair of mechanically recreated Eyes of Cthulhu, this one focuses its energy into firing powerful lasers.",
+  "type" : "terraria_blackslime",
+  "shortdescription" : "Black Slime",
+  "description" : "A simple, gelatinous creature that swallows anything and everything whole! It takes a long time to digest anything.",
 
-  "categories" : [ "retinazer" ],
+  "categories" : [ "terraria_blackslime" ],
   "parts" : [ "body" ],
 
-  "animation" : "eye.animation",
+  "animation" : "slime.animation",
 
   "dropPools" : [
-    "theTwins"
   ],
 
   "baseParameters" : {
     "scripts" : [
-      "/monsters/boss/retinazer/retin.lua"
+      "/scripts/terra_slime.lua"
     ],
-    "animationScripts": [
-      "/scripts/terra_afterimage.lua"
-    ],
-
     "behavior" : "monster",
     "deathBehavior" : "monster-death",
-    "music": "/music/terrariaboss2.ogg",
+    
+    "jumpVStrength": 30,
+    "jumpHStrength": 15,
+    
+    "hopDelay": 90,
+    "hopDelayIdleMult": 1.5,
+    
+    "heldItemChance": 0.05,
+    "heldItemPool": [
+      "terraria_ironskinpotion",
+      {"name": "torch", "count": 5},
+      {"name": "bomb", "count": 4},
+      {"name": "climbingrope", "count": 5},
+      {"name": "money", "count": 50},
+      {"name": "money", "count": 2000},
+      {"name": "money", "count": 10000}
+    ],
+    
+    "aggressive": false,
 
     "facingMode" : "transformation",
-    "renderLayer" : "ForegroundEntity",
 
     "seeThroughLiquid" : true,
     "behaviorConfig" : {
@@ -50,7 +62,7 @@
     },
 
     "touchDamage" : {
-      "poly" : [ [3, 3.0], [6.0, 1.5], [6.0, -1.5], [3, -3.0], [-1.5, -3.0], [-3.0, -1.5], [-3, 1.5], [-1.5, 3.0] ]	,
+      "poly" : [ [-1.4, -0.7 ], [1.4, -0.7 ], [1.4, 0.7 ], [-1.4, 0.7 ] ],
       "damage" : 7,
 
       "teamType" : "enemy",
@@ -60,11 +72,11 @@
     },
 
     "metaBoundBox" : [-4, -4, 4, 4],
-    "scale" : 0.5,
+    "scale" : 1.2,
 
     "movementSettings" : {
-      "collisionEnabled": false,
-      "collisionPoly" : [ [6, 6.0], [12.0, 3], [12.0, -3], [6, -6.0], [-3, -6.0], [-6.0, -3], [-6, 3], [-3, 6.0] ]	,
+      "collisionEnabled": true,
+      "collisionPoly" : [ [-1, -0.55 ], [1, -0.55 ], [1, 0.5 ], [-1, 0.5 ] ],
 
       "mass" : 2.0,
       "walkSpeed" : 35,
@@ -72,14 +84,14 @@
 
       "bounceFactor" : 0,
       "groundFriction" : 10,
-      "gravityEnabled" : false,
+      "gravityEnabled" : true,
 
       "airFriction" : 0,
       "airForce" : 10,
       "flySpeed" : 35
     },
 
-    "bodyMaterialKind" : "robotic",
+    "bodyMaterialKind" : "organic",
 
     "knockoutTime" : 0,
     "knockoutAnimationStates" : {
@@ -88,11 +100,14 @@
     "deathParticles" : "deathPoof",
     "knockoutEffect" : "",
 
+    "healthLevelFunction" : "spaceMonsterLevelHealthMultiplier",
+    "powerLevelFunction" : "spaceMonsterLevelPowerMultiplier",
+
     "stunDamageSuppression" : 0.2,
 
     "statusSettings" : {
       "statusProperties" : {
-        "targetMaterialKind" : "robotic"
+        "targetMaterialKind" : "organic"
       },
 
       "appliesEnvironmentStatusEffects" : false,
@@ -106,7 +121,7 @@
 
       "stats" : {
         "grit" : {
-          "baseValue" : 1
+          "baseValue" : 0.8
         },
         "knockbackStunTime" : {
           "baseValue" : 0.0
@@ -115,7 +130,7 @@
           "baseValue" : 0
         },
         "maxHealth" : {
-          "baseValue" : 1250
+          "baseValue" : 45
         },
         "protection" : {
           "baseValue" : 0.0
@@ -127,16 +142,16 @@
           "baseValue" : 1.0
         },
         "lavaImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "fireStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "iceStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "electricStatusImmunity" : {
-          "baseValue" : 1.0
+          "baseValue" : 0.0
         },
         "poisonStatusImmunity" : {
           "baseValue" : 1.0
