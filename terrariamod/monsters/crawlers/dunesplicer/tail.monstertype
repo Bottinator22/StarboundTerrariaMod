@@ -13,7 +13,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/terra_wormtail.lua"
+      "/scripts/terra_wormbodysimple.lua"
     ],
     "segmentSize": 2.0,
     "behavior" : "monster",

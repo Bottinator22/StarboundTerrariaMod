@@ -12,7 +12,7 @@
 
   "baseParameters" : {
     "scripts" : [
-      "/scripts/terra_wormbody.lua"
+      "/scripts/terra_wormbodysimple.lua"
     ],
 
     "behavior" : "monster",
