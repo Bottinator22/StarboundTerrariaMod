@@ -9,6 +9,7 @@ require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/terra_inversekinematics.lua"
 
 local shoulderOffset = {0, 0}
 -- Engine callback - called on initialization of entity
@@ -338,24 +339,32 @@ function move()
     end
     local mult = 1
     local shoulderPos = vec2.add(world.entityPosition(self.headId), shoulderOffset)
-    local average = vec2.add(shoulderPos, vec2.add(world.entityPosition(self.ownerId), {0, -5}))
-    average = vec2.div(average, 2)
-    self.targetPos = vec2.add(shoulderPos, {self.offset[1] * 10, -50})
+    local wristPos = vec2.add(world.entityPosition(self.ownerId), {0, -5})
+    --local average = vec2.add(shoulderPos, vec2.add(world.entityPosition(self.ownerId), {0, -5}))
+    --average = vec2.div(average, 2)
+    --self.targetPos = vec2.add(shoulderPos, {self.offset[1] * 10, -50})
     --vec2.mul(self.offset, mult)
     --self.targetPos[2] = 10000
-    for i=0,5 do
-        follow(vec2.add(world.entityPosition(self.ownerId), {0, -5}), 23)
-        follow(shoulderPos, 20)
+    --for i=0,5 do
+    --    follow(vec2.add(world.entityPosition(self.ownerId), {0, -5}), 23)
+    --    follow(shoulderPos, 20)
+    --end
+    local baseJointPos = inversekinematics.clampLength(wristPos, shoulderPos, 42.999)
+    local handJointPos = wristPos
+    if self.offset[1]*mult > 0 then
+      self.targetPos = inversekinematics.solvePos(baseJointPos, handJointPos, 20, 23)
+    else
+      self.targetPos = inversekinematics.solvePos(handJointPos, baseJointPos, 23, 20)
     end
     world.debugLine(mcontroller.position(), shoulderPos, "red")
-    world.debugLine(mcontroller.position(), vec2.add(world.entityPosition(self.ownerId), {0, -2}), "yellow")
+    world.debugLine(mcontroller.position(), wristPos, "yellow")
     mcontroller.setVelocity({0, 0})
     mcontroller.setPosition(self.targetPos)
     mcontroller.setRotation(vec2.angle(world.distance(vec2.add(world.entityPosition(self.headId), shoulderOffset), mcontroller.position())))
     animator.resetTransformationGroup("flip")
     animator.scaleTransformationGroup("flip", {1, self.offset[1] * -1})
-    animator.resetTransformationGroup("upper")
-    animator.rotateTransformationGroup("upper", vec2.angle(world.distance(vec2.add(world.entityPosition(self.ownerId), {0, -2}), mcontroller.position())))
     animator.resetTransformationGroup("lower")
     animator.rotateTransformationGroup("lower", mcontroller.rotation())
+    animator.resetTransformationGroup("upper")
+    animator.rotateTransformationGroup("upper", vec2.angle(world.distance(handJointPos, mcontroller.position())))
 end

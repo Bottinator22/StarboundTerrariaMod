@@ -415,7 +415,7 @@ function move()
             end
         end
     else
-        targetOwnerOffset = {offset * 20, 5}
+        targetOwnerOffset = {offset * 25, 5}
         phase = 0
         phasetimer = 0
         if alive then

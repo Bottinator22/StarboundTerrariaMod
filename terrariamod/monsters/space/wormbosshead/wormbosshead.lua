@@ -16,7 +16,7 @@ function spawnSegment(count)
     if ownerId() then
         tempLevel = 5
     end
-    local segmentId = world.spawnMonster("wormbossbody", mcontroller.position(), { level = tempLevel,ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, segmentsLeft = count - 1, headId = tempownerId})
+    local segmentId = world.spawnMonster("terraria_destroyerbody", mcontroller.position(), { level = tempLevel,ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, segmentsLeft = count - 1, headId = tempownerId})
     world.sendEntityMessage(segmentId, "damageTeam", entity.damageTeam())
     self.childId = segmentId
 

@@ -252,7 +252,7 @@ function update(dt)
     end
     if probe then
         if not releasingProbe then
-            if math.random() > 0.75 then
+            if math.random() > 0.9 then
                 releasingProbe = true
             end
         end
@@ -360,21 +360,24 @@ end
 function spawnSegment(count, tempHeadId)
     if count > 0 then
     local tempownerId = entity.id()
-    local segmentId = world.spawnMonster("wormbossbody",mcontroller.position(), { level = monster.level(),ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, segmentsLeft = count - 1, headId = tempHeadId})
+    local segmentId = world.spawnMonster("terraria_destroyerbody",mcontroller.position(), { level = monster.level(),ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, segmentsLeft = count - 1, headId = tempHeadId})
     childId = segmentId
     world.sendEntityMessage(segmentId, "damageTeam", entity.damageTeam())
   return true, segmentID
     else
     local tempownerId = entity.id()
-    local segmentId = world.spawnMonster("wormbosstail",mcontroller.position(), { level = monster.level(),ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, headId = tempHeadId})
+    local segmentId = world.spawnMonster("terraria_destroyertail",mcontroller.position(), { level = monster.level(),ownerHealth = status.resourcePercentage("health"),ownerId = tempownerId, headId = tempHeadId})
     childId = segmentId
     world.sendEntityMessage(segmentId, "damageTeam", entity.damageTeam())
     return true, segmentID
     end
 end
 function trueReleaseProbe()
-    probe = false
+    local probes = world.monsterQuery(mcontroller.position(), 200, {callScript="isProbe"})
+    if #probes < 30 then
+      probe = false
+      probeId = world.spawnMonster("terraria_probe", mcontroller.position(), { level = monster.level(), ownerId = entity.id()})
+      world.sendEntityMessage(probeId, "damageTeam", entity.damageTeam())
+    end
     releasingProbe = false
-    probeId = world.spawnMonster("probe", mcontroller.position(), { level = monster.level(), ownerId = entity.id()})
-    world.sendEntityMessage(probeId, "damageTeam", entity.damageTeam())
 end

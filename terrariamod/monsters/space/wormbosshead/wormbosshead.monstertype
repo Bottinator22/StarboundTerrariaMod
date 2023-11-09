@@ -1,5 +1,5 @@
 {
-  "type" : "wormbosshead",
+  "type" : "terraria_destroyerhead",
   "shortdescription" : "The Destroyer",
   "description" : "A mechanical simulacrum of Cthulhu's spine decorated in laser-armed probes, which detach from its body when damaged.",
 
@@ -21,7 +21,7 @@
     "behavior" : "monster",
     "deathBehavior" : "monster-death",
     "capturedLevel": 5,
-    "bodySegment": "wormbossbody",
+    "bodySegment": "terraria_destroyerbody",
     "music": "/music/terrariaboss3.ogg",
     "speed": 2,
     "minSpeed": 15,

@@ -105,8 +105,8 @@ self.children = {}
   monster.setInteractive(config.getParameter("interactive", false))
 
   monster.setAnimationParameter("chains", config.getParameter("chains"))
-  spawnHand(10, 0)
-  spawnHand(-10, 150)
+  spawnHand(12, 0)
+  spawnHand(-12, 150)
 end
 
 function stopMusic()

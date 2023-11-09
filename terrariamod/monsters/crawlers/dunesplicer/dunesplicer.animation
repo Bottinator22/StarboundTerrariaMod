@@ -154,6 +154,7 @@
   "sounds" : {
     "aggroHop" : [ "/sfx/npc/monsters/monster_surprise.ogg" ],
     "deathPuff" : [ "/sfx/npc/enemydeathpuff.ogg" ],
+    "hurt" : [ "/sfx/npc/organic_hit.ogg" ],
     "dig": ["/sfx/npc/worm_dig.ogg"]
   }
 }

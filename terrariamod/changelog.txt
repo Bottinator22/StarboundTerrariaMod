@@ -12,3 +12,6 @@ Destroyer now supports capturing (though you must manually set capturable to tru
 1.5 - Various graphical and behavioural improvements. Added the Wall of Flesh, the Phantasmal Dragon, and healing potions. 
 1.6 - Redid the Eater of Worlds and added the Brain of Cthulhu. Also, bosses behave a bit more like they do in Terraria.
 1.7 - Added summon items for the Eater of Worlds and the Brain of Cthulhu. Added the Lunatic Cultist and Moon Lord; they are functionally mostly complete and playable, but graphically incomplete, as they still don't have some effects. More minor fixes and balance changes that I may have forgotten about. Hallowed Armour is also craftable now, but I still need a better sprite.
+1.8 - Added the Corruption and Crimson, which spread around your world. Changed worm behaviour a bit. Moon Lord now has drops.
+1.9 - More drops, potions now drop from bosses, added souls and lunar fragments. Also, added Demon Eyes, Golem, Eater of Souls, and Crimeras. Some bosses now flee (or, in the case of Skeletron, murder you and then flee) at daytime. And more.
+1.10 - More potions, added slimes. Slimes can also contain items. Fixed a few things. A few enemies now have afterimage effects.

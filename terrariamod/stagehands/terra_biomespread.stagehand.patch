@@ -79,7 +79,7 @@
                 "sand": "corruptgrass"
             },
             "liquid": {
-                "water": "corruptwater"
+                "water": "terraria_corruptwater"
             }
         },
         "spreadOverrides": {
@@ -97,6 +97,8 @@
         "musicDis": 25,
         "monsterBlocks": 5,
         "monsterLimit": 50,
+        "monsterDisMin": 75,
+        "monsterDisMax": 100,
         "monsters": {
             "devourerhead": {
                 "chance": 0.1,
@@ -191,7 +193,7 @@
                 "sand": "crimsongrass"
             },
             "liquid": {
-                "water": "crimsonwater"
+                "water": "terraria_crimsonwater"
             }
         },
         "spreadOverrides": {
@@ -209,6 +211,8 @@
         "musicDis": 25,
         "monsterBlocks": 5,
         "monsterLimit": 50,
+        "monsterDisMin": 75,
+        "monsterDisMax": 100,
         "monsters": {
             "crimera": {
                 "chance": 0.1
@@ -296,7 +300,7 @@
                 "sand": "hallowedgrass"
             },
             "liquid": {
-                "water": "hallowedwater"
+                "water": "terraria_hallowedwater"
             }
         },
         "spreadOverrides": {
@@ -314,7 +318,14 @@
         "musicDis": 25,
         "monsterBlocks": 5,
         "monsterLimit": 50,
+        "monsterDisMin": 75,
+        "monsterDisMax": 100,
         "monsters": {
+            "terraria_illuminantslime": {
+                "chance": 0.5,
+                "layer": "underground",
+                "pos": "ground"
+            }
         }
     }}
 ]

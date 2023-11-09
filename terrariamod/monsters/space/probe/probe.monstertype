@@ -1,5 +1,5 @@
 {
-  "type" : "probe",
+  "type" : "terraria_probe",
   "shortdescription" : "Probe",
   "description" : "A singular probe detached from the Destroyer's body serves as a remote laser battery, often in a swarm of other probes.",
 

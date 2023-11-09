@@ -97,7 +97,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/worm_primary.lua"
+        "/stats/terra_worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 

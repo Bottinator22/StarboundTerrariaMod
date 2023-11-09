@@ -9,6 +9,7 @@ require "/scripts/companions/capturable.lua"
 require "/scripts/tenant.lua"
 require "/scripts/actions/movement.lua"
 require "/scripts/actions/animator.lua"
+require "/scripts/terra_inversekinematics.lua"
 -- Engine callback - called on initialization of entity
 function init()
 self.offScreen = true
@@ -338,15 +339,21 @@ function move()
         return
     end
     local mult = 1
-    self.targetPos = vec2.add(world.entityPosition(self.ownerId), vec2.mul(self.offset, mult))
     --self.targetPos[2] = 10000
-    follow(self.headId, 10)
-    follow(self.ownerId, 8)
+    --follow(self.headId, 10)
+    --follow(self.ownerId, 8)
+    local baseJointPos = inversekinematics.clampLength(world.entityPosition(self.ownerId), vec2.add(world.entityPosition(self.headId), {0, -5}), 17.99)
+    local handJointPos = world.entityPosition(self.ownerId)
+    if self.offset[1]*mult < 0 then
+      self.targetPos = inversekinematics.solvePos(baseJointPos, handJointPos, 10, 9)
+    else
+      self.targetPos = inversekinematics.solvePos(handJointPos, baseJointPos, 9, 10)
+    end
     mcontroller.setVelocity({0, 0})
     mcontroller.setPosition(self.targetPos)
-    mcontroller.setRotation(vec2.angle(world.distance(world.entityPosition(self.headId), mcontroller.position())))
+    mcontroller.setRotation(vec2.angle(world.distance(baseJointPos, mcontroller.position())))
     animator.resetTransformationGroup("lower")
-    animator.rotateTransformationGroup("lower", vec2.angle(world.distance(world.entityPosition(self.ownerId), mcontroller.position())))
+    animator.rotateTransformationGroup("lower", vec2.angle(world.distance(handJointPos, mcontroller.position())))
     animator.resetTransformationGroup("upper")
     animator.rotateTransformationGroup("upper", mcontroller.rotation())
 end

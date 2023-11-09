@@ -185,6 +185,9 @@ function firing()
     end
     move()
 end
+function isProbe()
+  return true
+end
 function update(dt)
   
   damageTaken:update()

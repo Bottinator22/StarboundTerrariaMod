@@ -1,5 +1,5 @@
 {
-  "type" : "wormbosstail",
+  "type" : "terraria_destroyertail",
   "shortdescription" : "The Destroyer Tail",
   "description" : "A mechanical simulacrum of Cthulhu's spine decorated in laser-armed probes, which detach from its body when damaged.",
 
@@ -99,7 +99,7 @@
       "minimumLiquidStatusEffectPercentage" : 0.1,
 
       "primaryScriptSources" : [
-        "/stats/worm_primary.lua"
+        "/stats/terra_worm_primary.lua"
       ],
       "primaryScriptDelta" : 5,
 
